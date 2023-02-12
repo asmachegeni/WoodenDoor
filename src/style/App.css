@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Vazir Black';
+  src: url(../assets/fonts/Vazir-Black.ttf);
+}
+@font-face {
+  font-family: 'Vazir Regular';
+  src: url(../assets/fonts/Vazir-Regular.ttf);
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  font-family: 'Vazir Regular';
+}
 .App {
   text-align: center;
 }

@@ -1,0 +1,82 @@
+.service-container{
+display: flex;
+flex-flow: row;
+
+height: 150px;
+position: relative;
+width: 400px;
+}
+.service-number{
+    display: flex;
+width: 60px;
+height: 60px;
+border-radius: 30px;
+background-color: #5C6573;
+color: #fff;
+font-size: 24px;
+justify-content: center;
+align-items: center;
+position: relative;
+top: 120px;
+box-shadow: 0 6px 12px #00000012;
+}
+.service-wrapper{
+margin-right: 20px;
+    border:1px solid #EFEFEF;
+border-radius: 5px;
+height: 100%;
+display: flex;
+flex-flow: column;
+padding: 15px;
+flex:1;
+}
+.service-wrapper .title{
+    color: #000;
+    font-family: 'Vazir Black';
+    font-size: 20px;
+}
+.service-wrapper .content{
+    color:#8e9cb2;
+    font-size: 14px;
+    margin-top: 5px;
+}
+@media screen and (max-width:1200px) {
+    .service-container{
+        width: 350px;
+    }
+}
+@media screen and (max-width:992px) {
+    .service-container{
+        width: 280px;
+    }
+    .service-number{
+        width: 50px;
+        height: 50px;
+        top:0;
+    }
+    .service-wrapper{
+        border: none;
+    }
+}
+@media screen and (max-width:768px) {
+    .service-container{
+        width: 100%;
+        height: 90px;
+        padding: 10px 0;
+    }
+    .service-number{
+        justify-content: center;
+    }
+    .service-wrapper{
+margin-right: 0;
+padding: 0 10px;
+    }
+    .service-wrapper .title{
+        font-size: 14px;
+
+    }
+    .service-wrapper .content{
+        font-size: 12px;
+        
+    }
+}
