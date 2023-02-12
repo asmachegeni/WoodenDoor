@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './style/App.css';
+
+import JobAd from "./component/JobAd";
 
 function App() {
   return (
     <div className="App">
-      
+      <JobAd/>
     </div>
   );
 }

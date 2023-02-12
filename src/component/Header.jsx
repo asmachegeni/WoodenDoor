@@ -1,6 +1,6 @@
 import "../style/header.css"
-import logo from "../assets/logo.png"
-import whitelogo from "../assets/logo-white.png"
+import logo from "../assets/img/logo.png"
+import whitelogo from "../assets/img/logo-white.png"
 const Header = () => {
     return <div className="header-container">
 <div className="header-wrapper">

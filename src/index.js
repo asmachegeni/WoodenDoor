@@ -8,7 +8,7 @@ import Login from './component/Login';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <login />
+    <Login />
   </React.StrictMode>
 );
 
