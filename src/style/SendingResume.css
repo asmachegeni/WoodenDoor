@@ -4,9 +4,8 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 10px;
-  margin: 64px;
 }
 .SendingResumeContainerLock {
   display: flex;
@@ -64,15 +63,14 @@
     display: none;
   }
   .SendingResume {
-    width: 85%;
-    height: 54px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
   }
   .SendingResumeBtn {
-    position: fixed;
     z-index: 1000;
-    bottom: 0;
     font-size: 16px;
-    width: 80%;
+    width: 85%;
     height: 48px;
   }
 }
