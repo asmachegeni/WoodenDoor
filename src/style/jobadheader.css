@@ -1,0 +1,197 @@
+.ad-header-container{
+    display: flex;
+    width: 75%;
+    border-radius: 10px;
+    flex-flow: column;
+}
+.header-cover{
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.row1{
+    display: flex;
+    flex-flow: row;
+    padding: 20px;
+}
+.company-img{
+width: 80px;
+height: 80px;
+margin-left: 10px;
+}
+.ad-header-wrapper{
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    top: -30px;
+    border-radius: 10px;
+    box-shadow: 0 1px 30px #00000008,0 1px 2px #0000000d;
+    background-color: #fff;
+    
+}
+.row1-content{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+.row1-content-row{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.row1-content-row:nth-of-type(2){
+    margin-top: 10px;
+}
+.row1-content-row:nth-of-type(3){
+    margin-top: 5px;
+}
+.job-title-container{
+display: flex;
+flex-flow: row;
+align-items: center;
+}
+.job-title{
+    font-family: 'Vazir Black';
+    font-size: 24px;
+}
+.ad-age{
+    margin-right: 5px;
+font-family: 'Vazir Black';
+color:#8e9cb2;
+font-size: 14px;
+}
+.share-icon{
+    color:#8e9cb2;
+    font-size: 24px;
+}
+.like-icon{
+    color: #5660f2;
+    font-size: 24px;
+    margin-right: 10px;
+}
+.company-name{
+    color: #5660f2;
+    font-size: 22px;
+    font-family: 'Vazir Black';
+    cursor: pointer;
+}
+.company-name:hover{
+    color:#1220ea;
+}
+.address{
+    font-size: 12px;
+    color:#8e9cb2;
+}
+.cooperation-type{
+    font-size: 12px;
+    color:#8e9cb2;
+}
+.row2{
+    display: flex;
+    flex-flow: row;
+    padding: 20px;
+    border-top:1px solid #dee2e6;
+    font-size: 14px;
+    color:#8e9cb2;
+}
+.row2 div:nth-of-type(1){
+display: none;
+}
+.row2 div:nth-of-type(2){
+    display: none;
+    }
+.row2 span{
+    color:#000; 
+    margin-bottom: 10px;
+}
+.row2 div{
+        display: flex;
+    flex-flow: column;
+    flex:1;
+}
+.sticky-job-header{
+    width: 80%;
+    height: 60px;
+    position: fixed;
+    background-color: #5660f2;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-flow: row;
+    justify-content: space-between;
+}
+.sticky-icons-container{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    height: 100%;
+
+}
+.sticky-icons-container a{
+font-size: 24px;
+color: #fff;
+line-height: 12px;
+margin-left: 10px;
+}
+.sticky-title-container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #fff;
+    font-size: 14px;
+}
+.sticky-title-container span:first-of-type{
+    font-weight: bold;
+}
+.sticky-back-button-container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+.sticky-back-button-container a{
+        color: #fff;
+    font-size: 24px;
+    line-height: 12px;
+}
+
+@media only screen and (max-width: 992px) {
+.row2{
+    flex-flow: column;
+}
+.row2 div:nth-of-type(1){
+    display: inherit;
+    }
+    .row2 div:nth-of-type(2){
+        display: inherit;
+        }
+.row2 div{
+    flex-flow: row;
+    justify-content: space-between;
+}
+.address{
+    display: none;
+}
+.cooperation-type{
+    display: none;
+}
+.company-name{
+    font-family: 'Vazir Regular';
+    font-size: 14px;
+}
+.sticky-job-header{
+    display: flex;
+}
+.icons-container{
+    display: none;
+}
+}

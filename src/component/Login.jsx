@@ -1,7 +1,7 @@
 import "../style/login.css"
 import logo from "../assets/logo-big.png"
-const Login = () => {
-  const userType = "کارفرما"
+import { Link } from "react-router-dom";
+const Login = ({userType}) => {
   return <div className="login-body">
     <div className="login-container">
     <div className="login-wrapper">
@@ -24,9 +24,9 @@ const Login = () => {
             <input type="button" value="ادامه" />
            </div>
       </div>
-                 
            <button className="user-switch">
-            کارفرما هستید؟
+            
+            {userType==="کارجو"?"کارفرما":"کارجو"} هستید؟
            </button> 
     </div>
 
