@@ -1,6 +1,145 @@
-.services-bg{
-
+.services-bg {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
 }
-.services-container{
+.services-container {
+  width: 80%;
+  display: flex;
+  flex-flow: column;
+}
+.services-title {
+  font-size: 24px;
+  font-family: "Vazir Black";
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 40px;
+}
+.first-row {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: 15%;
+  gap: 100px;
+  position: relative;
+  z-index: 3;
+}
+.second-row {
+  border: 3px solid #eef0f4;
+  border-top-left-radius: 60px;
+  border-bottom-left-radius: 60px;
+  border-right: none;
+  width: 85%;
+  display: flex;
+  flex-flow: row;
+  margin-top: 20px;
+  padding: 20px;
+  margin-right: 130px;
+  gap: 100px;
+  padding-right: 0;
+  padding-left: 30px;
+  border-bottom-right-radius: 60px;
+  position: relative;
+  z-index: 2;
+}
+.third-row {
+  border: 3px solid #eef0f4;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+  border-left: none;
+  border-top: none;
+  width: 90%;
+  display: flex;
+  flex-flow: row;
+  padding: 20px;
+  margin-right: 130px;
+  gap: 100px;
+  padding-right: 115px;
+  padding-left: 0;
+  position: relative;
+  z-index: 1;
+}
+.arrow {
+  position: absolute;
+  color: #eef0f4;
+  font-size: 60px;
+}
+.first-row-icon {
+  bottom: -51px;
+  right: 45%;
+}
+.second-row-icon1 {
+  left: -31px;
+  top: 35%;
+}
+.second-row-icon2 {
+  right: 45%;
+  bottom: -31px;
+}
+.third-row-icon1 {
+  right: -31px;
+  top: 35%;
+}
+.third-row-icon2 {
+  right: 45%;
+  bottom: -31px;
+}
+.line {
+  display: none;
+  height: 100%;
+  border-right: 5px solid #eef0f4;
+  z-index: 0;
+  position: absolute;
+  top: 160px;
+  right: 13%;
+}
 
+@media screen and (max-width: 992px) {
+  .first-row {
+    gap: 0;
+  }
+  .second-row {
+    border: none;
+    border-radius: none;
+    width: 80%;
+    margin-right: 0;
+    padding: 0;
+    gap: 0;
+  }
+  .third-row {
+    border: none;
+    border-radius: none;
+    width: 80%;
+    margin-right: 0;
+    padding: 0;
+    margin-top: 20px;
+    gap: 0;
+  }
+  .arrow {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .first-row {
+    flex-flow: column;
+    gap: 0;
+    margin-top: 0;
+  }
+  .second-row {
+    flex-flow: column;
+    gap: 0;
+    margin-top: 0;
+  }
+  .third-row {
+    flex-flow: column;
+    gap: 0;
+    margin-top: 0;
+  }
+  .line {
+    display: inherit;
+  }
 }
