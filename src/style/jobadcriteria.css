@@ -1,0 +1,149 @@
+.criteria-container {
+  width: 75%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 30px #00000008, 0 1px 2px #0000000d;
+  background-color: #fff;
+}
+.indicators {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+.indicators-title {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.indicators-title span {
+  font-family: "Vazir Black";
+  font-size: 20px;
+  color: #000;
+}
+.indicators-row {
+  display: flex;
+  flex-flow: row;
+  color: #000;
+  margin-top: 10px;
+  align-items: center;
+}
+.indicators-row-icon {
+  font-size: 18px;
+  color: #9fa1a7;
+}
+.indicators-row-span {
+  margin-right: 10px;
+  font-size: 14px;
+}
+.indicators-row-box {
+  margin-right: 10px;
+  font-size: 14px;
+  border: 1px solid #5c6573;
+  border-radius: 3px;
+  padding: 0 10px;
+}
+.criteria-content {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  margin-top: 30px;
+}
+.criteria-title {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.criteria-title span {
+  font-family: "Vazir Black";
+  font-size: 20px;
+  color: #000;
+}
+.criteria-content p {
+  margin-right: 5px;
+  color: #000;
+  font-size: 14px;
+}
+.conditions {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  margin-top: 30px;
+}
+.conditions-title {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.conditions-title span {
+  font-family: "Vazir Black";
+  font-size: 20px;
+  color: #000;
+}
+.conditions-container {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  gap: 20px;
+}
+.conditions-row {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  gap: 20px;
+}
+.conditions-row span {
+  padding: 10px;
+  background-color: #f6f7f9;
+  font-size: 14px;
+}
+.conditions-row span:nth-of-type(1) {
+  flex: 1;
+font-family: 'Vazir Bold';
+color: #5c6573;
+}
+.conditions-row span:nth-of-type(2) {
+  flex: 3;
+  color: #000;
+}
+.conditions-boxes{
+    display: flex;
+    flex-flow: row;
+    padding: 10px;
+    background-color: #f6f7f9;
+flex: 3;
+}
+.conditions-box{
+    display: flex;
+    flex-flow: row;
+
+    background-color: #5c6573;
+    border-radius: 5px;
+    padding: 2px 8px;
+    margin-right: 10px;
+    align-items: center;
+}
+.conditions-box span{
+    flex: none !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    color: #fff !important;
+}
+.seprator{
+    height: 50%;
+    border-left: 1px solid #fff;
+    margin: 0 5px;
+}
+@media screen and (max-width:992px){
+    .criteria-container {
+        width: 100%;
+    }
+    .conditions-row {
+        flex-flow: column;
+    }
+    .conditions-row span:nth-of-type(1) {
+        background-color: #fff;
+    }
+}
