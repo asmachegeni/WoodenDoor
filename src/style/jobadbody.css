@@ -1,0 +1,106 @@
+.job-ad-body {
+  box-shadow: 0 0.125rem 0.25rem #00000013;
+  width: 75%;
+  height: 350px;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 20px;
+  transition: all 1s;
+}
+.job-ad-body.active {
+  height: auto;
+}
+.about-title {
+  margin-right: 5px;
+  padding: 15px 20px;
+  border-bottom: 2px solid #5660f2;
+  color: #5660f2;
+  width: fit-content;
+}
+.first-row {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px 50px;
+}
+.first-row .service {
+  display: flex;
+  flex-flow: column;
+  width: 33%;
+  padding: 20px 0;
+}
+.service-title {
+  font-family: "Vazir Black";
+  font-size: 14px;
+}
+.service-content {
+  color: #8e9cb2;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.second-row {
+  display: flex;
+  flex-flow: column;
+  padding: 20px 50px;
+}
+.second-row .service {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  padding: 20px 0;
+}
+.benefits {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 15px 0;
+  justify-content: space-between;
+}
+.benefit {
+  display: flex;
+  flex-flow: row;
+  flex: 1 33%;
+}
+.benefit-icon {
+  font-size: 24px;
+  color: #45c26f;
+}
+.benefit-content {
+  font-size: 14px;
+  color: #45c26f;
+  margin-right: 5px;
+}
+.more-services {
+  margin: 0 auto;
+  color: #5660f2;
+  text-decoration: none;
+  font-size: 14px;
+}
+.more-services:hover {
+  color: #1220ea;
+}
+.collapse {
+  width: 100%;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  color: #5660f2;
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+}
+.collapse-span {
+  font-size: 14px;
+  cursor: pointer;
+}
+.collapse-icon {
+  font-size: 20px;
+  cursor: pointer;
+  transform: rotateX(0deg);
+}
+.collapse-icon.active {
+  transform: rotateX(180deg);
+}
