@@ -1,0 +1,134 @@
+.resume-bg{
+    width: 100vw;
+    height: 100vh;
+    background-color: #bbbbbb20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup-container{
+    position: relative;
+    display: flex;
+    width: 80%;
+    height: 100%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+
+}
+.popup-wrapper{
+    display: flex;
+    position: relative;
+    flex-flow: column;
+    width: 400px;
+    padding: 10px;
+    align-items: center;
+    border: 1px solid #dee2e6;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.popup-title{
+    font-family: 'Vazir Bold';
+}
+.phone-container{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    margin-top: 10px;
+}
+.phone-title{
+    font-size: 14px;
+    color:#8e9cb2;
+}
+.phone-number{
+    width: 100%;
+    padding: 12px 10px;
+    border-radius: 3px;
+    border: 1px solid #ebebeb;
+    outline-color: #5660f2;
+    margin-top: 5px;
+}
+.description-container{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    margin-top: 10px;
+}
+.description-title{
+    font-size: 14px;
+    color:#8e9cb2;
+}
+
+.description-content{
+    width: 100%;
+    height: 150px;
+    padding: 12px 10px;
+    border-radius: 3px;
+    border: 1px solid #ebebeb;
+    outline-color: #5660f2;
+    margin-top: 5px;
+    resize: none;
+}
+.attachment-container{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    margin-top: 10px;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    padding: 10px 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+.file{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+.file-icon{
+    color: #8e9cb2;
+    font-size: 20px;
+}
+.file-name{
+    color: #8e9cb2;
+    font-size: 14px;
+    margin: 0 10px;
+}
+.file-select-btn{
+background-color: #5660f2;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+color: #fff;
+cursor: pointer;
+}
+.check-attach{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin-top: 10px;
+}
+.check-label{
+    color: #5660f2;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.send-resume-btn{
+    width: 100%;
+    padding: 12px 10px;
+    border-radius: 3px;
+    margin-top: 20px;
+    border: none;
+    background-color: #5660f2;
+    color: #fff;
+    cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+    .popup-wrapper{
+        height: 100%;
+        width: 100%;
+        border: none;
+    
+    }
+}
