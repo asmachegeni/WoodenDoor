@@ -1,0 +1,106 @@
+.ArticleBox {
+  display: flex;
+  width: 250px;
+  flex-flow: column;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #0000001a;
+}
+.Cover {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.Cover a {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.Cover a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.Content {
+  padding: 15px 10px;
+  color: #5c6573;
+  text-align: justify;
+}
+.Title {
+  height: 64px;
+}
+.Title a {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  font-family: "Vazir Bold";
+  font-size: 14px;
+
+  line-height: 20px;
+}
+.Description {
+  height: 90px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+.BtnContainer {
+  width: 100%;
+  height: 42px;
+  margin-top: 5px;
+  text-align: left;
+}
+.ReadMoreBtn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #fff;
+  color: #5660f2;
+  border: 1px solid #5660f2;
+  border-radius: 4px;
+  padding: 8px 32px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.ReadMoreBtn:hover {
+  background-color: #5660f2;
+  color: #fff;
+}
+.Author {
+  display: block;
+  margin-top: 20px;
+  font-size: 12px;
+}
+.Author a {
+  display: inline-block;
+  margin-right: 5px;
+  text-decoration: none;
+  color: #000;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+.Author a:hover {
+  color: #5660f2;
+}
+.Footer {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+.Date {
+  font-size: 12px;
+}
+.Comments {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.CommenttIcon {
+  font-size: 14px;
+}
+.CommentsCount {
+  margin-right: 5px;
+  font-size: 12px;
+}
