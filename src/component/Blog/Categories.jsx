@@ -5,6 +5,19 @@ import { Cats } from "../../assets/ExampleData.js";
 const Categories = () => {
   const [Container, SetContainer] = useState("Container");
   const [BtnValue, SetBtnValue] = useState("بیشتر +");
+  const [Links, SetLink] = useState([]);
+  useEffect(() => {
+    console.log("hoora");
+    const array = [];
+    Cats.map((item, index) => {
+      array.push(
+        <a key={index} href={item.url} className="Categorie">
+          {item.name}
+        </a>
+      );
+      SetLink(array);
+    });
+  }, []);
 
   function ContainerActivator() {
     if (Container == "Container") {
@@ -18,13 +31,7 @@ const Categories = () => {
   return (
     <div className={Container}>
       <span className="Title">دسته ها:</span>
-      {Cats.map((item, index) => {
-        return (
-          <a key={index} href={item.url} className="Categorie">
-            {item.name}
-          </a>
-        );
-      })}
+      {Links}
       <div className="More">
         <span className="MoreBtn" onClick={ContainerActivator}>
           {BtnValue}
