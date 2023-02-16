@@ -1,5 +1,5 @@
 import "../../style/Blog/CommentForm.css";
-const CommentForm = () => {
+const CommentForm = (props) => {
   return (
     <div className="Container">
       <span className="Title">نظر خود را درباره این پست بنویسید.</span>
@@ -8,15 +8,15 @@ const CommentForm = () => {
           <div className="Col-1">
             <input
               type="text"
-              id="NickName"
-              placeholder="نام و نام خانوادگی شما *"
-              required
+              id="UserName"
+              value={props.username}
+              disabled
             />
             <input
               type="email"
               id="Email"
-              placeholder="ایمیل شما * (نشان داده نمیشود)"
-              required
+              value={props.email}
+              disabled
             />
           </div>
           <div className="Col-2">
