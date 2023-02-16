@@ -1,0 +1,70 @@
+.Container {
+  display: flex;
+  width: 80%;
+  flex-flow: column;
+  background-color: #fff;
+  box-shadow: 0 0.125rem 0.25rem #00000013;
+  border-radius: 5px;
+  padding: 20px;
+}
+.Title {
+  width: 100%;
+  margin-right: 10px;
+  font-family: "Vazir Bold";
+  font-size: 16px;
+}
+.Form {
+  display: flex;
+  width: 100%;
+  flex-flow: column;
+  margin-top: 10px;
+}
+.Inputs {
+  display: flex;
+  flex-flow: row;
+  gap: 15px;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  background-color: #f8f9fa;
+  border: 1px solid #eef0f4;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+.Col-1 {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  flex: 2;
+}
+.Col-1 input {
+  height: 42px;
+}
+
+.Col-2 {
+  display: flex;
+  flex-flow: column;
+  flex: 4;
+}
+.Col-2 textarea {
+  height: 100px;
+  resize: none;
+}
+.BtnContainer {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  flex-flow: row;
+  align-items: center;
+  justify-content: end;
+}
+.SendBtn {
+  padding: 8px 50px;
+  background-color: #54b7a6;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
