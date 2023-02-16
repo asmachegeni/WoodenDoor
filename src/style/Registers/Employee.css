@@ -39,10 +39,10 @@ span {
   color: #000;
   padding-top: 16px;
   text-align: right;
-  padding-right: 16px;
+  padding-right: 8px;
   width: 20%;
 }
-.titleEmpolyee {
+h1 {
   font-family: "Vazir Bold";
   font-size: 20px;
   color: #5660f2;
