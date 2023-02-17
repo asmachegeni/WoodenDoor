@@ -1,4 +1,4 @@
-.ArticleBox {
+.PostBox {
   display: flex;
   width: 250px;
   flex-flow: column;

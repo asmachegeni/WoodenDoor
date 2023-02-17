@@ -1,0 +1,95 @@
+.RelatedPosts {
+  display: flex;
+  background-color: #fff;
+}
+.Container {
+  display: flex;
+  flex-flow: column;
+  width: 80%;
+  margin: 30px 10px;
+}
+.row {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.Title {
+  width: 100%;
+  font-family: "Vazir Black";
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.Post {
+  display: flex;
+  width: 320px;
+  height: 320px;
+  flex-flow: column;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #0000001a;
+}
+.Cover {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.Cover a {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+.Cover a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.PostTitle {
+  padding: 8px 10px;
+  height: 64px;
+}
+.PostTitle a {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  font-family: "Vazir Bold";
+  font-size: 14px;
+
+  line-height: 20px;
+}
+
+@media screen and (max-width:1200px) {
+  .Post {
+    width: 250px;
+    height: 250px;
+  }
+  .PostTitle a {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width:992px) {
+  .Post {
+    width: 30%;
+    height: 320px;
+  }
+}
+@media screen and (max-width:768px) {
+  .Post {
+    width: 220px;
+    height: 220px;
+  }
+  .row {
+    flex-flow: row wrap;
+    gap: 20px;
+  }
+}
+@media screen and (max-width:600px) {
+  .Post {
+    width: 180px;
+    height: 220px;
+  }
+}

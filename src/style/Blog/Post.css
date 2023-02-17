@@ -1,0 +1,105 @@
+.Post {
+  display: flex;
+  width: 80%;
+  flex-flow: column;
+  padding: 20px 0;
+}
+.Title {
+  font-family: "Vazir Bold";
+  font-size: 24px;
+}
+.Author {
+  display: flex;
+  flex-flow: row;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6c757d;
+}
+.Author a {
+  display: inline-block;
+  margin-right: 4px;
+  color: #6c757d;
+  text-decoration: none;
+}
+.Cover {
+  margin-top: 20px;
+  object-fit: fill;
+}
+.Footer {
+  display: flex;
+  flex-flow: row;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+.Categories {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.Tag {
+  font-size: 28px;
+  color: #6c757d;
+}
+.Categories span {
+  margin-right: 5px;
+  font-family: "Vazir Bold";
+  font-size: 20px;
+}
+.Categories a {
+  display: inline-block;
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+.SharenComment {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  color: #6c757d;
+  gap: 20px;
+}
+.SharenComment a {
+  display: inline-block;
+  color: #6c757d;
+  text-decoration: none;
+}
+.SharenComment .Icon {
+  font-size: 16px;
+}
+.SharenComment span {
+  margin-right: 5px;
+  font-size: 14px;
+}
+.Share {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.CommentCount {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+@media screen and (max-width: 992px) {
+  .Footer {
+    flex-flow: column;
+  }
+  .SharenComment {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 768px) {
+  .SharenComment {
+    margin-top: 10px;
+    width: fit-content;
+    flex-flow: column;
+    gap: 5px;
+  }
+}
