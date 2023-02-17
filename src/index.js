@@ -7,11 +7,12 @@ import Login from "./component/Login";
 import SendingResume from "./component/SendingResume";
 import Employee from "./component/RegistersForm/Employee";
 import Author from "./component/RegistersForm/Author";
+import Company from "./component/RegistersForm/Company";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Author />
+    <Company />
   </React.StrictMode>
 );
 
