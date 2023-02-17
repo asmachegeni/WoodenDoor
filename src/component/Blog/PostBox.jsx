@@ -1,8 +1,8 @@
-import "../../style/Blog/ArticleBox.css";
+import "../../style/Blog/PostBox.css";
 import { FaRegComment } from "react-icons/fa";
-const ArticleBox = (props) => {
+const PostBox = (props) => {
   return (
-    <div className="ArticleBox">
+    <div className="PostBox">
       <div className="Cover">
         <a href={props.uri}>
           <img src={props.cover_uri} />
@@ -36,4 +36,4 @@ const ArticleBox = (props) => {
     </div>
   );
 };
-export default ArticleBox;
+export default PostBox;

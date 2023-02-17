@@ -1,7 +1,7 @@
-import "../../style/Blog/RelatedArticles.css";
-const RelatedArticles = (props) => {
+import "../../style/Blog/RelatedPosts.css";
+const RelatedPosts = (props) => {
   return (
-    <div className="RelatedArticles">
+    <div className="RelatedPosts">
       <div className="Container">
         <div className="row">
           <span className="Title">مطالب مشابه</span>
@@ -13,7 +13,7 @@ const RelatedArticles = (props) => {
                 <img src={props.coveruri} />
               </a>
             </div>
-            <div className="ArticleTitle">
+            <div className="PostTitle">
               <a href={props.uri}>{props.title}</a>
             </div>
           </div>
@@ -23,7 +23,7 @@ const RelatedArticles = (props) => {
                 <img src={props.coveruri} />
               </a>
             </div>
-            <div className="ArticleTitle">
+            <div className="PostTitle">
               <a href={props.uri}>{props.title}</a>
             </div>
           </div>
@@ -33,7 +33,7 @@ const RelatedArticles = (props) => {
                 <img src={props.coveruri} />
               </a>
             </div>
-            <div className="ArticleTitle">
+            <div className="PostTitle">
               <a href={props.uri}>{props.title}</a>
             </div>
           </div>
@@ -42,4 +42,4 @@ const RelatedArticles = (props) => {
     </div>
   );
 };
-export default RelatedArticles;
+export default RelatedPosts;
