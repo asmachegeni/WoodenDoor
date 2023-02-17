@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import Login from './component/Login';
-import SendingResume from './component/SendingResume';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import Login from "./component/Login";
+import SendingResume from "./component/SendingResume";
+import Employee from "./component/RegistersForm/Employee";
+import Author from "./component/RegistersForm/Author";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <SendingResume />
+    <Author />
   </React.StrictMode>
 );
 
