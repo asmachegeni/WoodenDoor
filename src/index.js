@@ -8,11 +8,12 @@ import SendingResume from "./component/SendingResume";
 import Employee from "./component/RegistersForm/Employee";
 import Author from "./component/RegistersForm/Author";
 import Company from "./component/RegistersForm/Company";
-
+import CreatePost from "./component/Panels/CreatePost";
+import BasicInformation from "./component/Resume/BasicInformation";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Company />
+    <BasicInformation/>
   </React.StrictMode>
 );
 
