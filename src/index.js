@@ -10,10 +10,11 @@ import Author from "./component/RegistersForm/Author";
 import Company from "./component/RegistersForm/Company";
 import CreatePost from "./component/Panels/CreatePost";
 import BasicInformation from "./component/Resume/BasicInformation";
+import EducationalRecords from "./component/Resume/EducationalRecords";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BasicInformation/>
+    <EducationalRecords />
   </React.StrictMode>
 );
 
