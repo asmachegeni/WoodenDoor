@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import EducationalCard from "./EductaionalCard";
+import { FiPlus } from "react-icons/fi";
 const EducationalRecords = () => {
   const [years, setYears] = useState([
     1330, 1331, 1332, 1333, 1334, 1335, 1336, 1337, 1338, 1339, 1340, 1341,
@@ -10,67 +11,111 @@ const EducationalRecords = () => {
     1390, 1391, 1392, 1393, 1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401,
   ]);
   const [Field, setField] = useState("");
-  const [avg, setAvg] = useState(0);
+  const [avg, setAvg] = useState("");
   const [uni, setUni] = useState("");
-  const [startYear, setStartYear] = useState(0);
-  const [endYear, setEndYear] = useState(0);
+  const [startYear, setStartYear] = useState("1330");
+  const [endYear, setEndYear] = useState("1330");
   const [isCurrent, setIsCurrent] = useState(true);
+  const [isResume, setResue] = useState(true);
+  const [showForm, setShowform] = useState(false);
   return (
     <div>
-      <span>رشته تحصیلی</span>
-      <input
-        type={"text"}
-        onChange={(e) => {
-          setField(e.target.value);
-        }}
-      />
-      <span>معدل(اختیاری) </span>
-      <input
-        type={"number"}
-        onChange={(e) => {
-          setAvg(e.target.value);
-        }}
-      />
-      <span>دانشگاه</span>
-      <input
-        type={"text"}
-        onChange={(e) => {
-          setUni(e.target.value);
-        }}
-      />
-      <span>سال شروع</span>
-      <select
-        onChange={(e) => {
-          setStartYear(e.target.value);
+      {isResume && (
+        <EducationalCard
+          info={{
+            Field: "مهندسی کامپیوتر",
+            Uni: "بوعلی سینا",
+            Date: "از سال 99",
+            Avg: "17.00",
+          }}
+          showForm={(values) => {
+            setAvg(values.Avg);
+            setEndYear(values.endYear);
+            setField(values.Field);
+            setUni(values.Uni);
+            setShowform(true);
+          }}
+        />
+      )}
+      {showForm && (
+        <div className={"form"}>
+          <span>رشته تحصیلی</span>
+          <input
+            type={"text"}
+            onChange={(e) => {
+              setField(e.target.value);
+            }}
+            value={Field}
+          />
+          <span>معدل(اختیاری) </span>
+          <input
+            type={"number"}
+            onChange={(e) => {
+              setAvg(e.target.value);
+            }}
+            value={avg}
+          />
+          <span>دانشگاه</span>
+          <input
+            type={"text"}
+            onChange={(e) => {
+              setUni(e.target.value);
+            }}
+            value={uni}
+          />
+          <span>سال شروع</span>
+          <select
+            onChange={(e) => {
+              setStartYear(e.target.value);
+            }}
+            value={startYear}
+          >
+            {years.map((year, index) => (
+              <option value={year} key={index}>
+                {year}
+              </option>
+            ))}
+          </select>
+          {isCurrent && <span>سال پایان</span>}
+          {isCurrent && (
+            <select
+              onChange={(e) => {
+                setEndYear(e.target.value);
+              }}
+              value={endYear}
+            >
+              {years.map((year, index) => (
+                <option value={year} key={index * 10}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          )}
+          <span>هنوز مشغولم</span>
+          <input
+            type={"checkbox"}
+            onChange={() => {
+              setIsCurrent(!isCurrent);
+            }}
+          />
+          <button
+            onClick={() => {
+              setShowform(false);
+            }}
+          >
+            ذخیره
+          </button>
+        </div>
+      )}
+      <div
+        className="Addbtn"
+        onClick={() => {
+          setShowform(true);
         }}
       >
-        {years.map((year, index) => (
-          <option value={year} key={index}>
-            {year}
-          </option>
-        ))}
-      </select>
-      {isCurrent && <span>سال پایان</span>}
-      {isCurrent && (
-        <select
-          onChange={(e) => {
-            setEndYear(e.target.value);
-          }}
-        >
-          {years.map((year, index) => (
-            <option value={year} key={index * 10}>
-              {year}
-            </option>
-          ))}
-        </select>
-      )}
-      <span>هنوز مشغولم</span>
-      <input
-        type={"checkbox"}
-        onChange={() => {
-          setIsCurrent(!isCurrent);
-        }}
-      />
+        <FiPlus className={"addIcon"} />
+        <button>افزودن</button>
+      </div>
     </div>
   );
 };
