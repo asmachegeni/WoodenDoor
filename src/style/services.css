@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   padding: 40px 0;
+  height: fit-content;
 }
 .services-container {
   width: 80%;
@@ -18,7 +19,7 @@
   position: relative;
   margin-bottom: 40px;
 }
-.first-row {
+.services-first-row {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
@@ -28,7 +29,7 @@
   position: relative;
   z-index: 3;
 }
-.second-row {
+.services-second-row {
   border: 3px solid #eef0f4;
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;
@@ -46,7 +47,7 @@
   position: relative;
   z-index: 2;
 }
-.third-row {
+.services-third-row {
   border: 3px solid #eef0f4;
   border-top-right-radius: 60px;
   border-bottom-right-radius: 60px;
@@ -63,32 +64,32 @@
   position: relative;
   z-index: 1;
 }
-.arrow {
+.services-arrow {
   position: absolute;
   color: #eef0f4;
   font-size: 60px;
 }
-.first-row-icon {
+.services-first-row-icon {
   bottom: -51px;
   right: 45%;
 }
-.second-row-icon1 {
+.services-second-row-icon1 {
   left: -31px;
   top: 35%;
 }
-.second-row-icon2 {
+.services-second-row-icon2 {
   right: 45%;
   bottom: -31px;
 }
-.third-row-icon1 {
+.services-third-row-icon1 {
   right: -31px;
   top: 35%;
 }
-.third-row-icon2 {
+.services-third-row-icon2 {
   right: 45%;
   bottom: -31px;
 }
-.line {
+.services-line {
   display: none;
   height: 100%;
   border-right: 5px solid #eef0f4;
@@ -99,10 +100,10 @@
 }
 
 @media screen and (max-width: 992px) {
-  .first-row {
+  .services-first-row {
     gap: 0;
   }
-  .second-row {
+  .services-second-row {
     border: none;
     border-radius: none;
     width: 80%;
@@ -110,7 +111,7 @@
     padding: 0;
     gap: 0;
   }
-  .third-row {
+  .services-third-row {
     border: none;
     border-radius: none;
     width: 80%;
@@ -119,27 +120,27 @@
     margin-top: 20px;
     gap: 0;
   }
-  .arrow {
+  .services-arrow {
     display: none;
   }
 }
 @media screen and (max-width: 768px) {
-  .first-row {
+  .services-first-row {
     flex-flow: column;
     gap: 0;
     margin-top: 0;
   }
-  .second-row {
+  .services-second-row {
     flex-flow: column;
     gap: 0;
     margin-top: 0;
   }
-  .third-row {
+  .services-third-row {
     flex-flow: column;
     gap: 0;
     margin-top: 0;
   }
-  .line {
+  .services-line {
     display: inherit;
   }
 }

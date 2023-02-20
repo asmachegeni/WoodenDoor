@@ -1,22 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Login from "./component/Login";
-import SendingResume from "./component/SendingResume";
-import Employee from "./component/RegistersForm/Employee";
-import Author from "./component/RegistersForm/Author";
-import Company from "./component/RegistersForm/Company";
-import CreatePost from "./component/Panels/CreatePost";
-import BasicInformation from "./component/Resume/BasicInformation";
-import EducationalRecords from "./component/Resume/EducationalRecords";
-import WorkExperience from "./component/Resume/WorkExperience";
-import Header from "./component/Header";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Header />
+    <App />
   </React.StrictMode>
 );
 

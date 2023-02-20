@@ -1,5 +1,6 @@
 import "../style/login.css";
 import logo from "../assets/img/logo-big.png";
+import { Link } from "react-router-dom";
 const Login = ({ userType }) => {
   return (
     <div className="login-body">
@@ -10,19 +11,31 @@ const Login = ({ userType }) => {
               <img src={logo} alt="login logo" />
             </div>
             <div className="login-header">
-              <span className="login-header-title">ورود | ایجاد حساب</span>
+              <span className="login-header-title">ورود </span>
 
               <span className="login-user-type">{userType}</span>
             </div>
             <div className="login-email-form">
-              <label>آدرس ایمیل خودتان را وارد کنید</label>
-              <input type="email" placeholder="example@gmail.com" />
-              <input type="button" value="ادامه" />
+              <label className="login-label">
+                آدرس ایمیل خودتان را وارد کنید
+              </label>
+              <input
+                type="email"
+                placeholder="example@gmail.com"
+                className="LoginEmail"
+              />
+               <label className="login-label">
+                رمز عبور خود را وارد کنید
+              </label>
+              <input
+                type="password"
+                
+                className="LoginEmail"
+              />
+
+              <button className="Login-btn">ادامه</button>
             </div>
           </div>
-          <button className="user-switch">
-            {userType === "کارجو" ? "کارفرما" : "کارجو"} هستید؟
-          </button>
         </div>
       </div>
     </div>

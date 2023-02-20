@@ -9,8 +9,8 @@ const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer-wrapper">
-        <div className="rowup">
-          <div className="col1">
+        <div className="footer-rowup">
+          <div className="footer-col1">
             <p>
               جاب‌ویژن بعنوان اولین ارائه دهنده بسته جامع خدمات کاریابی و
               استخدام، تجربه برگزاری موفق ادوار مختلف نمایشگاه‌های کار شریف و
@@ -20,7 +20,7 @@ const Footer = () => {
               ویژگی‌های متمایز جاب‌ویژن است.
             </p>
           </div>
-          <div className="col2">
+          <div className="footer-col2">
             <p>جاب‌ویژن محصولی دانش بنیان شناخته شده است.</p>
             <br />
             <p>
@@ -29,23 +29,23 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="rowdown">
-          <div className="col1">
+        <div className="footer-rowdown">
+          <div className="footer-col1">
             <img src={logo} alt="" />
           </div>
-          <div className="col2">
-            <a href="">
-              <FaTwitter className="social"></FaTwitter>
-            </a>
-            <a href="">
-              <FaTelegramPlane className="social"></FaTelegramPlane>
-            </a>
-            <a href="">
-              <FaLinkedin className="social"></FaLinkedin>
-            </a>
-            <a href="">
-              <FaInstagram className="social"></FaInstagram>
-            </a>
+          <div className="footer-col2">
+            {/* <a href=""> */}
+              <FaTwitter className="footer-social"></FaTwitter>
+            {/* </a> */}
+            {/* <a href=""> */}
+              <FaTelegramPlane className="footer-social"></FaTelegramPlane>
+            {/* </a> */}
+            {/* <a href=""> */}
+              <FaLinkedin className="footer-social"></FaLinkedin>
+            {/* </a> */}
+            {/* <a href=""> */}
+              <FaInstagram className="footer-social"></FaInstagram>
+            {/* </a> */}
           </div>
         </div>
       </div>

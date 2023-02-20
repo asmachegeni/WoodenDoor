@@ -9,7 +9,9 @@ const Header = () => {
         <div className="header-menu">
           <ul>
             <li>
-              <Link to={"/"}>بلاگ</Link>
+              <Link className="header-blog" to={"/"}>
+                بلاگ
+              </Link>
             </li>
           </ul>
         </div>
@@ -17,10 +19,10 @@ const Header = () => {
           <img src={whitelogo} alt="" />
         </div>
         <div className="header-login">
-          <Link id="employee-login" to={"/"}>
+          <Link id="header-employee-login" to={"/Login"}>
             ورود / ثبت نام کارجو
           </Link>
-          <Link id="employer-login" to={"/"}>
+          <Link id="header-employer-login" to={"/"}>
             بخش کارفرمایان
           </Link>
           <div className="seperator"></div>

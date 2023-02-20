@@ -1,127 +1,126 @@
-.header-container{
-    display: flex;
+.header-container {
+  display: flex;
+  width: 100%;
+  background-color: #fff;
+  height: 71px;
+  box-shadow: 1px 2px 5px #00000008;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.header-wrapper {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-menu {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-menu ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row;
+}
+#header-employer-login,
+#header-employee-login,.header-blog {
+  text-decoration: none;
+  color: #000;
+  padding: 10px;
+  transition: all 0.5s;
+  font-size: 14px;
+}
+#header-employer-login:hover,
+#header-employee-login:hover ,.header-blog{
+  text-decoration: none;
+  color: #5660f2;
+}
+
+.header-login {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.seperator {
+  height: 50%;
+  border-left: 1px solid #f1f1f1;
+  margin: 0 0 0 10px;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+#header-employee-login {
+  padding: 10px 20px;
+  background-color: #5660f2;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  margin: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+#header-employer-login {
+  border: none;
+  padding: 10px;
+  color: #5c6573;
+  background-color: transparent;
+  cursor: pointer;
+}
+.header-white-logo {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+@media screen and (max-width: 992px) {
+  .header-container {
     width: 100%;
-    background-color: #fff;
-    height: 71px;
-    box-shadow: 1px 2px 5px #00000008;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    justify-content: center;
-    align-items: center;
-
-}
-.header-wrapper{
-    width: 80%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.header-menu{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.header-menu ul{
-list-style: none;
-display: flex;
-flex-flow: row;
-}
-.header-menu ul li a{
-text-decoration: none;
-color: #000;
-padding: 10px;
-transition: all 0.5s;
-font-size: 14px;
-    }
-.header-menu ul li a:hover{
-        text-decoration: none;
-        color: #5660f2;
-            }
-
-.header-login{
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-.seperator{
-    height: 50%;
-    border-left: 1px solid #f1f1f1;
-    margin: 0 0 0 10px;
-}
-.header-logo{
-    display: flex;
-    align-items: center;
-}
-#employee-login{
-padding: 10px 20px;
-background-color: #5660f2;
-border: none;
-border-radius: 5px;
-color: #fff;
-margin: 5px;
-font-size: 14px;
-cursor: pointer;
-}
-#employer-login{
-    border: none;
-    padding: 10px;
-    color: #5c6573;
+    background-color: #5660f2;
+    height: 60px;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 1px 30px #00000008, 0 1px 2px #0000000d;
+  }
+  #employee-login {
     background-color: transparent;
-    cursor: pointer;
-}
-.header-white-logo{
+  }
+  #employer-login {
     display: none;
-    justify-content: center;
-    align-items: center;
-    flex:1
+  }
+  .header-logo {
+    display: none;
+  }
+  .seperator {
+    display: none;
+  }
+  .header-menu {
+    flex: 1;
+    justify-content: start;
+  }
+  .header-menu ul li a {
+    color: #fff;
+  }
+  .header-menu ul li a:hover {
+    color: #e6e6e6;
+  }
+  .header-white-logo {
+    display: flex;
+  }
+  .header-login {
+    flex: 1;
+    justify-content: end;
+  }
 }
-@media screen and (max-width:992px) {
-    .header-container{
-width: 100%;
-background-color: #5660f2;
-height: 60px;
-border-radius: 0;
-border-bottom: 1px solid rgba(255,255,255,.1);
-box-shadow: 0 1px 30px #00000008, 0 1px 2px #0000000d;
-    }
-    #employee-login{
-        background-color: transparent;
-        
-    }
-    #employer-login{
-        display: none;
-    }
-    .header-logo{
-        display: none;
-    }
-    .seperator{
-        display: none;
-    }
-    .header-menu{
-        flex:1;
-        justify-content: start;
-    }
-    .header-menu ul li a{
-        color: #fff;
-    }
-    .header-menu ul li a:hover{
-        color: #e6e6e6;
-    }
-    .header-white-logo{
-        display: flex;
-    }
-    .header-login{
-        flex:1;
-        justify-content: end;
-    }
-}
-@media screen and (max-width:600px) {
-    #employee-login{
-        padding: 10px 0;
-        
-    }
+@media screen and (max-width: 600px) {
+  #employee-login {
+    padding: 10px 0;
+  }
 }

@@ -5,10 +5,10 @@ const Service = () => {
         1
        </div>
       <div className="service-wrapper">
-        <span className="title">
+        <span className="service-title">
         خودت رو بشناس
         </span>
-        <span className="content">
+        <span className="service-content">
         با آزمون‌‌های شخصیت شناسی شغلی جاب ویژن، خود را بهتر بشناسید و بهترین شغل را انتخاب کنید.
         </span>
       </div>

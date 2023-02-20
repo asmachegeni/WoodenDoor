@@ -1,54 +1,51 @@
-.job-ads-body{
-    display: flex;
-    flex-flow: column;
-    width: 80%;
-    padding: 30px 5px;
-   
-
+.job-ads-body {
+  display: flex;
+  flex-flow: column;
+  width: 80%;
+  padding: 30px 5px;
+  height: fit-content;
 }
-.job-ads-title{
-    font-size: 18px;
-    font-family: 'Vazir Bold';
-    color:#5c6573
+.job-ads-title {
+  font-size: 18px;
+  font-family: "Vazir Bold";
+  color: #5c6573;
 }
-.new-jobs-title-container{
-width: 100%;
-border-bottom: 2px solid #EBEBEB;
-height: 54px;
+.new-jobs-title-container {
+  width: 100%;
+  border-bottom: 2px solid #ebebeb;
+  height: 54px;
 }
-.new-jobs-title-wrapper{
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    border-bottom: 2px solid #5660F2;
-    color: #5660F2;
-    height: 54px;
-    width: fit-content;
+.new-jobs-title-wrapper {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  border-bottom: 2px solid #5660f2;
+  color: #5660f2;
+  height: 54px;
+  width: fit-content;
 }
-.title-icon{
-    font-size: 24px;
+.title-icon {
+  font-size: 24px;
 }
-.title-span{
-    font-family: 'Vazir Black';
-    font-size: 14px;
-    margin-right: 10px;
+.title-span {
+  font-family: "Vazir Black";
+  font-size: 14px;
+  margin-right: 10px;
 }
-.jobs-count{
-    margin: 30px 0;
-    display: flex;
-    flex-flow: row;
-    color:#8e9cb2;
-    font-size: 14px;
-    gap: 5px;
-
+.jobs-count {
+  margin: 30px 0;
+  display: flex;
+  flex-flow: row;
+  color: #8e9cb2;
+  font-size: 14px;
+  gap: 5px;
 }
-.job-ads{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    gap:20px;
-
+.job-ads {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }

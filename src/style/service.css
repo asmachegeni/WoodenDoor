@@ -30,12 +30,12 @@ flex-flow: column;
 padding: 15px;
 flex:1;
 }
-.service-wrapper .title{
+.service-wrapper .service-title{
     color: #000;
     font-family: 'Vazir Black';
     font-size: 20px;
 }
-.service-wrapper .content{
+.service-wrapper .service-content{
     color:#8e9cb2;
     font-size: 14px;
     margin-top: 5px;
@@ -71,11 +71,11 @@ flex:1;
 margin-right: 0;
 padding: 0 10px;
     }
-    .service-wrapper .title{
+    .service-wrapper .service-title{
         font-size: 14px;
 
     }
-    .service-wrapper .content{
+    .service-wrapper .service-content{
         font-size: 12px;
         
     }
