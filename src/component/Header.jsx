@@ -1,32 +1,35 @@
-import "../style/header.css"
-import logo from "../assets/img/logo.png"
-import whitelogo from "../assets/img/logo-white.png"
+import "../style/header.css";
+import logo from "../assets/img/logo.png";
+import whitelogo from "../assets/img/logo-white.png";
+import { Link } from "react-router-dom";
 const Header = () => {
-    return <div className="header-container">
-<div className="header-wrapper">
-<div className="header-menu">
-  <ul>
-    <li><a href="">
-      بلاگ
-      </a></li>
-  </ul>
-</div>
-<div className="header-white-logo">
-<img src={whitelogo} alt="" />
-</div>
-<div className="header-login">
-<button id="employee-login">
-    ورود / ثبت نام کارجو
-</button>
-<button id="employer-login">
-بخش کارفرمایان
-</button>
-<div className="seperator"></div>
-<div className="header-logo">
-  <img src={logo} alt="" />
-</div>
-</div>
-</div>
-    </div>;
-  };
-  export default Header;
+  return (
+    <div className="header-container">
+      <div className="header-wrapper">
+        <div className="header-menu">
+          <ul>
+            <li>
+              <Link to={"/"}>بلاگ</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="header-white-logo">
+          <img src={whitelogo} alt="" />
+        </div>
+        <div className="header-login">
+          <Link id="employee-login" to={"/"}>
+            ورود / ثبت نام کارجو
+          </Link>
+          <Link id="employer-login" to={"/"}>
+            بخش کارفرمایان
+          </Link>
+          <div className="seperator"></div>
+          <div className="header-logo">
+            <img src={logo} alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default Header;
