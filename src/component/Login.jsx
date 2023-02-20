@@ -24,19 +24,14 @@ const Login = ({ userType }) => {
                 placeholder="example@gmail.com"
                 className="LoginEmail"
               />
-               <label className="login-label">
-                رمز عبور خود را وارد کنید
-              </label>
-              <input
-                type="password"
-                
-                className="LoginEmail"
-              />
+              <label className="login-label">رمز عبور خود را وارد کنید</label>
+              <input type="password" className="LoginPassl" />
 
-              <button className="Login-btn">ادامه</button>
+              <button className="Login-btn">ورود</button>
             </div>
           </div>
         </div>
+        <Link to={"/Register"}>ثبت نام</Link>
       </div>
     </div>
   );

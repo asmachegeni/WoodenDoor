@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./../../style/Registers/Employee.css";
+import { Link } from "react-router-dom";
 const Employer = () => {
   const [months, setmonth] = useState([
     "فروردین",
@@ -172,7 +173,9 @@ const Employer = () => {
           setbio(e.target.value);
         }}
       ></textarea>
-      <button className="EmpBtn">ادامه</button>
+      <Link className="EmpBtn" to={"/Company"}>
+        ادامه
+      </Link>
     </div>
   );
 };

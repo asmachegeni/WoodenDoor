@@ -73,9 +73,9 @@ const JobAds = () => {
         <span>موقعیت شغلی</span>
       </div>
       <div className="job-ads">
-        {
-          jobAds.map((jobad)=>{return<JobAd JobAd={jobad}/>})
-        }
+        {jobAds.map((jobad, index) => {
+          return <JobAd key={index} JobAd={jobad} />;
+        })}
       </div>
     </div>
   );

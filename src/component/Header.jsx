@@ -2,7 +2,7 @@ import "../style/header.css";
 import logo from "../assets/img/logo.png";
 import whitelogo from "../assets/img/logo-white.png";
 import { Link } from "react-router-dom";
-const Header = () => {
+const Header = ({ setType }) => {
   return (
     <div className="header-container">
       <div className="header-wrapper">
@@ -19,10 +19,22 @@ const Header = () => {
           <img src={whitelogo} alt="" />
         </div>
         <div className="header-login">
-          <Link id="header-employee-login" to={"/Login"}>
+          <Link
+            id="header-employee-login"
+            to={"/Login"}
+            onClick={() => {
+              setType("کارجو");
+            }}
+          >
             ورود / ثبت نام کارجو
           </Link>
-          <Link id="header-employer-login" to={"/"}>
+          <Link
+            id="header-employer-login"
+            to={"/Login"}
+            onClick={() => {
+              setType("کارفرما");
+            }}
+          >
             بخش کارفرمایان
           </Link>
           <div className="seperator"></div>
