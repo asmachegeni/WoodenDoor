@@ -11,10 +11,11 @@ import Company from "./component/RegistersForm/Company";
 import CreatePost from "./component/Panels/CreatePost";
 import BasicInformation from "./component/Resume/BasicInformation";
 import EducationalRecords from "./component/Resume/EducationalRecords";
+import WorkExperience from "./component/Resume/WorkExperience";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <EducationalRecords />
+    <WorkExperience />
   </React.StrictMode>
 );
 
