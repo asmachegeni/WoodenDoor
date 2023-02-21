@@ -18,6 +18,10 @@ import UserPassword from "./component/UserPassword";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Employer from "./component/RegistersForm/Employer";
 import Axios from "./component/BaseUrl";
+import CreateResume from "./component/Resume/CreateResume";
+import EmployeePanel from "./component/Panels/EmployeePanel";
+import CompeleteRegister from "./component/Panels/CompeleteRegister";
+import Resumes from "./component/Panels/Resumes";
 function App() {
   const [userType, setUserType] = useState("");
   const [xsrfToken, setToken] = useState("");
@@ -51,6 +55,16 @@ function App() {
         <Route path="/Employee" element={<Employee />} />
         <Route path="/Employer" element={<Employer />} />
         <Route path="/Company" element={<Company />} />
+        <Route path="/CreateResume" element={<CreateResume />}>
+          <Route path="BasicInformation" element={<BasicInformation />} />
+          <Route path="EducationalRecords" element={<EducationalRecords />} />
+          <Route path="WorkExperience" element={<WorkExperience />} />
+        </Route>
+        <Route path="/EmployeePanel" element={<EmployeePanel />}>
+          <Route path="CompeleteRegister" element={<CompeleteRegister />} />
+          <Route path="Resumes" element={<Resumes />} />
+          <Route path="CreatePost" element={<CreatePost />} />
+        </Route>
       </Routes>
     </Router>
   );

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 const CompeleteRegister = () => {
   const [months, setmonth] = useState([
     "فروردین",
