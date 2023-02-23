@@ -24,7 +24,7 @@ import CompeleteRegister from "./component/Panels/CompeleteRegister";
 import Resumes from "./component/Panels/Resumes";
 function App() {
   const [userType, setUserType] = useState("");
-  const [xsrfToken, setToken] = useState("");
+  const [xsrfToken, setToken] = useState("کارفرما");
   const setType = (type) => {
     setUserType(type);
   };
@@ -44,7 +44,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage setType={setType} />} />
+        <Route />
+        {/* <Route path="/" element={<HomePage setType={setType} />} />
         <Route path="/Login" element={<Login userType={userType} />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Code" element={<Code />} />
@@ -64,7 +65,7 @@ function App() {
           <Route path="CompeleteRegister" element={<CompeleteRegister />} />
           <Route path="Resumes" element={<Resumes />} />
           <Route path="CreatePost" element={<CreatePost />} />
-        </Route>
+        </Route> */}
       </Routes>
     </Router>
   );

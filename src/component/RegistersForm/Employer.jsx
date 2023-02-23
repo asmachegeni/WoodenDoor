@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./../../style/Registers/Employee.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { type } from "@testing-library/user-event/dist/type";
 const Employer = () => {
   const [months, setmonth] = useState([
     "فروردین",
@@ -79,6 +80,7 @@ const Employer = () => {
   const [address, setaddress] = useState("");
   const [bio, setbio] = useState("");
   const [MilitaryStatus, setMilitaryStatu] = useState("");
+  const Loaction = useLocation();
   return (
     <div className="Employee">
       <h1>ثبت نام‌ کارفرما</h1>
@@ -100,22 +102,22 @@ const Employer = () => {
           setlastname(e.target.value);
         }}
       />
-      <span>شماره تلفن</span>
+      {/* <span>شماره تلفن</span>
       <input
         type="tel"
         onChange={(e) => {
           console.log(e.target.value);
           settel(e.target.value);
         }}
-      />
-      <span>نام مستعار</span>
+      /> */}
+      {/* <span>نام مستعار</span>
       <input
         type="text"
         onChange={(e) => {
           console.log(e.target.value);
           setnickname(e.target.value);
         }}
-      />
+      /> */}
       <span>جنسیت</span>
       <select
         name="sex"
@@ -173,7 +175,18 @@ const Employer = () => {
           setbio(e.target.value);
         }}
       ></textarea>
-      <Link className="EmpBtn" to={"/Company"}>
+      <Link
+        className="EmpBtn"
+        to={"/Company"}
+        state={{
+          name: name,
+          lastname: lastname,
+          sex: sex,
+          type: false,
+          email: Loaction.state.email,
+          password: Loaction.state.password,
+        }}
+      >
         ادامه
       </Link>
     </div>

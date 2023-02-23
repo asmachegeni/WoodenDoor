@@ -1,16 +1,56 @@
 import React, { useState } from "react";
 import "./../../style/Registers/Employee.css";
+import { useLocation } from "react-router";
+import  AxiosUrl  from "././../BaseUrl";
 const Company = () => {
+  const Location = useLocation();
   const [faname, setfaname] = useState("");
   const [enname, setenname] = useState("");
   const [tel, settel] = useState("");
   const [nickname, setnickname] = useState("");
   const [website, setwebsite] = useState(true);
-  const [number, setnumber] = useState("");
+  const [number_of_staff, setnumber] = useState("");
   const [bio, setbio] = useState("");
   const [logo, setLogo] = useState("");
   const [logotemp, setLogotemp] = useState("");
-
+  const RegisterEmployer = () => {
+    AxiosUrl.get("/sanctum/csrf-cookie", {
+      headers: {
+        credentials: "same-origin",
+      },
+    }).then(() => {
+      AxiosUrl.post(
+        "/api/sign-up",
+        {
+          username: Location.state.username,
+          email: Location.state.email,
+          password: Location.state.password,
+          first_name: Location.state.name,
+          last_name: Location.state.lastname,
+          sex: Location.statesex,
+          type: false,
+          persian_name: faname,
+          english_name: enname,
+          file: logo,
+          tel: tel,
+          website: website,
+          number_of_staff: number_of_staff,
+          about_company: bio,
+          nick_name: nickname,
+        },
+        {
+          headers: {
+            credentials: "same-origin",
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      ).then((res) => {
+        console.log(res);
+        // navigete to panel
+      });
+    });
+  };
   return (
     <div className="Employee">
       <h1>اطلاعات شرکت</h1>

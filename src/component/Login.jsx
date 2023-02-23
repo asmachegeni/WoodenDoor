@@ -1,7 +1,45 @@
+import React, { useState } from "react";
 import "../style/login.css";
 import logo from "../assets/img/logo-big.png";
 import { Link } from "react-router-dom";
+import AxiosUrl from "./BaseUrl";
 const Login = ({ userType }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const LoginUser = () => {
+    console.log("here");
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailRegex.test(email)) {
+      let temp;
+
+      if (userType == "کارفرما") {
+        temp = false;
+      } else {
+        temp = true;
+      }
+      console.log(temp, password, email);
+      AxiosUrl.get("/sanctum/csrf-cookie", {
+        headers: {
+          credentials: "same-origin",
+        },
+      }).then(() => {
+        AxiosUrl.post(
+          "/api/sign-in",
+          { email: email, password: password, type: temp },
+          {
+            headers: {
+              credentials: "same-origin",
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        ).then((res) => {
+          console.log(res);
+        });
+      });
+    }
+  };
   return (
     <div className="login-body">
       <div className="login-container">
@@ -23,11 +61,24 @@ const Login = ({ userType }) => {
                 type="email"
                 placeholder="example@gmail.com"
                 className="LoginEmail"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
               <label className="login-label">رمز عبور خود را وارد کنید</label>
-              <input type="password" className="LoginPassl" />
+              <input
+                type="password"
+                className="LoginPassl"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
 
-              <button className="Login-btn">ورود</button>
+              <button className="Login-btn" onClick={LoginUser}>
+                ورود
+              </button>
             </div>
           </div>
         </div>

@@ -41,6 +41,7 @@ const Code = () => {
                   className="Login-btn"
                   to={"/UserPassword"}
                   onClick={handeleClick}
+                  state={{ email: Location.state.email }}
                 >
                   ادامه
                 </Link>
