@@ -2,7 +2,7 @@ import "../../style/Blog/Comments.css";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { useEffect } from "react";
 import { useState } from "react";
-import { CommentsTemp } from "../../assets/ExampleData.js";
+import { Cats as CommentsTemp } from "../../assets/ExampleData.js";
 const Comments = (props) => {
   const [CommentsData, SetCommentsData] = useState("");
   const array = [];
