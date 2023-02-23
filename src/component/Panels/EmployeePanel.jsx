@@ -11,6 +11,7 @@ const EmployeePanel = () => {
         <Link to={"Resumes"}>رزومه های ارسال شده</Link>
         <Link to={"CreatePost"}>ایجاد پست</Link>
         <Link to={"/CreateResume"}>رزومه ساز</Link>
+        <Link to={""}>دریافت فایل رزومه</Link>
       </div>
       <Outlet />
     </div>
