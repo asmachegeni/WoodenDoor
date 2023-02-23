@@ -17,11 +17,12 @@ import Code from "./component/Code";
 import UserPassword from "./component/UserPassword";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Employer from "./component/RegistersForm/Employer";
-import Axios from "./component/BaseUrl";
+// import Axios from "./component/BaseUrl";
 import CreateResume from "./component/Resume/CreateResume";
 import EmployeePanel from "./component/Panels/EmployeePanel";
 import CompeleteRegister from "./component/Panels/CompeleteRegister";
 import Resumes from "./component/Panels/Resumes";
+import Search from "./component/Search";
 function App() {
   const [userType, setUserType] = useState("");
   const [xsrfToken, setToken] = useState("کارفرما");
@@ -37,14 +38,12 @@ function App() {
 
     // set in local
     // }
-    Axios.get("/sanctum/csrf-cookie").then((res) => {
-      console.log(res.access_token);
-    });
   }, []);
   return (
     <Router>
       <Routes>
-        <Route />
+        <Route path="/" element={<HomePage setType={setType} />} />
+
         {/* <Route path="/" element={<HomePage setType={setType} />} />
         <Route path="/Login" element={<Login userType={userType} />} />
         <Route path="/Register" element={<Register />} />
