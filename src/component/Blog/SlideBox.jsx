@@ -2,12 +2,20 @@ import "../../style/Blog/SlideBox.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 import image from "../../assets/img/ArticleCoverExample.jpg";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useState } from "react";
 
 const SlideBox = (props) => {
-  const [Slides, SetSlides] = useState(props);
+  const [Slides, SetSlides] = useState([
+    {
+      coveruri: "#",
+      title: "ودن در",
+
+      description: "این یک متن آزمایشی است",
+    },
+  ]);
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -35,24 +43,25 @@ const SlideBox = (props) => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
   return (
     <div className="SlideBox">
       <Slider {...settings}>
-        {Slides.data.map((item, index) => {
+        {Slides.map((item, index) => {
           return (
             <div className="Slide" key={index}>
               <div className="Col-1">
                 <img src={item.coveruri} />
               </div>
               <div className="Col-2">
-                <a href={item.uri} className="Title">
+                <Link to={item.uri} className="Title">
                   {item.title}
-                </a>
+                </Link>
                 <span className="Content">{item.description}</span>
                 <div className="BtnContainer">
-                  <a href={item.uri} className="ReadMoreBtn">
+                  <Link to={item.uri} className="ReadMoreBtn">
                     ادامه مطلب
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

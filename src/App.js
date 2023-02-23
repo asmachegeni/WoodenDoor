@@ -23,6 +23,7 @@ import EmployeePanel from "./component/Panels/EmployeePanel";
 import CompeleteRegister from "./component/Panels/CompeleteRegister";
 import Resumes from "./component/Panels/Resumes";
 import Search from "./component/Search";
+import Blog from "./component/Blog/Blog";
 function App() {
   const [userType, setUserType] = useState("");
   const [xsrfToken, setToken] = useState("کارفرما");
@@ -42,9 +43,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage setType={setType} />} />
+        <Route path="/" element={<Blog setType={setType}  userType={"نویسنده"}/>} />
 
-        {/* <Route path="/" element={<HomePage setType={setType} />} />
+        {/* <Route path="/" element={<HomePage setType={setType}   userType={userType}/>} />
         <Route path="/Login" element={<Login userType={userType} />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/Code" element={<Code />} />

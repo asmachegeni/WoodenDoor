@@ -2,7 +2,7 @@ import "../style/header.css";
 import logo from "../assets/img/logo.png";
 import whitelogo from "../assets/img/logo-white.png";
 import { Link } from "react-router-dom";
-const Header = ({ setType }) => {
+const Header = ({ setType, userType }) => {
   return (
     <div className="header-container">
       <div className="header-wrapper">
@@ -18,7 +18,49 @@ const Header = ({ setType }) => {
         <div className="header-white-logo">
           <img src={whitelogo} alt="" />
         </div>
-        <div className="header-login">
+        {userType == "نویسنده"?<div className="header-login">
+         
+         <Link
+           id="header-employee-login"
+           to={"/Login"}
+           onClick={() => {
+             setType("نویسنده");
+           }}
+         >
+            ورود نویسنده   
+         </Link>
+        
+         <div className="seperator"></div>
+         <div className="header-logo">
+           <img src={logo} alt="" />
+         </div>
+       </div>:<div className="header-login">
+         
+         <Link
+           id="header-employee-login"
+           to={"/Login"}
+           onClick={() => {
+             setType("کارجو");
+           }}
+         >
+           ورود / ثبت نام کارجو
+         </Link>
+         <Link
+           id="header-employer-login"
+           to={"/Login"}
+           onClick={() => {
+             setType("کارفرما");
+           }}
+         >
+           بخش کارفرمایان
+         </Link>
+         <div className="seperator"></div>
+         <div className="header-logo">
+           <img src={logo} alt="" />
+         </div>
+       </div>}
+        {/* <div className="header-login">
+         
           <Link
             id="header-employee-login"
             to={"/Login"}
@@ -41,7 +83,7 @@ const Header = ({ setType }) => {
           <div className="header-logo">
             <img src={logo} alt="" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
