@@ -1,0 +1,15 @@
+body {
+  direction: rtl;
+}
+.HomePage {
+  display: flex;
+  position: relative;
+  flex-flow: column;
+  align-items: center;
+  background-color: #f6f7f9;
+}
+.SlideBoxContainer {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 10px;
+}

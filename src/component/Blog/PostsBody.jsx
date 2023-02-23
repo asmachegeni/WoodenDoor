@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../../style/Blog/PostsBody.css";
 import PostBox from "./PostBox";
 const PostsBody = (props) => {
-  const [Boxes, SetBoxes] = useState(props);
+  const [Boxes, SetBoxes] = useState(props.data);
   return (
     <div className="PostsBody">
       {Boxes.map((item, index) => {

@@ -1,34 +1,35 @@
 import "../../style/Blog/PostBox.css";
 import { FaRegComment } from "react-icons/fa";
+import { useState } from "react";
 const PostBox = (props) => {
   return (
     <div className="PostBox">
-      <div className="Cover">
-        <a href={props.uri}>
-          <img src={props.cover_uri} />
+      <div className="PostBox-Cover">
+        <a href={props.data.uri}>
+          <img src={props.data.coveruri} />
         </a>
       </div>
-      <div className="Content">
-        <div className="Title">
-          <a href={props.uri}>{props.title}</a>
+      <div className="PostBox-Content">
+        <div className="PostBox-Title">
+          <a href={props.data.uri}>{props.data.title}</a>
         </div>
 
-        <p className="Description">{props.description}</p>
-        <div className="BtnContainer">
-          <a href={props.uri} className="ReadMoreBtn">
+        <p className="PostBox-Description">{props.data.description}</p>
+        <div className="PostBox-BtnContainer">
+          <a href={props.data.uri} className="PostBox-ReadMoreBtn">
             ادامه مطلب
           </a>
         </div>
-        <span className="Author">
+        <span className="PostBox-Author">
           نوشته شده توسط
-          <a href="#">{props.author}</a>
+          <a href="#">{props.data.author}</a>
         </span>
-        <div className="Footer">
-          <span className="Date">{props.created_at}</span>
-          <div className="Comments">
-            <FaRegComment className="CommenttIcon"></FaRegComment>
-            <span className="CommentsCount">
-              {props.comment_number == 0 ? "بدون دیدگاه" : props.comment_number}
+        <div className="PostBox-Footer">
+          <span className="PostBox-Date">{props.data.created_at}</span>
+          <div className="PostBox-Comments">
+            <FaRegComment className="PostBox-CommenttIcon"></FaRegComment>
+            <span className="PostBox-CommentsCount">
+              {props.data.comment_number == 0 ? "بدون دیدگاه" : props.data.comment_number}
             </span>
           </div>
         </div>

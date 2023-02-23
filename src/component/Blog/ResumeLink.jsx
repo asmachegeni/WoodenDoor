@@ -7,26 +7,26 @@ const ResumeLink = () => {
   return (
     <div className="ResumeLink">
         <a href="#">
-              <div className="Container">
-        <div className="Right">
-          <div className="Header">
-            <div className="Title">
-              <GoPencil className="Icon"></GoPencil>
+              <div className="ResumeLink-Container">
+        <div className="ResumeLink-Right">
+          <div className="ResumeLink-Header">
+            <div className="ResumeLink-Title">
+              <GoPencil className="ResumeLink-Icon"></GoPencil>
               <span>رزومه خوبی نداری؟</span>
             </div>
-            <div className="Pointer">
+            <div className="ResumeLink-Pointer">
               <span>ساخت سریع رزومه</span>
-              <BsArrowLeft className="Icon"></BsArrowLeft>
+              <BsArrowLeft className="ResumeLink-Icon"></BsArrowLeft>
             </div>
           </div>
-          <div className="Content">
+          <div className="ResumeLink-Content">
             <span>
               در 4 مرحله رزومه 2 زبانه خودت را کامل بساز و برای شرکت ها ارسال
               کن!
             </span>
           </div>
         </div>
-        <div className="Left">
+        <div className="ResumeLink-Left">
           <img src={Image} />
         </div>
       </div>    

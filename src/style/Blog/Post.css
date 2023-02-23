@@ -4,49 +4,49 @@
   flex-flow: column;
   padding: 20px 0;
 }
-.Title {
+.Post-Title {
   font-family: "Vazir Bold";
   font-size: 24px;
 }
-.Author {
+.Post-Author {
   display: flex;
   flex-flow: row;
   margin-top: 10px;
   font-size: 14px;
   color: #6c757d;
 }
-.Author a {
+.Post-Author a {
   display: inline-block;
   margin-right: 4px;
   color: #6c757d;
   text-decoration: none;
 }
-.Cover {
+.Post-Cover {
   margin-top: 20px;
   object-fit: fill;
 }
-.Footer {
+.Post-Footer {
   display: flex;
   flex-flow: row;
   margin-top: 40px;
   align-items: center;
   justify-content: space-between;
 }
-.Categories {
+.Post-Categories {
   display: flex;
   flex-flow: row;
   align-items: center;
 }
-.Tag {
+.Post-Tag {
   font-size: 28px;
   color: #6c757d;
 }
-.Categories span {
+.Post-Categories span {
   margin-right: 5px;
   font-family: "Vazir Bold";
   font-size: 20px;
 }
-.Categories a {
+.Post-Categories a {
   display: inline-block;
   text-decoration: none;
   margin-right: 10px;
@@ -56,47 +56,50 @@
   border: 1px solid #dee2e6;
   border-radius: 4px;
 }
-.SharenComment {
+.Post-SharenComment {
   display: flex;
   flex-flow: row;
   align-items: center;
   color: #6c757d;
   gap: 20px;
 }
-.SharenComment a {
+.Post-SharenComment a {
   display: inline-block;
   color: #6c757d;
   text-decoration: none;
 }
-.SharenComment .Icon {
+.Post-SharenComment .Icon {
   font-size: 16px;
 }
-.SharenComment span {
+.Post-SharenComment span {
   margin-right: 5px;
   font-size: 14px;
 }
-.Share {
+.Post-Share {
   display: flex;
   flex-flow: row;
   align-items: center;
 }
-.CommentCount {
+.Post-CommentCount {
   display: flex;
   flex-flow: row;
   align-items: center;
 }
 
 @media screen and (max-width: 992px) {
-  .Footer {
+  .Post {
+    width: 100%;
+  }
+  .Post-Footer {
     flex-flow: column;
   }
-  .SharenComment {
+  .Post-SharenComment {
     width: 100%;
     justify-content: space-between;
   }
 }
 @media screen and (max-width: 768px) {
-  .SharenComment {
+  .Post-SharenComment {
     margin-top: 10px;
     width: fit-content;
     flex-flow: column;

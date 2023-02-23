@@ -1,4 +1,4 @@
-.Container {
+.Categories {
   display: flex;
   flex-flow: column;
   position: relative;
@@ -10,27 +10,28 @@
   border: 1px solid #dee2e6;
   box-shadow: 0 0.2px 4px #00000013;
   overflow: hidden;
+  margin-right: 20px;
 }
-.Container.Active {
+.Categories.Active {
   height: fit-content;
   padding-bottom: 50px;
 }
-.Title {
+.Categories-Title {
   font-size: 20px;
   font-family: "Vazir Black";
   margin-bottom: 10px;
 }
-.Categorie {
+.Categories-Categorie {
   color: #212121;
   text-decoration: none;
   transition: color 0.2s;
   margin-top: 5px;
   width: fit-content;
 }
-.Categorie:hover {
+.Categories-Categorie:hover {
   color: #5660f2;
 }
-.More {
+.Categories-More {
   display: flex;
   position: absolute;
   background-color: #fff;
@@ -42,9 +43,16 @@
   padding: 10px 20px;
   border-radius: 5px;
 }
-.MoreBtn {
+.Categories-MoreBtn {
   font-family: "Vazir Bold";
   font-size: 14px;
   color: #007bff;
   cursor: pointer;
+}
+@media screen and (max-width: 992px) {
+  .Categories {
+    width: 90%;
+    margin-right: 0px;
+    margin-top: 20px;
+  }
 }

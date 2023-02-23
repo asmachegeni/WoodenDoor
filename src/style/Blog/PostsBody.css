@@ -5,3 +5,9 @@
   row-gap: 40px;
   column-gap: 20px;
 }
+@media screen and (max-width:992px) {
+  .PostsBody {
+    width: 100%;
+    justify-content: center;
+  }
+}
