@@ -4,34 +4,35 @@
   flex-flow: column;
   border-radius: 10px;
   box-shadow: 0 0 5px #0000001a;
+  background-color: #fff;
 }
-.Cover {
+.PostBox-Cover {
   width: 100%;
   height: 250px;
   object-fit: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.Cover a {
+.PostBox-Cover a {
   width: 100%;
   height: 100%;
   border-radius: inherit;
 }
-.Cover a img {
+.PostBox-Cover a img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
 }
-.Content {
+.PostBox-Content {
   padding: 15px 10px;
   color: #5c6573;
   text-align: justify;
 }
-.Title {
+.PostBox-Title {
   height: 64px;
 }
-.Title a {
+.PostBox-Title a {
   display: inline-block;
   text-decoration: none;
   color: #000;
@@ -40,18 +41,18 @@
 
   line-height: 20px;
 }
-.Description {
+.PostBox-Description {
   height: 90px;
   margin-top: 5px;
   font-size: 14px;
 }
-.BtnContainer {
+.PostBox-BtnContainer {
   width: 100%;
   height: 42px;
   margin-top: 5px;
   text-align: left;
 }
-.ReadMoreBtn {
+.PostBox-ReadMoreBtn {
   display: inline-block;
   text-decoration: none;
   background-color: #fff;
@@ -62,16 +63,16 @@
   font-size: 14px;
   transition: all 0.2s;
 }
-.ReadMoreBtn:hover {
+.PostBox-ReadMoreBtn:hover {
   background-color: #5660f2;
   color: #fff;
 }
-.Author {
+.PostBox-Author {
   display: block;
   margin-top: 20px;
   font-size: 12px;
 }
-.Author a {
+.PostBox-Author a {
   display: inline-block;
   margin-right: 5px;
   text-decoration: none;
@@ -79,28 +80,28 @@
   font-size: 12px;
   transition: all 0.2s;
 }
-.Author a:hover {
+.PostBox-Author a:hover {
   color: #5660f2;
 }
-.Footer {
+.PostBox-Footer {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
   margin-top: 5px;
 }
-.Date {
+.PostBox-Date {
   font-size: 12px;
 }
-.Comments {
+.PostBox-Comments {
   display: flex;
   flex-flow: row;
   align-items: center;
 }
-.CommenttIcon {
+.PostBox-CommenttIcon {
   font-size: 14px;
 }
-.CommentsCount {
+.PostBox-CommentsCount {
   margin-right: 5px;
   font-size: 12px;
 }

@@ -3,15 +3,14 @@ import "../../style/Blog/Categories.css";
 import { Cats } from "../../assets/ExampleData.js";
 
 const Categories = () => {
-  const [Container, SetContainer] = useState("Container");
+  const [Container, SetContainer] = useState("Categories");
   const [BtnValue, SetBtnValue] = useState("بیشتر +");
   const [Links, SetLink] = useState([]);
   useEffect(() => {
-    console.log("hoora");
     const array = [];
     Cats.map((item, index) => {
       array.push(
-        <a key={index} href={item.url} className="Categorie">
+        <a key={index} href={item.url} className="Categories-Categorie">
           {item.name}
         </a>
       );
@@ -20,20 +19,20 @@ const Categories = () => {
   }, []);
 
   function ContainerActivator() {
-    if (Container == "Container") {
-      SetContainer("Container Active");
+    if (Container == "Categories") {
+      SetContainer("Categories Active");
       SetBtnValue("کمتر -");
     } else {
-      SetContainer("Container");
+      SetContainer("Categories");
       SetBtnValue("بیشتر +");
     }
   }
   return (
     <div className={Container}>
-      <span className="Title">دسته ها:</span>
+      <span className="Categories-Title">دسته ها:</span>
       {Links}
-      <div className="More">
-        <span className="MoreBtn" onClick={ContainerActivator}>
+      <div className="Categories-More">
+        <span className="Categories-MoreBtn" onClick={ContainerActivator}>
           {BtnValue}
         </span>
       </div>

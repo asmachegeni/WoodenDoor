@@ -1,0 +1,25 @@
+.PostPage {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: #f6f7f9;
+}
+.PostPage-Container {
+  display: flex;
+  width: 100%;
+  flex-flow: row;
+  justify-content: center;
+  background-color: #fff;
+  margin-top: 10px;
+}
+.PostPage-Wrapper {
+  display: flex;
+  width: 80%;
+  flex-flow: row;
+  padding: 40px 0;
+}
+@media screen and (max-width: 992px) {
+  .PostPage-Wrapper {
+    flex-flow: column;
+  }
+}

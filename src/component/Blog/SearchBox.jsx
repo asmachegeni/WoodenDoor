@@ -4,7 +4,7 @@ const SearchBox = () => {
   return (
     <div className="SeachBox">
       <span>همه مطالب</span>
-      <form action="/" role="search" method="GET" className="Form">
+      <form action="/" role="search" method="GET" className="SeachBox-Form">
         <input type="text" name="s" placeholder="جستجو..." />
         <button type="submit">
           <IoMdSearch></IoMdSearch>

@@ -1,34 +1,34 @@
 import "../../style/Blog/CommentForm.css";
 const CommentForm = (props) => {
   return (
-    <div className="Container">
-      <span className="Title">نظر خود را درباره این پست بنویسید.</span>
-      <form action="#" method="post" className="Form">
-        <div className="Inputs">
-          <div className="Col-1">
+    <div className="CommentForm">
+      <span className="CommentForm-Title">نظر خود را درباره این پست بنویسید.</span>
+      <form action="#" method="post" className="CommentForm-Form">
+        <div className="CommentForm-Inputs">
+          <div className="CommentForm-Col-1">
             <input
               type="text"
-              id="UserName"
+              id="CommentForm-UserName"
               value={props.username}
               disabled
             />
             <input
               type="email"
-              id="Email"
+              id="CommentForm-Email"
               value={props.email}
               disabled
             />
           </div>
-          <div className="Col-2">
+          <div className="CommentForm-Col-2">
             <textarea
-              id="CommentText"
+              id="CommentForm-CommentText"
               placeholder="نظر شما..."
               required
             ></textarea>
           </div>
         </div>
-        <div className="BtnContainer">
-          <input type="submit" value="ارسال" className="SendBtn" />
+        <div className="CommentForm-BtnContainer">
+          <input type="submit" value="ارسال" className="CommentForm-SendBtn" />
         </div>
       </form>
     </div>

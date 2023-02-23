@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import image from "../../assets/img/ArticleCoverExample.jpg";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useState } from "react";
+import { PostsData } from "../../assets/ExampleData.js";
 
 const SlideBox = (props) => {
   const [Slides, SetSlides] = useState([
@@ -16,7 +17,6 @@ const SlideBox = (props) => {
       description: "این یک متن آزمایشی است",
     },
   ]);
-
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -49,8 +49,8 @@ const SlideBox = (props) => {
       <Slider {...settings}>
         {Slides.map((item, index) => {
           return (
-            <div className="Slide" key={index}>
-              <div className="Col-1">
+            <div className="SlideBox-Slide" key={index}>
+              <div className="SlideBox-Col1">
                 <img src={item.coveruri} />
               </div>
               <div className="Col-2">

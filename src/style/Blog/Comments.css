@@ -1,0 +1,127 @@
+.Comments {
+  display: flex;
+  width: 80%;
+  flex-flow: column;
+  box-shadow: 0 2px 4px #00000013;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+.Comments-Header {
+  display: flex;
+  width: 100%;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 3px solid #5660f2;
+}
+.Comments-Title {
+  font-family: "Vazir Bold";
+  font-size: 20px;
+}
+.Comments-CommentsCount {
+  color: #5c6573;
+  font-size: 12px;
+}
+.Comments-Comment {
+  display: flex;
+  flex-flow: column;
+  margin: 10px 20px;
+  background-color: #fafafa;
+  border-radius: 10px;
+}
+.Comments-Comment.Replay2 {
+  margin: 10px 80px 10px 5px;
+  background-color: #f5f5f5;
+}
+.Comments-Comment.Replay3 {
+  margin: 10px 160px 10px 5px;
+  background-color: #ececec;
+}
+.Comments-CommentContainer {
+  display: flex;
+  width: 100%;
+  flex-flow: row;
+  padding: 10px;
+}
+.Comments-Col-1 {
+  display: flex;
+  flex-flow: column;
+}
+.Comments-Col-2 {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  padding: 0 10px 0 5px;
+}
+.Comments-Avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 5px;
+}
+.Comments-CommentHead {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #eef0f4;
+}
+.Comments-UserNick {
+  font-size: 14px;
+  transition: all 0.2s;
+  cursor: default;
+}
+.Comments-UserNick:hover {
+  color: #5660f2;
+}
+.Comments-Date {
+  color: #5c6573;
+  font-size: 12px;
+}
+.Comments-CommentText {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.Comments-CommentFoot {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin-right: 70px;
+  padding: 5px 10px;
+}
+.Comments-LikesContainer {
+  display: flex;
+  width: 80px;
+
+  flex-flow: row;
+  justify-content: space-between;
+}
+.Comments-LikesContainer span {
+  font-size: 12px;
+}
+.Comments-LikesCount {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 3px;
+}
+.Comments-DisLikesCount {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 3px;
+}
+.Comments-LikeIcon {
+  color: green;
+}
+.Comments-DisLikeIcon {
+  color: red;
+}
+.Comments-ReplayBtn {
+  border: none;
+  padding: 8px 30px;
+  border-radius: 4px;
+  background-color: #5660f2;
+  color: #fff;
+}

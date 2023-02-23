@@ -1,4 +1,4 @@
-.Container {
+.CommentForm {
   display: flex;
   width: 80%;
   flex-flow: column;
@@ -6,53 +6,55 @@
   box-shadow: 0 0.125rem 0.25rem #00000013;
   border-radius: 5px;
   padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
-.Title {
+.CommentForm-Title {
   width: 100%;
   margin-right: 10px;
   font-family: "Vazir Bold";
   font-size: 16px;
 }
-.Form {
+.CommentForm-Form {
   display: flex;
   width: 100%;
   flex-flow: column;
   margin-top: 10px;
 }
-.Inputs {
+.CommentForm-Inputs {
   display: flex;
   flex-flow: row;
   gap: 15px;
 }
-input[type="text"],
-input[type="email"],
-textarea {
+.CommentForm-Inputs input[type="text"],
+.CommentForm-Inputs input[type="email"],
+.CommentForm-Inputs textarea {
   background-color: #f8f9fa;
   border: 1px solid #eef0f4;
   border-radius: 10px;
   font-size: 14px;
   padding: 10px 20px;
 }
-.Col-1 {
+.CommentForm-Col-1 {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
   flex: 2;
 }
-.Col-1 input {
+.CommentForm-Col-1 input {
   height: 42px;
 }
 
-.Col-2 {
+.CommentForm-Col-2 {
   display: flex;
   flex-flow: column;
   flex: 4;
 }
-.Col-2 textarea {
+.CommentForm-Col-2 textarea {
   height: 100px;
   resize: none;
 }
-.BtnContainer {
+.CommentForm-BtnContainer {
   display: flex;
   width: 100%;
   margin-top: 10px;
@@ -60,11 +62,16 @@ textarea {
   align-items: center;
   justify-content: end;
 }
-.SendBtn {
+.CommentForm-SendBtn {
   padding: 8px 50px;
   background-color: #54b7a6;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  .CommentForm-Col-1 input {
+    width: 120px;
+  }
 }
