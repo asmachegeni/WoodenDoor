@@ -89,7 +89,13 @@
   .CompanyContainer .UploadFile{
     display: none;
   }
-  
+  .Warning {
+    padding-top: 0 !important;
+    font-size: 12px !important;
+    color: red !important;
+    display: none;
+  }
+
   @media screen and (max-width: 992px) {
     .CompanyContainer {
       width: 40%;

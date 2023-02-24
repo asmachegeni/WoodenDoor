@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { useLocation, Link } from "react-router";
-import "./../../style/RegistersForm/Employee.css";
-import AxiosUrl from "../BaseUrl";
+import "../../style/RegistersForm/Employee.css";
 const Employee = () => {
-  const Location = useLocation();
   const [months, setmonth] = useState([
     "فروردین",
     "اردیبهشت",
@@ -452,38 +449,6 @@ const Employee = () => {
   const [address, setaddress] = useState("");
   const [bio, setbio] = useState("");
   const [MilitaryStatus, setMilitaryStatu] = useState("");
-  const RegisterEmployee = () => {
-    AxiosUrl.get("/sanctum/csrf-cookie", {
-      headers: {
-        credentials: "same-origin",
-      },
-    }).then(() => {
-      AxiosUrl.post(
-        "/api/sign-up",
-        {
-          username: Location.state.username,
-          email: Location.state.email,
-          password: Location.state.password,
-          first_name: name,
-          last_name: lastname,
-          sex: sex,
-          type: true,
-          province: usercity,
-          address: address,
-        },
-        {
-          headers: {
-            credentials: "same-origin",
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      ).then((res) => {
-        console.log(res);
-        // navigete to panel
-      });
-    });
-  };
   return (
     <div className="Employee">
       <div className="EmployeeContainer">
@@ -499,6 +464,7 @@ const Employee = () => {
             setname(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>نام خانوادگی</span>
         <input
           className="Employee-lastname"
@@ -509,6 +475,7 @@ const Employee = () => {
             setlastname(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>شماره تلفن</span>
         <input
           className="Employee-tel"
@@ -518,6 +485,7 @@ const Employee = () => {
             settel(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>نام مستعار</span>
         <input
           className="Employee-nickname"
@@ -527,6 +495,7 @@ const Employee = () => {
             setnickname(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>جنسیت</span>
         <select
           name="sex"
@@ -578,6 +547,7 @@ const Employee = () => {
               ))}
           </select>
         </div>
+        <span className="Warning">اشتباه است</span>
         <span>استان</span>
         <select
           name="province"
@@ -593,6 +563,7 @@ const Employee = () => {
               </option>
             ))}
         </select>
+        <span className="Warning">اشتباه است</span>
         <span>شهر</span>
         <select
           name="city"
@@ -609,6 +580,7 @@ const Employee = () => {
               </option>
             ))}
         </select>
+        <span className="Warning">اشتباه است</span>
         {/* <span>حدافل حقوق درخواستی</span>
         <input
           className="Employee-minsalary"
@@ -618,7 +590,7 @@ const Employee = () => {
             setminsalary(e.target.value);
           }}
         /> */}
-      {/* {sex && <span>وضعیت نظام وظیفه</span>}
+        {/* {sex && <span>وضعیت نظام وظیفه</span>}
         {sex && (
           <select
             name="MilitaryStatus"
@@ -634,15 +606,16 @@ const Employee = () => {
             <option value={3}>پایان خدمت</option>
           </select>
         )} */}
-      <span>آدرس محل سکونت</span>
-      <textarea
-        className="Employee-address"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setaddress(e.target.value);
-        }}
-      ></textarea>
-      {/* <span>جند جمله درباره خودتان</span>
+        <span>آدرس محل سکونت</span>
+        <textarea
+          className="Employee-address"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setaddress(e.target.value);
+          }}
+        ></textarea>
+        <span className="Warning">اشتباه است</span>
+        {/* <span>جند جمله درباره خودتان</span>
         <textarea
           className="Employee-about"
           onChange={(e) => {
@@ -650,8 +623,9 @@ const Employee = () => {
             setbio(e.target.value);
           }}
         ></textarea> */}
-      {/* </form> */}
-      <button className="EmpBtn" onClick={RegisterEmployee}>ثبت نام</button>
+        {/* </form> */}
+        <button className="EmpBtn">ثبت نام</button>
+      </div>
     </div>
   );
 };

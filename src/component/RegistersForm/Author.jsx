@@ -82,7 +82,7 @@ const Author = () => {
     <div className="Author">
       <div className="AuthorContainer">
         <h1 className="Title">ثبت نام نویسنده</h1>
-        <span>نام </span>
+        <span className="Required">نام </span>
         <input
           type="text"
           required
@@ -91,7 +91,8 @@ const Author = () => {
             setname(e.target.value);
           }}
         />
-        <span>نام خانوادگی</span>
+        <span className="Warning">اشتباه است</span>
+        <span className="Required">نام خانوادگی</span>
         <input
           type="text"
           required
@@ -100,7 +101,8 @@ const Author = () => {
             setlastname(e.target.value);
           }}
         />
-        <span>شماره تلفن</span>
+        <span className="Warning">اشتباه است</span>
+        <span className="Required">شماره تلفن</span>
         <input
           type="tel"
           onChange={(e) => {
@@ -108,6 +110,7 @@ const Author = () => {
             settel(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>نام مستعار</span>
         <input
           type="text"
@@ -116,6 +119,7 @@ const Author = () => {
             setnickname(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>جنسیت</span>
         <select
           name="sex"
@@ -138,7 +142,7 @@ const Author = () => {
           <option value={0}>مجرد</option>
           <option value={1}>متاهل</option>
         </select>
-        <span>ناریخ تولد</span>
+        <span>تاریخ تولد</span>
         <div className="Date">
           <select name="day">
             {days &&
@@ -165,6 +169,7 @@ const Author = () => {
               ))}
           </select>
         </div>
+        <span className="Warning">اشتباه است</span>
         <span>جند جمله درباره خودتان</span>
         <textarea
           className="Employee-about"
@@ -173,6 +178,7 @@ const Author = () => {
             setbio(e.target.value);
           }}
         ></textarea>
+        <span className="Warning">اشتباه است</span>
         <button className="EmpBtn">ثبت نام</button>
       </div>
     </div>

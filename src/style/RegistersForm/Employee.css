@@ -86,7 +86,12 @@
   padding-top: 8px;
   padding-right: 8px;
 }
-
+.Warning {
+  padding-top: 0 !important;
+  font-size: 12px !important;
+  color: red !important;
+  display: none;
+}
 @media screen and (max-width: 992px) {
   .EmployeeContainer {
     width: 40%;

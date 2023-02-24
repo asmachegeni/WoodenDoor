@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import "./../../style/RegistersForm/Employer.css";
-import { Link, useLocation } from "react-router-dom";
-import { type } from "@testing-library/user-event/dist/type";
+import "../../style/RegistersForm/Employer.css";
 const Employer = () => {
   const [months, setmonth] = useState([
     "فروردین",
@@ -80,7 +78,6 @@ const Employer = () => {
   const [address, setaddress] = useState("");
   const [bio, setbio] = useState("");
   const [MilitaryStatus, setMilitaryStatu] = useState("");
-  const Loaction = useLocation();
   return (
     <div className="Employer">
       <div className="EmployerContainer">
@@ -94,6 +91,7 @@ const Employer = () => {
             setname(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>نام خانوادگی</span>
         <input
           type="text"
@@ -103,6 +101,7 @@ const Employer = () => {
             setlastname(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>شماره تلفن</span>
         <input
           type="tel"
@@ -111,6 +110,7 @@ const Employer = () => {
             settel(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>نام مستعار</span>
         <input
           type="text"
@@ -119,6 +119,7 @@ const Employer = () => {
             setnickname(e.target.value);
           }}
         />
+        <span className="Warning">اشتباه است</span>
         <span>جنسیت</span>
         <select
           name="sex"
@@ -168,6 +169,7 @@ const Employer = () => {
               ))}
           </select>
         </div>
+        <span className="Warning">اشتباه است</span>
         <span>جند جمله درباره خودتان</span>
         <textarea
           className="Employee-about"
@@ -176,30 +178,9 @@ const Employer = () => {
             setbio(e.target.value);
           }}
         ></textarea>
+        <span className="Warning">اشتباه است</span>
         <button className="EmpBtn">ادامه</button>
       </div>
-      <span>جند جمله درباره خودتان</span>
-      <textarea
-        className="Employee-about"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setbio(e.target.value);
-        }}
-      ></textarea>
-      <Link
-        className="EmpBtn"
-        to={"/Company"}
-        state={{
-          name: name,
-          lastname: lastname,
-          sex: sex,
-          type: false,
-          email: Loaction.state.email,
-          password: Loaction.state.password,
-        }}
-      >
-        ادامه
-      </Link>
     </div>
   );
 };
