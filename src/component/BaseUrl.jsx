@@ -1,5 +1,5 @@
 import axios from "axios";
-const Axios = axios.create({
-  baseURL: "https://asmachegeni.ir",
+const AxiosUrl = axios.create({
+  baseURL: "https://fokolapp.ir",
 });
-export default Axios;
+export default AxiosUrl;

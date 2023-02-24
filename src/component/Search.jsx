@@ -5,53 +5,873 @@ import Provinces from "../assets/Provinces.json";
 import Cities from "../assets/Cities.json";
 import React, { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { Ref , useRef } from "react";
+import { Ref, useRef } from "react";
+import Select from "react-select";
 const Search = () => {
+  const optionList = [
+    { value: "آذرشهر", label: "آذرشهر" },
+    ,
+    { value: "اسکو", label: "اسکو" },
+    { value: "اهر", label: "اهر" },
+    { value: "بستان‌آباد", label: "بستان‌آباد" },
+    { value: "بناب", label: "بناب" },
+    { value: "تبریز", label: "تبریز" },
+    { value: "جلفا", label: "جلفا" },
+    { value: "چاراویماق", label: "چاراویماق" },
+    { value: "سراب", label: "سراب" },
+    { value: "شبستر", label: "شبستر" },
+    { value: "مراغه", label: "مراغه" },
+    { value: "ارومیه", label: "ارومیه" },
+    { value: "اشنویه", label: "اشنویه" },
+    { value: "بوکان", label: "بوکان" },
+    { value: "پیرانشهر", label: "پیرانشهر" },
+    { value: "تکاب", label: "تکاب" },
+    { value: "چالدران", label: "چالدران" },
+    { value: "خوی", label: "خوی" },
+    { value: "سردشت", label: "سردشت" },
+    { value: "سلماس", label: "سلماس" },
+    { value: "شاهین‌دژ", label: "شاهین‌دژ" },
+    { value: "ماکو", label: "ماکو" },
+    { value: "مهاباد", label: "مهاباد" },
+    { value: "میاندوآب", label: "میاندوآب" },
+    { value: "نقده", label: "نقده" },
+    { value: "اردبیل", label: "اردبیل" },
+    { value: "بیله‌سوار", label: "بیله‌سوار" },
+    { value: "پارس‌آباد", label: "پارس‌آباد" },
+    { value: "خلخال", label: "خلخال" },
+    { value: "کوثر", label: "کوثر" },
+    { value: "گِرمی", label: "گِرمی" },
+    { value: "مِشگین‌شهر", label: "مِشگین‌شهر" },
+    { value: "نَمین", label: "نَمین" },
+    { value: "نیر", label: "نیر" },
+    { value: "آران و بیدگل", label: "آران و بیدگل" },
+    { value: "اردستان", label: "اردستان" },
+    { value: "اصفهان", label: "اصفهان" },
+    { value: "برخوار و میمه", label: "برخوار و میمه" },
+    { value: "تیران و کرون", label: "تیران و کرون" },
+    { value: "چادگان", label: "چادگان" },
+    { value: "خمینی‌شهر", label: "خمینی‌شهر" },
+    { value: "خوانسار", label: "خوانسار" },
+    { value: "سمیرم", label: "سمیرم" },
+    { value: "شهرضا", label: "شهرضا" },
+    { value: "سمیرم سفلی", label: "سمیرم سفلی" },
+    { value: "فریدن", label: "فریدن" },
+    { value: "فریدون‌شهر", label: "فریدون‌شهر" },
+    { value: "فلاورجان", label: "فلاورجان" },
+    { value: "کاشان", label: "کاشان" },
+    { value: "گلپایگان", label: "گلپایگان" },
+    { value: "لنجان", label: "لنجان" },
+    { value: "مبارکه", label: "مبارکه" },
+    { value: "نائین", label: "نائین" },
+    { value: "نجف‌آباد", label: "نجف‌آباد" },
+    { value: "نطنز", label: "نطنز" },
+    { value: "آبدانان", label: "آبدانان" },
+    { value: "ایلام", label: "ایلام" },
+    { value: "ایوان", label: "ایوان" },
+    { value: "دره‌شهر", label: "دره‌شهر" },
+    { value: "دهلران", label: "دهلران" },
+    { value: "شیروان و چرداول", label: "شیروان و چرداول" },
+    { value: "مهران", label: "مهران" },
+    { value: "بوشهر", label: "بوشهر" },
+    { value: "تنگستان", label: "تنگستان" },
+    { value: "جم", label: "جم" },
+    { value: "دشتستان", label: "دشتستان" },
+    { value: "دشتی", label: "دشتی" },
+    { value: "دیر", label: "دیر" },
+    { value: "دیلم", label: "دیلم" },
+    { value: "کنگان", label: "کنگان" },
+    { value: "گناوه", label: "گناوه" },
+    { value: "اسلام‌شهر", label: "اسلام‌شهر" },
+    { value: "پاکدشت", label: "پاکدشت" },
+    { value: "تهران", label: "تهران" },
+    { value: "دماوند", label: "دماوند" },
+    { value: "رباط‌کریم", label: "رباط‌کریم" },
+    { value: "ری", label: "ری" },
+    { value: "ساوجبلاغ", label: "ساوجبلاغ" },
+    { value: "شمیرانات", label: "شمیرانات" },
+    { value: "شهریار", label: "شهریار" },
+    { value: "فیروزکوه", label: "فیروزکوه" },
+    { value: "ورامین", label: "ورامین" },
+    { value: "اردل", label: "اردل" },
+    { value: "بروجن", label: "بروجن" },
+    { value: "شهرکرد", label: "شهرکرد" },
+    { value: "فارسان", label: "فارسان" },
+    { value: "کوهرنگ", label: "کوهرنگ" },
+    { value: "لردگان", label: "لردگان" },
+    { value: "بیرجند", label: "بیرجند" },
+    { value: "درمیان", label: "درمیان" },
+    { value: "سرایان", label: "سرایان" },
+    { value: "سربیشه", label: "سربیشه" },
+    { value: "فردوس", label: "فردوس" },
+    { value: "قائنات", label: "قائنات" },
+    { value: "نهبندان", label: "نهبندان" },
+    { value: "بردسکن", label: "بردسکن" },
+    { value: "تایباد", label: "تایباد" },
+    { value: "تربت جام", label: "تربت جام" },
+    { value: "تربت حیدریه", label: "تربت حیدریه" },
+    { value: "چناران", label: "چناران" },
+    { value: "خلیل‌آباد", label: "خلیل‌آباد" },
+    { value: "خواف", label: "خواف" },
+    { value: "درگز", label: "درگز" },
+    { value: "رشتخوار", label: "رشتخوار" },
+    { value: "سبزوار", label: "سبزوار" },
+    { value: "سرخس", label: "سرخس" },
+    { value: "فریمان", label: "فریمان" },
+    { value: "قوچان", label: "قوچان" },
+    { value: "کاشمر", label: "کاشمر" },
+    { value: "کلات", label: "کلات" },
+    { value: "گناباد", label: "گناباد" },
+    { value: "مشهد", label: "مشهد" },
+    { value: "مه ولات", label: "مه ولات" },
+    { value: "نیشابور", label: "نیشابور" },
+    { value: "اسفراین", label: "اسفراین" },
+    { value: "بجنورد", label: "بجنورد" },
+    { value: "جاجرم", label: "جاجرم" },
+    { value: "شیروان", label: "شیروان" },
+    { value: "فاروج", label: "فاروج" },
+    { value: "مانه و سملقان", label: "مانه و سملقان" },
+    { value: "آبادان", label: "آبادان" },
+    { value: "امیدیه", label: "امیدیه" },
+    { value: "اندیمشک", label: "اندیمشک" },
+    { value: "اهواز", label: "اهواز" },
+    { value: "ایذه", label: "ایذه" },
+    { value: "باغ‌ملک", label: "باغ‌ملک" },
+    { value: "بندر ماهشهر", label: "بندر ماهشهر" },
+    { value: "بهبهان", label: "بهبهان" },
+    { value: "خرمشهر", label: "خرمشهر" },
+    { value: "دزفول", label: "دزفول" },
+    { value: "دشت آزادگان", label: "دشت آزادگان" },
+    { value: "رامشیر", label: "رامشیر" },
+    { value: "رامهرمز", label: "رامهرمز" },
+    { value: "شادگان", label: "شادگان" },
+    { value: "شوش", label: "شوش" },
+    { value: "شوشتر", label: "شوشتر" },
+    { value: "ابهر", label: "ابهر" },
+    { value: "ایجرود", label: "ایجرود" },
+    { value: "خدابنده", label: "خدابنده" },
+    { value: "خرمدره", label: "خرمدره" },
+    { value: "زنجان", label: "زنجان" },
+    { value: "طارم", label: "طارم" },
+    { value: "ماه‌نشان", label: "ماه‌نشان" },
+    { value: "دامغان", label: "دامغان" },
+    { value: "سمنان", label: "سمنان" },
+    { value: "شاهرود", label: "شاهرود" },
+    { value: "گرمسار", label: "گرمسار" },
+    { value: "مهدی‌شهر", label: "مهدی‌شهر" },
+    { value: "ایرانشهر", label: "ایرانشهر" },
+    { value: "چابهار", label: "چابهار" },
+    { value: "خاش", label: "خاش" },
+    { value: "دلگان", label: "دلگان" },
+    { value: "زابل", label: "زابل" },
+    { value: "زاهدان", label: "زاهدان" },
+    { value: "زهک", label: "زهک" },
+    { value: "سراوان", label: "سراوان" },
+    { value: "سرباز", label: "سرباز" },
+    { value: "کنارک", label: "کنارک" },
+    { value: "نیک‌شهر", label: "نیک‌شهر" },
+    { value: "آباده", label: "آباده" },
+    { value: "ارسنجان", label: "ارسنجان" },
+    { value: "استهبان", label: "استهبان" },
+    { value: "اقلید", label: "اقلید" },
+    { value: "بوانات", label: "بوانات" },
+    { value: "پاسارگاد", label: "پاسارگاد" },
+    { value: "جهرم", label: "جهرم" },
+    { value: "خرم‌بید", label: "خرم‌بید" },
+    { value: "خنج", label: "خنج" },
+    { value: "داراب", label: "داراب" },
+    { value: "زرین‌دشت", label: "زرین‌دشت" },
+    { value: "سپیدان", label: "سپیدان" },
+    { value: "شیراز", label: "شیراز" },
+    { value: "فراشبند", label: "فراشبند" },
+    { value: "فسا", label: "فسا" },
+    { value: "فیروزآباد", label: "فیروزآباد" },
+    { value: "قیر و کارزین", label: "قیر و کارزین" },
+    { value: "کازرون", label: "کازرون" },
+    { value: "لارستان", label: "لارستان" },
+    { value: "لامِرد", label: "لامِرد" },
+    { value: "مرودشت", label: "مرودشت" },
+    { value: "ممسنی", label: "ممسنی" },
+    { value: "مهر", label: "مهر" },
+    { value: "نی‌ریز", label: "نی‌ریز" },
+    { value: "آبیک", label: "آبیک" },
+    { value: "البرز", label: "البرز" },
+    { value: "بوئین‌زهرا", label: "بوئین‌زهرا" },
+    { value: "تاکستان", label: "تاکستان" },
+    { value: "قزوین", label: "قزوین" },
+    { value: "قم", label: "قم" },
+    { value: "بانه", label: "بانه" },
+    { value: "بیجار", label: "بیجار" },
+    { value: "دیواندره", label: "دیواندره" },
+    { value: "سروآباد", label: "سروآباد" },
+    { value: "سقز", label: "سقز" },
+    { value: "سنندج", label: "سنندج" },
+    { value: "قروه", label: "قروه" },
+    { value: "کامیاران", label: "کامیاران" },
+    { value: "مریوان", label: "مریوان" },
+    { value: "بافت", label: "بافت" },
+    { value: "بردسیر", label: "بردسیر" },
+    { value: "بم", label: "بم" },
+    { value: "جیرفت", label: "جیرفت" },
+    { value: "راور", label: "راور" },
+    { value: "رفسنجان", label: "رفسنجان" },
+    { value: "رودبار جنوب", label: "رودبار جنوب" },
+    { value: "زرند", label: "زرند" },
+    { value: "سیرجان", label: "سیرجان" },
+    { value: "شهر بابک", label: "شهر بابک" },
+    { value: "عنبرآباد", label: "عنبرآباد" },
+    { value: "قلعه گنج", label: "قلعه گنج" },
+    { value: "کرمان", label: "کرمان" },
+    { value: "کوهبنان", label: "کوهبنان" },
+    { value: "کهنوج", label: "کهنوج" },
+    { value: "منوجان", label: "منوجان" },
+    { value: "اسلام‌آباد غرب", label: "اسلام‌آباد غرب" },
+    { value: "پاوه", label: "پاوه" },
+    { value: "ثلاث باباجانی", label: "ثلاث باباجانی" },
+    { value: "جوانرود", label: "جوانرود" },
+    { value: "دالاهو", label: "دالاهو" },
+    { value: "روانسر", label: "روانسر" },
+    { value: "سرپل ذهاب", label: "سرپل ذهاب" },
+    { value: "سنقر", label: "سنقر" },
+    { value: "صحنه", label: "صحنه" },
+    { value: "قصر شیرین", label: "قصر شیرین" },
+    { value: "کرمانشاه", label: "کرمانشاه" },
+    { value: "کنگاور", label: "کنگاور" },
+    { value: "گیلان غرب", label: "گیلان غرب" },
+    { value: "هرسین", label: "هرسین" },
+    { value: "بویراحمد", label: "بویراحمد" },
+    { value: "بهمئی", label: "بهمئی" },
+    { value: "دنا", label: "دنا" },
+    { value: "کهگیلویه", label: "کهگیلویه" },
+    { value: "گچساران", label: "گچساران" },
+    { value: "آزادشهر", label: "آزادشهر" },
+    { value: "آق‌قلا", label: "آق‌قلا" },
+    { value: "بندر گز", label: "بندر گز" },
+    { value: "ترکمن", label: "ترکمن" },
+    { value: "رامیان", label: "رامیان" },
+    { value: "علی‌آباد", label: "علی‌آباد" },
+    { value: "کردکوی", label: "کردکوی" },
+    { value: "کلاله", label: "کلاله" },
+    { value: "گرگان", label: "گرگان" },
+    { value: "گنبد کاووس", label: "گنبد کاووس" },
+    { value: "مراوه‌تپه", label: "مراوه‌تپه" },
+    { value: "مینودشت", label: "مینودشت" },
+    { value: "آستارا", label: "آستارا" },
+    { value: "آستانه اشرفیه", label: "آستانه اشرفیه" },
+    { value: "اَملَش", label: "اَملَش" },
+    { value: "بندر انزلی", label: "بندر انزلی" },
+    { value: "رشت", label: "رشت" },
+    { value: "رضوانشهر", label: "رضوانشهر" },
+    { value: "رودبار", label: "رودبار" },
+    { value: "رودسر", label: "رودسر" },
+    { value: "سیاهکل", label: "سیاهکل" },
+    { value: "شَفت", label: "شَفت" },
+    { value: "صومعه‌سرا", label: "صومعه‌سرا" },
+    { value: "طوالش", label: "طوالش" },
+    { value: "فومَن", label: "فومَن" },
+    { value: "لاهیجان", label: "لاهیجان" },
+    { value: "لنگرود", label: "لنگرود" },
+    { value: "ماسال", label: "ماسال" },
+    { value: "ازنا", label: "ازنا" },
+    { value: "الیگودرز", label: "الیگودرز" },
+    { value: "بروجرد", label: "بروجرد" },
+    { value: "پل‌دختر", label: "پل‌دختر" },
+    { value: "خرم‌آباد", label: "خرم‌آباد" },
+    { value: "دورود", label: "دورود" },
+    { value: "دلفان", label: "دلفان" },
+    { value: "سلسله ,کوهدشت", label: "سلسله ,کوهدشت" },
+    { value: "آمل", label: "آمل" },
+    { value: "بابل", label: "بابل" },
+    { value: "بابلسر", label: "بابلسر" },
+    { value: "بهشهر", label: "بهشهر" },
+    { value: "تنکابن", label: "تنکابن" },
+    { value: "جویبار", label: "جویبار" },
+    { value: "چالوس", label: "چالوس" },
+    { value: "رامسر", label: "رامسر" },
+    { value: "ساری", label: "ساری" },
+    { value: "سوادکوه", label: "سوادکوه" },
+    { value: "قائم‌شهر", label: "قائم‌شهر" },
+    { value: "گلوگاه", label: "گلوگاه" },
+    { value: "محمودآباد", label: "محمودآباد" },
+    { value: "نکا", label: "نکا" },
+    { value: "نور", label: "نور" },
+    { value: "نوشهر", label: "نوشهر" },
+    { value: "آشتیان", label: "آشتیان" },
+    { value: "اراک", label: "اراک" },
+    { value: "تفرش", label: "تفرش" },
+    { value: "خمین", label: "خمین" },
+    { value: "دلیجان", label: "دلیجان" },
+    { value: "زرندیه", label: "زرندیه" },
+    { value: "ساوه", label: "ساوه" },
+    { value: "شازند", label: "شازند" },
+    { value: "کمیجان", label: "کمیجان" },
+    { value: "محلات", label: "محلات" },
+    { value: "ابوموسی", label: "ابوموسی" },
+    { value: "بستک", label: "بستک" },
+    { value: "بندر عباس", label: "بندر عباس" },
+    { value: "بندر لنگه", label: "بندر لنگه" },
+    { value: "جاسک", label: "جاسک" },
+    { value: "حاجی‌آباد", label: "حاجی‌آباد" },
+    { value: "شهرستان خمیر", label: "شهرستان خمیر" },
+    { value: "رودان", label: "رودان" },
+    { value: "قشم", label: "قشم" },
+    { value: "گاوبندی", label: "گاوبندی" },
+    { value: "میناب", label: "میناب" },
+    { value: "اسدآباد", label: "اسدآباد" },
+    { value: "بهار", label: "بهار" },
+    { value: "تویسرکان", label: "تویسرکان" },
+    { value: "رزن", label: "رزن" },
+    { value: "کبودرآهنگ", label: "کبودرآهنگ" },
+    { value: "ملایر", label: "ملایر" },
+    { value: "نهاوند", label: "نهاوند" },
+    { value: "همدان", label: "همدان" },
+    { value: "ابرکوه", label: "ابرکوه" },
+    { value: "اردکان", label: "اردکان" },
+    { value: "بافق", label: "بافق" },
+    { value: "تفت", label: "تفت" },
+    { value: "خاتم", label: "خاتم" },
+    { value: "صدوق", label: "صدوق" },
+    { value: "طبس", label: "طبس" },
+    { value: "مهریز", label: "مهریز" },
+    { value: "مِیبُد", label: "مِیبُد" },
+    { value: "یزد", label: "یزد" },
+    { value: "کرج", label: "کرج" },
+    { value: "نظرآباد", label: "نظرآباد" },
+    { value: "فردیس", label: "فردیس" },
+    { value: "اشتهارد", label: "اشتهارد" },
+    { value: "هشتگرد", label: "هشتگرد" },
+    { value: "طالقان", label: "طالقان" },
+    { value: "آذرشهر", label: "آذرشهر" },
+    { value: "اسکو", label: "اسکو" },
+    { value: "اهر", label: "اهر" },
+    { value: "بستان‌آباد", label: "بستان‌آباد" },
+    { value: "بناب", label: "بناب" },
+    { value: "تبریز", label: "تبریز" },
+    { value: "جلفا", label: "جلفا" },
+    { value: "چاراویماق", label: "چاراویماق" },
+    { value: "سراب", label: "سراب" },
+    { value: "شبستر", label: "شبستر" },
+    { value: "مراغه", label: "مراغه" },
+    { value: "ارومیه", label: "ارومیه" },
+    { value: "اشنویه", label: "اشنویه" },
+    { value: "بوکان", label: "بوکان" },
+    { value: "پیرانشهر", label: "پیرانشهر" },
+    { value: "تکاب", label: "تکاب" },
+    { value: "چالدران", label: "چالدران" },
+    { value: "خوی", label: "خوی" },
+    { value: "سردشت", label: "سردشت" },
+    { value: "سلماس", label: "سلماس" },
+    { value: "شاهین‌دژ", label: "شاهین‌دژ" },
+    { value: "ماکو", label: "ماکو" },
+    { value: "مهاباد", label: "مهاباد" },
+    { value: "میاندوآب", label: "میاندوآب" },
+    { value: "نقده", label: "نقده" },
+    { value: "اردبیل", label: "اردبیل" },
+    { value: "بیله‌سوار", label: "بیله‌سوار" },
+    { value: "پارس‌آباد", label: "پارس‌آباد" },
+    { value: "خلخال", label: "خلخال" },
+    { value: "کوثر", label: "کوثر" },
+    { value: "گِرمی", label: "گِرمی" },
+    { value: "مِشگین‌شهر", label: "مِشگین‌شهر" },
+    { value: "نَمین", label: "نَمین" },
+    { value: "نیر", label: "نیر" },
+    { value: "آران و بیدگل", label: "آران و بیدگل" },
+    { value: "اردستان", label: "اردستان" },
+    { value: "اصفهان", label: "اصفهان" },
+    { value: "برخوار و میمه", label: "برخوار و میمه" },
+    { value: "تیران و کرون", label: "تیران و کرون" },
+    { value: "چادگان", label: "چادگان" },
+    { value: "خمینی‌شهر", label: "خمینی‌شهر" },
+    { value: "خوانسار", label: "خوانسار" },
+    { value: "سمیرم", label: "سمیرم" },
+    { value: "شهرضا", label: "شهرضا" },
+    { value: "سمیرم سفلی", label: "سمیرم سفلی" },
+    { value: "فریدن", label: "فریدن" },
+    { value: "فریدون‌شهر", label: "فریدون‌شهر" },
+    { value: "فلاورجان", label: "فلاورجان" },
+    { value: "کاشان", label: "کاشان" },
+    { value: "گلپایگان", label: "گلپایگان" },
+    { value: "لنجان", label: "لنجان" },
+    { value: "مبارکه", label: "مبارکه" },
+    { value: "نائین", label: "نائین" },
+    { value: "نجف‌آباد", label: "نجف‌آباد" },
+    { value: "نطنز", label: "نطنز" },
+    { value: "آبدانان", label: "آبدانان" },
+    { value: "ایلام", label: "ایلام" },
+    { value: "ایوان", label: "ایوان" },
+    { value: "دره‌شهر", label: "دره‌شهر" },
+    { value: "دهلران", label: "دهلران" },
+    { value: "شیروان و چرداول", label: "شیروان و چرداول" },
+    { value: "مهران", label: "مهران" },
+    { value: "بوشهر", label: "بوشهر" },
+    { value: "تنگستان", label: "تنگستان" },
+    { value: "جم", label: "جم" },
+    { value: "دشتستان", label: "دشتستان" },
+    { value: "دشتی", label: "دشتی" },
+    { value: "دیر", label: "دیر" },
+    { value: "دیلم", label: "دیلم" },
+    { value: "کنگان", label: "کنگان" },
+    { value: "گناوه", label: "گناوه" },
+    { value: "اسلام‌شهر", label: "اسلام‌شهر" },
+    { value: "پاکدشت", label: "پاکدشت" },
+    { value: "تهران", label: "تهران" },
+    { value: "دماوند", label: "دماوند" },
+    { value: "رباط‌کریم", label: "رباط‌کریم" },
+    { value: "ری", label: "ری" },
+    { value: "ساوجبلاغ", label: "ساوجبلاغ" },
+    { value: "شمیرانات", label: "شمیرانات" },
+    { value: "شهریار", label: "شهریار" },
+    { value: "فیروزکوه", label: "فیروزکوه" },
+    { value: "ورامین", label: "ورامین" },
+    { value: "اردل", label: "اردل" },
+    { value: "بروجن", label: "بروجن" },
+    { value: "شهرکرد", label: "شهرکرد" },
+    { value: "فارسان", label: "فارسان" },
+    { value: "کوهرنگ", label: "کوهرنگ" },
+    { value: "لردگان", label: "لردگان" },
+    { value: "بیرجند", label: "بیرجند" },
+    { value: "درمیان", label: "درمیان" },
+    { value: "سرایان", label: "سرایان" },
+    { value: "سربیشه", label: "سربیشه" },
+    { value: "فردوس", label: "فردوس" },
+    { value: "قائنات", label: "قائنات" },
+    { value: "نهبندان", label: "نهبندان" },
+    { value: "بردسکن", label: "بردسکن" },
+    { value: "تایباد", label: "تایباد" },
+    { value: "تربت جام", label: "تربت جام" },
+    { value: "تربت حیدریه", label: "تربت حیدریه" },
+    { value: "چناران", label: "چناران" },
+    { value: "خلیل‌آباد", label: "خلیل‌آباد" },
+    { value: "خواف", label: "خواف" },
+    { value: "درگز", label: "درگز" },
+    { value: "رشتخوار", label: "رشتخوار" },
+    { value: "سبزوار", label: "سبزوار" },
+    { value: "سرخس", label: "سرخس" },
+    { value: "فریمان", label: "فریمان" },
+    { value: "قوچان", label: "قوچان" },
+    { value: "کاشمر", label: "کاشمر" },
+    { value: "کلات", label: "کلات" },
+    { value: "گناباد", label: "گناباد" },
+    { value: "مشهد", label: "مشهد" },
+    { value: "مه ولات", label: "مه ولات" },
+    { value: "نیشابور", label: "نیشابور" },
+    { value: "اسفراین", label: "اسفراین" },
+    { value: "بجنورد", label: "بجنورد" },
+    { value: "جاجرم", label: "جاجرم" },
+    { value: "شیروان", label: "شیروان" },
+    { value: "فاروج", label: "فاروج" },
+    { value: "مانه و سملقان", label: "مانه و سملقان" },
+    { value: "آبادان", label: "آبادان" },
+    { value: "امیدیه", label: "امیدیه" },
+    { value: "اندیمشک", label: "اندیمشک" },
+    { value: "اهواز", label: "اهواز" },
+    { value: "ایذه", label: "ایذه" },
+    { value: "باغ‌ملک", label: "باغ‌ملک" },
+    { value: "بندر ماهشهر", label: "بندر ماهشهر" },
+    { value: "بهبهان", label: "بهبهان" },
+    { value: "خرمشهر", label: "خرمشهر" },
+    { value: "دزفول", label: "دزفول" },
+    { value: "دشت آزادگان", label: "دشت آزادگان" },
+    { value: "رامشیر", label: "رامشیر" },
+    { value: "رامهرمز", label: "رامهرمز" },
+    { value: "شادگان", label: "شادگان" },
+    { value: "شوش", label: "شوش" },
+    { value: "شوشتر", label: "شوشتر" },
+    { value: "ابهر", label: "ابهر" },
+    { value: "ایجرود", label: "ایجرود" },
+    { value: "خدابنده", label: "خدابنده" },
+    { value: "خرمدره", label: "خرمدره" },
+    { value: "زنجان", label: "زنجان" },
+    { value: "طارم", label: "طارم" },
+    { value: "ماه‌نشان", label: "ماه‌نشان" },
+    { value: "دامغان", label: "دامغان" },
+    { value: "سمنان", label: "سمنان" },
+    { value: "شاهرود", label: "شاهرود" },
+    { value: "گرمسار", label: "گرمسار" },
+    { value: "مهدی‌شهر", label: "مهدی‌شهر" },
+    { value: "ایرانشهر", label: "ایرانشهر" },
+    { value: "چابهار", label: "چابهار" },
+    { value: "خاش", label: "خاش" },
+    { value: "دلگان", label: "دلگان" },
+    { value: "زابل", label: "زابل" },
+    { value: "زاهدان", label: "زاهدان" },
+    { value: "زهک", label: "زهک" },
+    { value: "سراوان", label: "سراوان" },
+    { value: "سرباز", label: "سرباز" },
+    { value: "کنارک", label: "کنارک" },
+    { value: "نیک‌شهر", label: "نیک‌شهر" },
+    { value: "آباده", label: "آباده" },
+    { value: "ارسنجان", label: "ارسنجان" },
+    { value: "استهبان", label: "استهبان" },
+    { value: "اقلید", label: "اقلید" },
+    { value: "بوانات", label: "بوانات" },
+    { value: "پاسارگاد", label: "پاسارگاد" },
+    { value: "جهرم", label: "جهرم" },
+    { value: "خرم‌بید", label: "خرم‌بید" },
+    { value: "خنج", label: "خنج" },
+    { value: "داراب", label: "داراب" },
+    { value: "زرین‌دشت", label: "زرین‌دشت" },
+    { value: "سپیدان", label: "سپیدان" },
+    { value: "شیراز", label: "شیراز" },
+    { value: "فراشبند", label: "فراشبند" },
+    { value: "فسا", label: "فسا" },
+    { value: "فیروزآباد", label: "فیروزآباد" },
+    { value: "قیر و کارزین", label: "قیر و کارزین" },
+    { value: "کازرون", label: "کازرون" },
+    { value: "لارستان", label: "لارستان" },
+    { value: "لامِرد", label: "لامِرد" },
+    { value: "مرودشت", label: "مرودشت" },
+    { value: "ممسنی", label: "ممسنی" },
+    { value: "مهر", label: "مهر" },
+    { value: "نی‌ریز", label: "نی‌ریز" },
+    { value: "آبیک", label: "آبیک" },
+    { value: "البرز", label: "البرز" },
+    { value: "بوئین‌زهرا", label: "بوئین‌زهرا" },
+    { value: "تاکستان", label: "تاکستان" },
+    { value: "قزوین", label: "قزوین" },
+    { value: "قم", label: "قم" },
+    { value: "بانه", label: "بانه" },
+    { value: "بیجار", label: "بیجار" },
+    { value: "دیواندره", label: "دیواندره" },
+    { value: "سروآباد", label: "سروآباد" },
+    { value: "سقز", label: "سقز" },
+    { value: "سنندج", label: "سنندج" },
+    { value: "قروه", label: "قروه" },
+    { value: "کامیاران", label: "کامیاران" },
+    { value: "مریوان", label: "مریوان" },
+    { value: "بافت", label: "بافت" },
+    { value: "بردسیر", label: "بردسیر" },
+    { value: "بم", label: "بم" },
+    { value: "جیرفت", label: "جیرفت" },
+    { value: "راور", label: "راور" },
+    { value: "رفسنجان", label: "رفسنجان" },
+    { value: "رودبار جنوب", label: "رودبار جنوب" },
+    { value: "زرند", label: "زرند" },
+    { value: "سیرجان", label: "سیرجان" },
+    { value: "شهر بابک", label: "شهر بابک" },
+    { value: "عنبرآباد", label: "عنبرآباد" },
+    { value: "قلعه گنج", label: "قلعه گنج" },
+    { value: "کرمان", label: "کرمان" },
+    { value: "کوهبنان", label: "کوهبنان" },
+    { value: "کهنوج", label: "کهنوج" },
+    { value: "منوجان", label: "منوجان" },
+    { value: "اسلام‌آباد غرب", label: "اسلام‌آباد غرب" },
+    { value: "پاوه", label: "پاوه" },
+    { value: "ثلاث باباجانی", label: "ثلاث باباجانی" },
+    { value: "جوانرود", label: "جوانرود" },
+    { value: "دالاهو", label: "دالاهو" },
+    { value: "روانسر", label: "روانسر" },
+    { value: "سرپل ذهاب", label: "سرپل ذهاب" },
+    { value: "سنقر", label: "سنقر" },
+    { value: "صحنه", label: "صحنه" },
+    { value: "قصر شیرین", label: "قصر شیرین" },
+    { value: "کرمانشاه", label: "کرمانشاه" },
+    { value: "کنگاور", label: "کنگاور" },
+    { value: "گیلان غرب", label: "گیلان غرب" },
+    { value: "هرسین", label: "هرسین" },
+    { value: "بویراحمد", label: "بویراحمد" },
+    { value: "بهمئی", label: "بهمئی" },
+    { value: "دنا", label: "دنا" },
+    { value: "کهگیلویه", label: "کهگیلویه" },
+    { value: "گچساران", label: "گچساران" },
+    { value: "آزادشهر", label: "آزادشهر" },
+    { value: "آق‌قلا", label: "آق‌قلا" },
+    { value: "بندر گز", label: "بندر گز" },
+    { value: "ترکمن", label: "ترکمن" },
+    { value: "رامیان", label: "رامیان" },
+    { value: "علی‌آباد", label: "علی‌آباد" },
+    { value: "کردکوی", label: "کردکوی" },
+    { value: "کلاله", label: "کلاله" },
+    { value: "گرگان", label: "گرگان" },
+    { value: "گنبد کاووس", label: "گنبد کاووس" },
+    { value: "مراوه‌تپه", label: "مراوه‌تپه" },
+    { value: "مینودشت", label: "مینودشت" },
+    { value: "آستارا", label: "آستارا" },
+    { value: "آستانه اشرفیه", label: "آستانه اشرفیه" },
+    { value: "اَملَش", label: "اَملَش" },
+    { value: "بندر انزلی", label: "بندر انزلی" },
+    { value: "رشت", label: "رشت" },
+    { value: "رضوانشهر", label: "رضوانشهر" },
+    { value: "رودبار", label: "رودبار" },
+    { value: "رودسر", label: "رودسر" },
+    { value: "سیاهکل", label: "سیاهکل" },
+    { value: "شَفت", label: "شَفت" },
+    { value: "صومعه‌سرا", label: "صومعه‌سرا" },
+    { value: "طوالش", label: "طوالش" },
+    { value: "فومَن", label: "فومَن" },
+    { value: "لاهیجان", label: "لاهیجان" },
+    { value: "لنگرود", label: "لنگرود" },
+    { value: "ماسال", label: "ماسال" },
+    { value: "ازنا", label: "ازنا" },
+    { value: "الیگودرز", label: "الیگودرز" },
+    { value: "بروجرد", label: "بروجرد" },
+    { value: "پل‌دختر", label: "پل‌دختر" },
+    { value: "خرم‌آباد", label: "خرم‌آباد" },
+    { value: "دورود", label: "دورود" },
+    { value: "دلفان", label: "دلفان" },
+    { value: "سلسله ,کوهدشت", label: "سلسله ,کوهدشت" },
+    { value: "آمل", label: "آمل" },
+    { value: "بابل", label: "بابل" },
+    { value: "بابلسر", label: "بابلسر" },
+    { value: "بهشهر", label: "بهشهر" },
+    { value: "تنکابن", label: "تنکابن" },
+    { value: "جویبار", label: "جویبار" },
+    { value: "چالوس", label: "چالوس" },
+    { value: "رامسر", label: "رامسر" },
+    { value: "ساری", label: "ساری" },
+    { value: "سوادکوه", label: "سوادکوه" },
+    { value: "قائم‌شهر", label: "قائم‌شهر" },
+    { value: "گلوگاه", label: "گلوگاه" },
+    { value: "محمودآباد", label: "محمودآباد" },
+    { value: "نکا", label: "نکا" },
+    { value: "نور", label: "نور" },
+    { value: "نوشهر", label: "نوشهر" },
+    { value: "آشتیان", label: "آشتیان" },
+    { value: "اراک", label: "اراک" },
+    { value: "تفرش", label: "تفرش" },
+    { value: "خمین", label: "خمین" },
+    { value: "دلیجان", label: "دلیجان" },
+    { value: "زرندیه", label: "زرندیه" },
+    { value: "ساوه", label: "ساوه" },
+    { value: "شازند", label: "شازند" },
+    { value: "کمیجان", label: "کمیجان" },
+    { value: "محلات", label: "محلات" },
+    { value: "ابوموسی", label: "ابوموسی" },
+    { value: "بستک", label: "بستک" },
+    { value: "بندر عباس", label: "بندر عباس" },
+    { value: "بندر لنگه", label: "بندر لنگه" },
+    { value: "جاسک", label: "جاسک" },
+    { value: "حاجی‌آباد", label: "حاجی‌آباد" },
+    { value: "شهرستان خمیر", label: "شهرستان خمیر" },
+    { value: "رودان", label: "رودان" },
+    { value: "قشم", label: "قشم" },
+    { value: "گاوبندی", label: "گاوبندی" },
+    { value: "میناب", label: "میناب" },
+    { value: "اسدآباد", label: "اسدآباد" },
+    { value: "بهار", label: "بهار" },
+    { value: "تویسرکان", label: "تویسرکان" },
+    { value: "رزن", label: "رزن" },
+    { value: "کبودرآهنگ", label: "کبودرآهنگ" },
+    { value: "ملایر", label: "ملایر" },
+    { value: "نهاوند", label: "نهاوند" },
+    { value: "همدان", label: "همدان" },
+    { value: "ابرکوه", label: "ابرکوه" },
+    { value: "اردکان", label: "اردکان" },
+    { value: "بافق", label: "بافق" },
+    { value: "تفت", label: "تفت" },
+    { value: "خاتم", label: "خاتم" },
+    { value: "صدوق", label: "صدوق" },
+    { value: "طبس", label: "طبس" },
+    { value: "مهریز", label: "مهریز" },
+    { value: "مِیبُد", label: "مِیبُد" },
+    { value: "یزد", label: "یزد" },
+    { value: "کرج", label: "کرج" },
+    { value: "نظرآباد", label: "نظرآباد" },
+    { value: "فردیس", label: "فردیس" },
+    { value: "اشتهارد", label: "اشتهارد" },
+    { value: "هشتگرد", label: "هشتگرد" },
+    { value: "طالقان", label: "طالقان" },
+  ];
+  const optionList1 = [
+    {
+      value: "فروش و بازاریابی - سطوح کارشناسی و مدیریتی",
+      label: "فروش و بازاریابی - سطوح کارشناسی و مدیریتی",
+    },
+    {
+      value: "فروش و بازاریابی - فروشنده / بازاریاب و ویزیتور / صندوقدار",
+      label: "فروش و بازاریابی - فروشنده / بازاریاب و ویزیتور / صندوقدار",
+    },
+    {
+      value: "مدیر فروشگاه / مدیر رستوران",
+      label: "مدیر فروشگاه / مدیر رستوران",
+    },
+    { value: "خدمات و پشتیبانی مشتریان", label: "خدمات و پشتیبانی مشتریان" },
+    { value: "نماینده علمی / مدرپ", label: "نماینده علمی / مدرپ" },
+    { value: "مدیریت بیمه", label: "مدیریت بیمه" },
+    { value: "دیجیتال مارکتینگ و سئو", label: "دیجیتال مارکتینگ و سئو" },
+    {
+      value: "ترجمه / تولید محتوا / نویسندگی و ویراستاری",
+      label: "ترجمه / تولید محتوا / نویسندگی و ویراستاری",
+    },
+    {
+      value: "توسعه نرم افزار و برنامه نویسی",
+      label: "توسعه نرم افزار و برنامه نویسی",
+    },
+    { value: "تست نرم افزار", label: "تست نرم افزار" },
+    {
+      value: "شبکه / DevOps / پشتیبانی سخت افزاری و نرم افزاری",
+      label: "شبکه / DevOps / پشتیبانی سخت افزاری و نرم افزاری",
+    },
+    { value: "علوم داده / هوش مصنوعی", label: "علوم داده / هوش مصنوعی" },
+    { value: "طراحی بازی", label: "طراحی بازی" },
+    {
+      value: "طراحی گرافیک / طراحی انیمیشن و موشن گرافیک",
+      label: "طراحی گرافیک / طراحی انیمیشن و موشن گرافیک",
+    },
+    {
+      value: "طراحی لباس / طراحی طلا و جواهر",
+      label: "طراحی لباس / طراحی طلا و جواهر",
+    },
+    {
+      value: "طراحی صنعتی / نقشه کشی صنعتی",
+      label: "طراحی صنعتی / نقشه کشی صنعتی",
+    },
+    { value: "عکاسی", label: "عکاسی" },
+    { value: "مشاغل حوزه فیلم و سینما", label: "مشاغل حوزه فیلم و سینما" },
+    { value: "طراحی موسیقی و صدا", label: "طراحی موسیقی و صدا" },
+    {
+      value: "طراحی رابط و تجربه کاربری (UI/UX)",
+      label: "طراحی رابط و تجربه کاربری (UI/UX)",
+    },
+    { value: "مدیر محصول / مالک محصول", label: "مدیر محصول / مالک محصول" },
+    {
+      value: "تحلیل و توسعه کسب و کار / استراتژی / برنامه ریزی",
+      label: "تحلیل و توسعه کسب و کار / استراتژی / برنامه ریزی",
+    },
+    {
+      value: "مهندسی صنایع / مدیریت تولید / مدیریت پروژه / مدیریت عملیات",
+      label: "مهندسی صنایع / مدیریت تولید / مدیریت پروژه / مدیریت عملیات",
+    },
+    { value: "خرید / تدارکات", label: "خرید / تدارکات" },
+    { value: "بازرگانی / تجارت", label: "بازرگانی / تجارت" },
+    {
+      value: "لجستیک / حمل و نقل / انبارداری",
+      label: "لجستیک / حمل و نقل / انبارداری",
+    },
+    {
+      value: "راننده / مسئول توزیع / پیک موتوری",
+      label: "راننده / مسئول توزیع / پیک موتوری",
+    },
+    { value: "مالی و حسابداری", label: "مالی و حسابداری" },
+    {
+      value: "معامله گر و تحلیل گر بازارهای مالی",
+      label: "معامله گر و تحلیل گر بازارهای مالی",
+    },
+    { value: "تحصیل دار / کارپرداز", label: "تحصیل دار / کارپرداز" },
+    {
+      value: "مسئول دفتر / کارمند اداری و ثبت اطلاعات / تایپیست",
+      label: "مسئول دفتر / کارمند اداری و ثبت اطلاعات / تایپیست",
+    },
+    { value: "منابع انسانی", label: "منابع انسانی" },
+    { value: "مدیر اجرایی / مدیر داخلی", label: "مدیر اجرایی / مدیر داخلی" },
+    { value: "مدیرعامل / مدیر کارخانه", label: "مدیرعامل / مدیر کارخانه" },
+    { value: "مهندسی برق", label: "مهندسی برق" },
+    { value: "مهندسی پزشکی", label: "مهندسی پزشکی" },
+    {
+      value: "مهندسی مکانیک / مهندسی هوا و فضا",
+      label: "مهندسی مکانیک / مهندسی هوا و فضا",
+    },
+    { value: "مهندسی صنایع غذایی", label: "مهندسی صنایع غذایی" },
+    { value: "مهندسی نفت و گاز", label: "مهندسی نفت و گاز" },
+    {
+      value: "مهندسی انرژی / مهندسی هسته ای",
+      label: "مهندسی انرژی / مهندسی هسته ای",
+    },
+    {
+      value: "محیط زیست، ایمنی و امنیت (HSE)",
+      label: "محیط زیست، ایمنی و امنیت (HSE)",
+    },
+    { value: "مهندسی عمران", label: "مهندسی عمران" },
+    { value: "مهندسی معماری و شهرسازی", label: "مهندسی معماری و شهرسازی" },
+    { value: "مهندسی معدن / زمین شناسی", label: "مهندسی معدن / زمین شناسی" },
+    { value: "مهندسی مواد و متالورژی", label: "مهندسی مواد و متالورژی" },
+    { value: "مهندسی نساجی", label: "مهندسی نساجی" },
+    { value: "مهندسی پلیمر", label: "مهندسی پلیمر" },
+    {
+      value: "مهندسی کشاورزی / علوم دامی",
+      label: "مهندسی کشاورزی / علوم دامی",
+    },
+    {
+      value: "زیست شناسی / علوم زیستی / علوم آزمایشگاهی",
+      label: "زیست شناسی / علوم زیستی / علوم آزمایشگاهی",
+    },
+    {
+      value: "داروسازی / شیمی دارویی / بیو شیمی",
+      label: "داروسازی / شیمی دارویی / بیو شیمی",
+    },
+    {
+      value: "پزشک / دندانپزشک / دامپزشک",
+      label: "پزشک / دندانپزشک / دامپزشک",
+    },
+    {
+      value: "پرستار و بهیار / تکنسین حوزه سلامت و درمان / دستیار پزشک",
+      label: "پرستار و بهیار / تکنسین حوزه سلامت و درمان / دستیار پزشک",
+    },
+    {
+      value: "پرستار سالمند / پرستار کودک",
+      label: "پرستار سالمند / پرستار کودک",
+    },
+    {
+      value: "روانشناسی / مشاوره / علوم اجتماعی",
+      label: "روانشناسی / مشاوره / علوم اجتماعی",
+    },
+    { value: "حقوقی", label: "حقوقی" },
+    { value: "روابط عمومی", label: "روابط عمومی" },
+    { value: "خبرنگار / روزنامه نگار", label: "خبرنگار / روزنامه نگار" },
+    { value: "آموزش / تدریس", label: "آموزش / تدریس" },
+    { value: "پژوهش", label: "پژوهش" },
+    { value: "نگهبان", label: "نگهبان" },
+    { value: "کارگر ساده / نیروی خدماتی", label: "کارگر ساده / نیروی خدماتی" },
+    {
+      value: "تکنسین فنی / تعمیرکار / کارگر ماهر",
+      label: "تکنسین فنی / تعمیرکار / کارگر ماهر",
+    },
+    { value: "راهنمای تور / مهماندار", label: "راهنمای تور / مهماندار" },
+    { value: "ورزش / تربیت بدنی / تغذیه", label: "ورزش / تربیت بدنی / تغذیه" },
+    {
+      value: "تاریخ / جغرافیا / باستان شناسی",
+      label: "تاریخ / جغرافیا / باستان شناسی",
+    },
+  ];
+
   const [City, setCity] = useState("");
   const [isContainerActive, setIsContainerActive] = useState(false);
   const myRef = useRef(null);
+  const [jobTilte, setJobTilte] = useState("");
+  const [company, setcompany] = useState("");
+  // function citiesfounder(pid) {
+  //   const cityelements = [];
+  //   const city = Cities.filter((i) => i.province_id == pid).forEach(function (
+  //     item
+  //   ) {
+  //     cityelements.push(
+  //       <div className="city-container">
+  //         <RiMapPin2Line className="city-icon"></RiMapPin2Line>
+  //         <span className="city-name">{item.name}</span>
+  //       </div>
+  //     );
+  //   });
+  //   console.log(myRef.current);
+  // }
 
+  // window.addEventListener("click", (e) => {
+  //   if (e.target.id === "city-search") {
+  //     setIsContainerActive(true);
+  //   } else if (
+  //     e.target.className == "provinces-container active" ||
+  //     e.target.className == "province-container"
+  //   ) {
+  //   } else {
+  //     setIsContainerActive(false);
+  //   }
+  // });
+  // const provincesElements = Provinces.map((item) => {
+  //   return (
+  //     <>
+  //       <div
+  //         className="province-container"
+  //         onClick={citiesfounder(item.id)}
+  //         ref={myRef}
+  //       >
+  //         <span className="province-name">{item.name}</span>
+  //         <MdKeyboardArrowDown className="arrow-down"></MdKeyboardArrowDown>
+  //       </div>
 
-  function citiesfounder(pid) {
-    const cityelements = [];
-    const city = Cities.filter((i) => i.province_id == pid).forEach(function (item) {
-      cityelements.push(
-        <div className="city-container">
-          <RiMapPin2Line className="city-icon"></RiMapPin2Line>
-          <span className="city-name">{item.name}</span>
-        </div>
-      );
-    });
-    console.log(myRef.current)
-  }
-
-
-  window.addEventListener("click", (e) => {
-    if (e.target.id === "city-search") {
-      setIsContainerActive(true);
-    } else if (
-      e.target.className == "provinces-container active" ||
-      e.target.className == "province-container"
-    ) {
-    } else {
-      setIsContainerActive(false);
-    }
-  });
-  const provincesElements = Provinces.map((item) => {
-    return (
-      <>
-        <div className="province-container" onClick={citiesfounder(item.id)} ref={myRef}>
-          <span className="province-name">{item.name}</span>
-          <MdKeyboardArrowDown className="arrow-down"></MdKeyboardArrowDown>
-        </div>
-
-        <div className="citis-container" data={item.id}>
-          {/* {citiesfounder(item.id)} */}
-        </div>
-      </>
-    );
-  });
-
+  //       <div className="citis-container" data={item.id}>
+  //         {/* {citiesfounder(item.id)} */}
+  //       </div>
+  //     </>
+  //   );
+  // });
 
   return (
     <div className="search-bg">
@@ -62,17 +882,27 @@ const Search = () => {
             <div className="search-box">
               <div className="search-text">
                 <FiSearch className="search-icon"></FiSearch>
-                <input type="text" placeholder="عنوان شغلی یا شرکت ..." />
+                <input
+                  type="text"
+                  placeholder="عنوان شغلی یا شرکت ..."
+                  value={company}
+                  onChange={(e) => {
+                    setcompany(e.target.value);
+                  }}
+                />
               </div>
               <div className="seperator"></div>
               <div className="select-box">
                 <FiBriefcase className="case-icon"></FiBriefcase>
 
-                <select>
-                  <option value="0">گروه شغلی</option>
-                  <option value="1">برنامه نویس</option>
-                  <option value="2">جوشکار</option>
-                </select>
+                <Select
+                  options={optionList1}
+                  placeholder="گروه شغلی "
+                  id="city-search"
+                  // value={selectedOptions}
+                  // onChange={handleSelect}
+                  isSearchable={true}
+                />
               </div>
             </div>
           </div>
@@ -80,7 +910,14 @@ const Search = () => {
             <span className="search-title">کجا؟</span>
             <div className="search-box">
               <RiMapPin2Fill className="search-icon"></RiMapPin2Fill>
-              <input type="text" id="city-search" placeholder="شهر" />
+              <Select
+                options={optionList}
+                placeholder="شهر "
+                id="city-search"
+                // value={selectedOptions}
+                // onChange={handleSelect}
+                isSearchable={true}
+              />
             </div>
           </div>
         </div>
@@ -90,11 +927,11 @@ const Search = () => {
         </button>
       </div>
       {/* <div className={`provinces-container ${isContainerActive ? ".active":""}`} ref={ref}> */}
-      <div
+      {/* <div
         className={`provinces-container ${isContainerActive ? "active" : ""}`}
       >
         {provincesElements}
-      </div>
+      </div> */}
     </div>
   );
 };

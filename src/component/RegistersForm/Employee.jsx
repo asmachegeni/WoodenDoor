@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import "../../style/RegistersForm/Employee.css";
+import { useLocation, Link } from "react-router";
+import "./../../style/RegistersForm/Employee.css";
+import AxiosUrl from "../BaseUrl";
 const Employee = () => {
+  const Location = useLocation();
   const [months, setmonth] = useState([
     "فروردین",
     "اردیبهشت",
@@ -449,6 +452,38 @@ const Employee = () => {
   const [address, setaddress] = useState("");
   const [bio, setbio] = useState("");
   const [MilitaryStatus, setMilitaryStatu] = useState("");
+  const RegisterEmployee = () => {
+    AxiosUrl.get("/sanctum/csrf-cookie", {
+      headers: {
+        credentials: "same-origin",
+      },
+    }).then(() => {
+      AxiosUrl.post(
+        "/api/sign-up",
+        {
+          username: Location.state.username,
+          email: Location.state.email,
+          password: Location.state.password,
+          first_name: name,
+          last_name: lastname,
+          sex: sex,
+          type: true,
+          province: usercity,
+          address: address,
+        },
+        {
+          headers: {
+            credentials: "same-origin",
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      ).then((res) => {
+        console.log(res);
+        // navigete to panel
+      });
+    });
+  };
   return (
     <div className="Employee">
       <div className="EmployeeContainer">
@@ -583,7 +618,7 @@ const Employee = () => {
             setminsalary(e.target.value);
           }}
         /> */}
-        {/* {sex && <span>وضعیت نظام وظیفه</span>}
+      {/* {sex && <span>وضعیت نظام وظیفه</span>}
         {sex && (
           <select
             name="MilitaryStatus"
@@ -599,15 +634,15 @@ const Employee = () => {
             <option value={3}>پایان خدمت</option>
           </select>
         )} */}
-        <span>آدرس محل سکونت</span>
-        <textarea
-          className="Employee-address"
-          onChange={(e) => {
-            console.log(e.target.value);
-            setaddress(e.target.value);
-          }}
-        ></textarea>
-        {/* <span>جند جمله درباره خودتان</span>
+      <span>آدرس محل سکونت</span>
+      <textarea
+        className="Employee-address"
+        onChange={(e) => {
+          console.log(e.target.value);
+          setaddress(e.target.value);
+        }}
+      ></textarea>
+      {/* <span>جند جمله درباره خودتان</span>
         <textarea
           className="Employee-about"
           onChange={(e) => {
@@ -615,9 +650,8 @@ const Employee = () => {
             setbio(e.target.value);
           }}
         ></textarea> */}
-        {/* </form> */}
-        <button className="EmpBtn">ثبت نام</button>
-      </div>
+      {/* </form> */}
+      <button className="EmpBtn" onClick={RegisterEmployee}>ثبت نام</button>
     </div>
   );
 };

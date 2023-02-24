@@ -7,10 +7,10 @@ import CommentForm from "./CommentForm";
 import Header from "../Header";
 import Footer from "../Footer";
 
-const PostPage = () => {
+const PostPage = ({ setType, userType }) => {
   return (
     <div className="PostPage">
-      <Header />
+      <Header setType={setType} userType={"نویسنده"} />
       <div className="PostPage-Container">
         <div className="PostPage-Wrapper">
           <Post />
