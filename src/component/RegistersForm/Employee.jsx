@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./../../style/Registers/Employee.css";
+import "../../style/RegistersForm/Employee.css";
 const Employee = () => {
   const [months, setmonth] = useState([
     "فروردین",
@@ -451,8 +451,9 @@ const Employee = () => {
   const [MilitaryStatus, setMilitaryStatu] = useState("");
   return (
     <div className="Employee">
-      <h1 className="titleEmpolyee">ثبت نام کارجو</h1>
-      {/* <form> */}
+      <div className="EmployeeContainer">
+        <h1 className="Title">ثبت نام کارجو</h1>
+        {/* <form> */}
         <span>نام </span>
         <input
           className="Employee-name"
@@ -515,32 +516,32 @@ const Employee = () => {
           <option value={0}>مجرد</option>
           <option value={1}>متاهل</option>
         </select>
-        <span>ناریخ تولد</span>
-        <div className="date">
-        <select name="day" className="Employee-Birthday">
-          {days &&
-            days.map((day) => (
-              <option value={day} key={day}>
-                {day}
-              </option>
-            ))}
-        </select>
-        <select name="month" className="Employee-Birthmonth">
-          {months &&
-            months.map((month, index) => (
-              <option value={index + 1} key={index}>
-                {month}
-              </option>
-            ))}
-        </select>
-        <select name="year" className="Employee-Birthyear">
-          {years &&
-            years.map((year) => (
-              <option value={year} key={year}>
-                {year}
-              </option>
-            ))}
-        </select>
+        <span>تاریخ تولد</span>
+        <div className="Date">
+          <select name="day" className="Employee-Birthday">
+            {days &&
+              days.map((day) => (
+                <option value={day} key={day}>
+                  {day}
+                </option>
+              ))}
+          </select>
+          <select name="month" className="Employee-Birthmonth">
+            {months &&
+              months.map((month, index) => (
+                <option value={index + 1} key={index}>
+                  {month}
+                </option>
+              ))}
+          </select>
+          <select name="year" className="Employee-Birthyear">
+            {years &&
+              years.map((year) => (
+                <option value={year} key={year}>
+                  {year}
+                </option>
+              ))}
+          </select>
         </div>
         <span>استان</span>
         <select
@@ -614,8 +615,9 @@ const Employee = () => {
             setbio(e.target.value);
           }}
         ></textarea> */}
-      {/* </form> */}
-      <button className="EmpBtn">ثبت نام</button>  
+        {/* </form> */}
+        <button className="EmpBtn">ثبت نام</button>
+      </div>
     </div>
   );
 };

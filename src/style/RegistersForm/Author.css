@@ -1,0 +1,99 @@
+.Author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: "Vazir Regular";
+  background-color: #f8f9fa;
+}
+.AuthorContainer {
+  display: flex;
+  flex-flow: column;
+  width: 20%;
+}
+.AuthorContainer .EmpBtn {
+  font-family: "Vazir Regular";
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  height: 40px;
+  color: #fff;
+  background-color: #5660f2;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.AuthorContainer span {
+  font-family: "Vazir Regular";
+  font-size: 14px;
+  color: #000;
+  padding-top: 16px;
+  text-align: right;
+  padding-right: 8px;
+}
+.AuthorContainer .Title {
+  font-family: "Vazir Bold";
+  font-size: 20px;
+  color: #5660f2;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  align-self: center;
+}
+.AuthorContainer input,
+.AuthorContainer select,
+.AuthorContainer textarea {
+  border: 1px solid #8e9cb2;
+  height: 36px;
+  border-radius: 4px;
+  direction: rtl;
+  outline: none;
+  font-family: "Vazir Regular";
+  font-size: 14px;
+}
+
+.AuthorContainer input:focus,
+.AuthorContainer select:focus,
+.AuthorContainer textarea:focus {
+  border: 2px solid #5660f2;
+}
+.AuthorContainer textarea {
+  resize: none;
+  height: 64px;
+}
+.AuthorContainer .Date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  gap: 5px;
+}
+.AuthorContainer .Date select {
+  flex: 1;
+}
+.AuthorContainer label {
+  cursor: pointer;
+  border: 1px solid #8e9cb2;
+  height: 36px;
+  border-radius: 4px;
+  direction: rtl;
+  outline: none;
+  font-family: "Vazir Regular";
+  background-color: #f8f9fa;
+  font-size: 10px;
+  text-align: right;
+  padding-top: 8px;
+  padding-right: 8px;
+}
+
+@media screen and (max-width: 992px) {
+  .AuthorContainer {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .AuthorContainer {
+    width: 60%;
+  }
+}

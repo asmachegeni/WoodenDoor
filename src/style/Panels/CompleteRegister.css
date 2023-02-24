@@ -1,29 +1,21 @@
-.Employee {
+.CompleteRegister {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding-right: 24px;
   font-family: "Vazir Regular";
   background-color: #f8f9fa;
-  /* overflow: scroll; */
 }
-form {
+.CompleteRegisterContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 70%;
-  height: 100%;
-  /* overflow-y: hidden;
-  overflow-x: hidden; */
+  flex-flow: column;
+  width: 50%;
 }
-.EmpBtn {
+.CompleteRegisterContainer .EmpBtn {
   font-family: "Vazir Regular";
   font-size: 14px;
-  width: 20%;
   border: none;
   border-radius: 4px;
   height: 40px;
@@ -33,16 +25,15 @@ form {
   margin-top: 12px;
   margin-bottom: 12px;
 }
-span {
+.CompleteRegisterContainer span {
   font-family: "Vazir Regular";
   font-size: 14px;
   color: #000;
   padding-top: 16px;
   text-align: right;
   padding-right: 8px;
-  width: 20%;
 }
-h1 {
+.CompleteRegisterContainer .Title {
   font-family: "Vazir Bold";
   font-size: 20px;
   color: #5660f2;
@@ -50,11 +41,10 @@ h1 {
   padding-top: 12px;
   align-self: center;
 }
-input,
-select,
-textarea {
+.CompleteRegisterContainer input,
+.CompleteRegisterContainer select,
+.CompleteRegisterContainer textarea {
   border: 1px solid #8e9cb2;
-  width: 20%;
   height: 36px;
   border-radius: 4px;
   direction: rtl;
@@ -63,26 +53,28 @@ textarea {
   font-size: 14px;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+.CompleteRegisterContainer input:focus,
+.CompleteRegisterContainer select:focus,
+.CompleteRegisterContainer textarea:focus {
   border: 2px solid #5660f2;
 }
-textarea {
+.CompleteRegisterContainer textarea {
   resize: none;
   height: 64px;
 }
-.date {
+.CompleteRegisterContainer .Date {
   display: flex;
-  width: 20%;
   align-items: center;
   justify-content: space-between;
   margin-top: 12px;
+  gap: 5px;
 }
-label {
+.CompleteRegisterContainer .Date select {
+  flex: 1;
+}
+.CompleteRegisterContainer label {
   cursor: pointer;
   border: 1px solid #8e9cb2;
-  width: 20%;
   height: 36px;
   border-radius: 4px;
   direction: rtl;
@@ -94,29 +86,14 @@ label {
   padding-top: 8px;
   padding-right: 8px;
 }
-.uploadfile {
-  display: none;
-}
 
 @media screen and (max-width: 992px) {
-  span,
-  input,
-  .EmpBtn,
-  select,
-  textarea,
-  .date,
-  label {
+  .CompleteRegisterContainer {
     width: 40%;
   }
 }
 @media screen and (max-width: 480px) {
-  span,
-  input,
-  .EmpBtn,
-  select,
-  textarea,
-  .date,
-  label {
+  .CompleteRegisterContainer {
     width: 60%;
   }
 }

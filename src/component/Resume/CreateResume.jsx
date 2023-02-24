@@ -3,15 +3,30 @@ import { Link, Outlet } from "react-router-dom";
 import BasicInformation from "./BasicInformation";
 import EducationalRecords from "./EducationalRecords";
 import WorkExperience from "./WorkExperience";
+import "../../style/Resume/CreateResume.css";
 const CreateResume = () => {
   return (
-    <div>
-      <div>
-        <Link to={"BasicInformation"}>اطلاعات اولیه</Link>
-        <Link to={"EducationalRecords"}>سوابق تحصیلی</Link>
-        <Link to={"WorkExperience"}>سوابق شغلی</Link>
+    <div className="CreateResume">
+      <div className="LinksCol">
+        <div className="LinksContainer">
+                  <Link to={"BasicInformation"}>
+          <span className="Title">اطلاعات اولیه</span>
+          <span>شامل نام و نام خانوادگی، سن، شهر و ...</span>
+        </Link>
+        <Link to={"EducationalRecords"}>
+          <span className="Title">سوابق تحصیلی</span>
+          <span>تحصیلات، سال تحصیل و ...</span>
+        </Link>
+        <Link to={"WorkExperience"} className="Active">
+          <span className="Title">سوابق شغلی</span>
+          <span>نام شرکت ها، تاریخ اشتغال و ...</span>
+        </Link>
+        </div>
+
       </div>
-      <Outlet />
+      <div className="ContentsCol">
+        <Outlet />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EducationalCard from "./EductaionalCard";
-import { FiPlus } from "react-icons/fi";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import "../../style/Resume/EducationalRecords.css";
 const EducationalRecords = () => {
   const [years, setYears] = useState([
     1330, 1331, 1332, 1333, 1334, 1335, 1336, 1337, 1338, 1339, 1340, 1341,
@@ -19,7 +20,7 @@ const EducationalRecords = () => {
   const [isResume, setResue] = useState(true);
   const [showForm, setShowform] = useState(false);
   return (
-    <div>
+    <div className="EducationalRecords">
       {isResume && (
         <EducationalCard
           info={{
@@ -38,83 +39,89 @@ const EducationalRecords = () => {
         />
       )}
       {showForm && (
-        <div className={"form"}>
-          <span>رشته تحصیلی</span>
-          <input
-            type={"text"}
-            onChange={(e) => {
-              setField(e.target.value);
-            }}
-            value={Field}
-          />
-          <span>معدل(اختیاری) </span>
-          <input
-            type={"number"}
-            onChange={(e) => {
-              setAvg(e.target.value);
-            }}
-            value={avg}
-          />
-          <span>دانشگاه</span>
-          <input
-            type={"text"}
-            onChange={(e) => {
-              setUni(e.target.value);
-            }}
-            value={uni}
-          />
-          <span>سال شروع</span>
-          <select
-            onChange={(e) => {
-              setStartYear(e.target.value);
-            }}
-            value={startYear}
-          >
-            {years.map((year, index) => (
-              <option value={year} key={index}>
-                {year}
-              </option>
-            ))}
-          </select>
-          {isCurrent && <span>سال پایان</span>}
-          {isCurrent && (
+        <div className="FormContainer">
+          <div className={"form"}>
+            <span>رشته تحصیلی</span>
+            <input
+              type={"text"}
+              onChange={(e) => {
+                setField(e.target.value);
+              }}
+              value={Field}
+            />
+            <span>معدل(اختیاری) </span>
+            <input
+              type={"number"}
+              onChange={(e) => {
+                setAvg(e.target.value);
+              }}
+              value={avg}
+            />
+            <span>دانشگاه</span>
+            <input
+              type={"text"}
+              onChange={(e) => {
+                setUni(e.target.value);
+              }}
+              value={uni}
+            />
+            <span>سال شروع</span>
             <select
               onChange={(e) => {
-                setEndYear(e.target.value);
+                setStartYear(e.target.value);
               }}
-              value={endYear}
+              value={startYear}
             >
               {years.map((year, index) => (
-                <option value={year} key={index * 10}>
+                <option value={year} key={index}>
                   {year}
                 </option>
               ))}
             </select>
-          )}
-          <span>هنوز مشغولم</span>
-          <input
-            type={"checkbox"}
-            onChange={() => {
-              setIsCurrent(!isCurrent);
-            }}
-          />
-          <button
-            onClick={() => {
-              setShowform(false);
-            }}
-          >
-            ذخیره
-          </button>
+            {isCurrent && <span>سال پایان</span>}
+            {isCurrent && (
+              <select
+                onChange={(e) => {
+                  setEndYear(e.target.value);
+                }}
+                value={endYear}
+              >
+                {years.map((year, index) => (
+                  <option value={year} key={index * 10}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            )}
+            <div className="CheckBoxContainer">
+              <input
+                type={"checkbox"}
+                onChange={() => {
+                  setIsCurrent(!isCurrent);
+                }}
+              />
+              <span>هنوز مشغولم</span>
+            </div>
+            <div className="SaveBtn">
+              <button
+                onClick={() => {
+                  setShowform(false);
+                }}
+              >
+                ذخیره
+              </button>
+            </div>
+          </div>
         </div>
       )}
       <div
-        className="Addbtn"
+        className="AddBtn"
         onClick={() => {
           setShowform(true);
         }}
       >
-        <FiPlus className={"addIcon"} />
-        <button>افزودن</button>
+        <AiOutlinePlusCircle className="AddIcon" />
+        <span>افزودن سابقه تحصیلی جدید</span>
       </div>
     </div>
   );

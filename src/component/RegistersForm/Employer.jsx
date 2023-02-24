@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./../../style/Registers/Employee.css";
-import { Link } from "react-router-dom";
+import "../../style/RegistersForm/Employer.css";
 const Employer = () => {
   const [months, setmonth] = useState([
     "فروردین",
@@ -80,102 +79,102 @@ const Employer = () => {
   const [bio, setbio] = useState("");
   const [MilitaryStatus, setMilitaryStatu] = useState("");
   return (
-    <div className="Employee">
-      <h1>ثبت نام‌ کارفرما</h1>
-      <span>نام </span>
-      <input
-        type="text"
-        required
-        onChange={(e) => {
-          console.log(e.target.value);
-          setname(e.target.value);
-        }}
-      />
-      <span>نام خانوادگی</span>
-      <input
-        type="text"
-        required
-        onChange={(e) => {
-          console.log(e.target.value);
-          setlastname(e.target.value);
-        }}
-      />
-      <span>شماره تلفن</span>
-      <input
-        type="tel"
-        onChange={(e) => {
-          console.log(e.target.value);
-          settel(e.target.value);
-        }}
-      />
-      <span>نام مستعار</span>
-      <input
-        type="text"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setnickname(e.target.value);
-        }}
-      />
-      <span>جنسیت</span>
-      <select
-        name="sex"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setsex(e.target.value);
-        }}
-      >
-        <option value={"true"}>مرد</option>
-        <option value={"false"}>زن</option>
-      </select>
-      <span>وضعیت تاهل</span>
-      <select
-        name="Married"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setMarried(e.target.value);
-        }}
-      >
-        <option value={0}>مجرد</option>
-        <option value={1}>متاهل</option>
-      </select>
-      <span>ناریخ تولد</span>
-      <div className="date">
-        <select name="day">
-          {days &&
-            days.map((day) => (
-              <option value={day} key={day}>
-                {day}
-              </option>
-            ))}
+    <div className="Employer">
+      <div className="EmployerContainer">
+        <h1 className="Title">ثبت نام‌ کارفرما</h1>
+        <span>نام </span>
+        <input
+          type="text"
+          required
+          onChange={(e) => {
+            console.log(e.target.value);
+            setname(e.target.value);
+          }}
+        />
+        <span>نام خانوادگی</span>
+        <input
+          type="text"
+          required
+          onChange={(e) => {
+            console.log(e.target.value);
+            setlastname(e.target.value);
+          }}
+        />
+        <span>شماره تلفن</span>
+        <input
+          type="tel"
+          onChange={(e) => {
+            console.log(e.target.value);
+            settel(e.target.value);
+          }}
+        />
+        <span>نام مستعار</span>
+        <input
+          type="text"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setnickname(e.target.value);
+          }}
+        />
+        <span>جنسیت</span>
+        <select
+          name="sex"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setsex(e.target.value);
+          }}
+        >
+          <option value={"true"}>مرد</option>
+          <option value={"false"}>زن</option>
         </select>
-        <select name="month">
-          {months &&
-            months.map((month, index) => (
-              <option value={index + 1} key={index}>
-                {month}
-              </option>
-            ))}
+        <span>وضعیت تاهل</span>
+        <select
+          name="Married"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setMarried(e.target.value);
+          }}
+        >
+          <option value={0}>مجرد</option>
+          <option value={1}>متاهل</option>
         </select>
-        <select name="year">
-          {years &&
-            years.map((year) => (
-              <option value={year} key={year}>
-                {year}
-              </option>
-            ))}
-        </select>
+        <span>ناریخ تولد</span>
+        <div className="Date">
+          <select name="day">
+            {days &&
+              days.map((day) => (
+                <option value={day} key={day}>
+                  {day}
+                </option>
+              ))}
+          </select>
+          <select name="month">
+            {months &&
+              months.map((month, index) => (
+                <option value={index + 1} key={index}>
+                  {month}
+                </option>
+              ))}
+          </select>
+          <select name="year">
+            {years &&
+              years.map((year) => (
+                <option value={year} key={year}>
+                  {year}
+                </option>
+              ))}
+          </select>
+        </div>
+        <span>جند جمله درباره خودتان</span>
+        <textarea
+          className="Employee-about"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setbio(e.target.value);
+          }}
+        ></textarea>
+        <button className="EmpBtn">ادامه</button>
       </div>
-      <span>جند جمله درباره خودتان</span>
-      <textarea
-        className="Employee-about"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setbio(e.target.value);
-        }}
-      ></textarea>
-      <Link className="EmpBtn" to={"/Company"}>
-        ادامه
-      </Link>
     </div>
   );
 };

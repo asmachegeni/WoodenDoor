@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import "../../style/Panels/CreatePost.css";
 
 const CreatePost = () => {
   const [f, setf] = useState([
@@ -32,8 +33,9 @@ const CreatePost = () => {
   });
   const [value, setValue] = useState("");
   return (
-    <div>
-      <ReactQuill
+    <div className="CreatePost">
+      <div className="CreatePostContainer">
+              <ReactQuill
         theme="snow"
         modules={m}
         formats={f}
@@ -43,6 +45,8 @@ const CreatePost = () => {
           console.log(a);
         }}
       ></ReactQuill>
+      </div>
+
     </div>
   );
 };

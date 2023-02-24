@@ -1,4 +1,4 @@
-import "../style/login.css";
+import "../style/Register.css";
 import logo from "../assets/img/logo-big.png";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
@@ -22,43 +22,35 @@ const Register = ({ userType, xsrfToken }) => {
     }
   };
   return (
-    <div className="login-body">
-      <div className="login-container">
-        <div className="login-wrapper">
-          <div className="login">
-            <div className="login-logo">
-              <img src={logo} alt="login logo" />
+    <div className="Register">
+      <div className="RegisterContainer">
+        <div className="RegisterWrapper">
+          <div className="RegisterBody">
+            <div className="Logo">
+              <img src={logo} alt="logo" />
             </div>
-            <div className="login-header">
-              <span className="login-header-title">ورود </span>
-
-              <span className="login-user-type">{userType}</span>
+            <div className="Header">
+              <span>ثبت نام </span>
+              <span className="UserType">{userType}</span>
             </div>
-            <div className="login-email-form">
-              <label className="login-label">
-                آدرس ایمیل خودتان را وارد کنید
-              </label>
+            <div className="Form">
+              <label>آدرس ایمیل خودتان را وارد کنید</label>
               <input
                 type="email"
                 placeholder="example@gmail.com"
-                className="LoginEmail"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
                 value={email}
               />
-              <Link
-                className="Login-btn"
-                state={{ email: email }}
-                onClick={handelClick}
-                to={"/Code"}
-              >
+              <Link state={{ email: email }} onClick={handelClick} to={"/Code"}>
                 ثبت نام
               </Link>
+              
             </div>
           </div>
+          <Link to={"/Login"}> ورود</Link>
         </div>
-        <Link to={"/Login"}> ورود</Link>
       </div>
     </div>
   );

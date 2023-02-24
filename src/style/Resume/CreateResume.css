@@ -1,0 +1,51 @@
+.CreateResume {
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+}
+.CreateResume .LinksCol {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 1px 30px #00000008, 0 1px 2px #0000000d;
+  width: 360px;
+  z-index: 2;
+}
+.CreateResume .LinksCol .LinksContainer {
+  display: flex;
+  flex-flow: column;
+  position: fixed;
+}
+.CreateResume .LinksCol .LinksContainer a {
+  display: flex;
+  flex-flow: column;
+  margin-top: 20px;
+  margin-right: 2px;
+  padding: 0 30px;
+  border-right: 4px solid transparent;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+.CreateResume .LinksCol .LinksContainer a .Title {
+  font-family: "Vazir Bold";
+  font-size: 24px;
+  color: #45c26f;
+  line-height: 32px;
+  margin-bottom: 5px;
+}
+.CreateResume .LinksCol .LinksContainer a.Active {
+  border-right: 4px solid #5660f2;
+}
+.CreateResume .LinksCol .LinksContainer a.Active .Title {
+  color: #5660f2;
+}
+
+.CreateResume .ContentsCol {
+  display: flex;
+  width: 100%;
+  flex-flow: column;
+  background-color: #f8f9fa;
+  z-index: 1;
+}

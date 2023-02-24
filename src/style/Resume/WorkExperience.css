@@ -1,0 +1,83 @@
+.WorkExperience {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+  background-color: #f8f9fa;
+  padding: 20px 40px;
+}
+.WorkExperience .CheckBoxContainer {
+  display: flex;
+  flex-flow: row;
+}
+.WorkExperience .CheckBoxContainer span {
+  margin-right: 5px;
+  font-size: 14px;
+  color: #5c6573;
+}
+.WorkExperience .FormContainer {
+  display: flex;
+  flex-flow: column;
+  padding: 20px 40px;
+}
+
+.WorkExperience .FormContainer input[type="text"],
+.WorkExperience .FormContainer input[type="number"],
+.WorkExperience .FormContainer select,
+.WorkExperience .FormContainer textarea {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #eef0f4;
+  border-radius: 4px;
+  outline: none;
+  resize: none;
+}
+.WorkExperience .FormContainer span,
+.WorkExperience .FormContainer .CheckBoxContainer {
+  margin: 15px 10px 5px 0;
+  font-size: 14px;
+  color: #5c6573;
+}
+.WorkExperience .FormContainer .CheckBoxContainer span {
+  margin: 0 5px 0 0;
+}
+
+.WorkExperience .FormContainer .StartDate,
+.WorkExperience .FormContainer .EndDate {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+.WorkExperience .FormContainer .StartDate select,
+.WorkExperience .FormContainer .EndDate select {
+  flex: 1;
+}
+.WorkExperience .FormContainer .StartDate span,
+.WorkExperience .FormContainer .EndDate span {
+  width: 80px;
+  margin: 0;
+  text-align: center;
+}
+
+.css-1xc3v61-indicatorContainer {
+  color: #000;
+}
+.css-13cymwt-control {
+  padding: 2px 0 !important;
+  border: 1px solid #eef0f4 !important;
+  outline: none !important;
+}
+.css-13cymwt-control:hover {
+  border: 1px solid #eef0f4 !important;
+  outline: none !important;
+}
+.css-t3ipsp-control {
+  padding: 2px 0 !important;
+  border: 1px solid #eef0f4 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.css-t3ipsp-control:hover {
+  border: 1px solid #eef0f4 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}

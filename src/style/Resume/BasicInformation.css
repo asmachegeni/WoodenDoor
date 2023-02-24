@@ -1,0 +1,91 @@
+.BasicInformation {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+  background-color: #f8f9fa;
+  padding: 20px 40px;
+}
+.BasicInformation .Title {
+  font-family: "Vazir Bold";
+  font-size: 24px;
+}
+
+.BasicInformation .FormContainer {
+  display: flex;
+  flex-flow: column;
+  padding: 20px 40px;
+}
+
+.BasicInformation .FormContainer input[type="text"],
+.BasicInformation .FormContainer input[type="number"],
+.BasicInformation .FormContainer input[type="tel"],
+.BasicInformation .FormContainer select,
+.BasicInformation .FormContainer textarea,
+.Sex,
+.Married {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #eef0f4;
+  border-radius: 4px;
+  outline: none;
+  resize: none;
+}
+.BasicInformation .FormContainer Span {
+  margin: 15px 10px 5px 0;
+  font-size: 14px;
+  color: #5c6573;
+}
+
+.BasicInformation .FormContainer .Sex,
+.BasicInformation .FormContainer .Married {
+  display: flex;
+  flex-flow: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  line-height: 20px;
+}
+.BasicInformation .FormContainer .Sex span,
+.BasicInformation .FormContainer .Married span {
+  width: 40%;
+  text-align: center;
+  margin: 0 0 2px 0;
+  background: transparent;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.BasicInformation .FormContainer .Sex span.Active,
+.BasicInformation .FormContainer .Married span.Active {
+  box-shadow: 0px 20px 0px -7.8px #5660f2;
+  color: #5660f2;
+}
+.BasicInformation .FormContainer .Date {
+  display: flex;
+  align-items: center;
+}
+.BasicInformation .FormContainer .Date select {
+  flex: 1;
+}
+.css-1xc3v61-indicatorContainer {
+  color: #000;
+}
+.css-13cymwt-control {
+  padding: 2px 0 !important;
+  border: 1px solid #eef0f4 !important;
+  outline: none !important;
+}
+.css-13cymwt-control:hover {
+  border: 1px solid #eef0f4 !important;
+  outline: none !important;
+}
+.css-t3ipsp-control {
+  padding: 2px 0 !important;
+  border: 1px solid #eef0f4 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.css-t3ipsp-control:hover {
+  border: 1px solid #eef0f4 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}

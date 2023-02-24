@@ -1,0 +1,47 @@
+.EmployeePanel {
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+  }
+  .EmployeePanel .LinksCol {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 1px 30px #00000008, 0 1px 2px #0000000d;
+    width: 360px;
+    z-index: 2;
+  }
+  .EmployeePanel .LinksCol .LinksContainer {
+    display: flex;
+    flex-flow: column;
+    position: fixed;
+  }
+  .EmployeePanel .LinksCol .LinksContainer a {
+    display: flex;
+    flex-flow: column;
+    margin-top: 20px;
+    margin-right: 2px;
+    padding: 0 30px;
+    border-right: 4px solid transparent;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+  }
+
+  .EmployeePanel .LinksCol .LinksContainer a.Active {
+    font-family: 'Vazir Bold';
+    font-size: 16px;
+    color: #5660f2;
+    border-right: 4px solid #5660f2;
+  }
+
+  
+  .EmployeePanel .ContentsCol {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    background-color: #f8f9fa;
+    z-index: 1;
+  }
+  

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./../../style/Registers/Employee.css";
+import "../../style/RegistersForm/Company.css";
 const Company = () => {
   const [faname, setfaname] = useState("");
   const [enname, setenname] = useState("");
@@ -12,8 +12,9 @@ const Company = () => {
   const [logotemp, setLogotemp] = useState("");
 
   return (
-    <div className="Employee">
-      <h1>اطلاعات شرکت</h1>
+    <div className="Company">
+      <div className="CompanyContainer">
+              <h1 className="Title">اطلاعات شرکت</h1>
       <span>نام شرکت به فارسی </span>
       <input
         type="text"
@@ -75,7 +76,7 @@ const Company = () => {
             console.log(temp);
             setLogotemp(temp[temp.length - 1]);
           }}
-          className="uploadfile"
+          className="UploadFile"
         />
         {logo ? logotemp : "فایلی را انتخاب کنید"}
       </label>
@@ -89,6 +90,8 @@ const Company = () => {
         }}
       ></textarea>
       <button className="EmpBtn">ثبت نام</button>
+      </div>
+
     </div>
   );
 };
