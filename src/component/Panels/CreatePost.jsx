@@ -30,9 +30,43 @@ const CreatePost = () => {
       ["clean"],
     ],
   });
+  const [Cat, setCat] = useState([
+    "همه",
+    " اتاق گفتگو",
+    " اخبار استخدامی",
+    " استخدام بانک",
+    " استخدام شهرها",
+    " انتخاب مسیر شغلی",
+    " جاب‌ویژن",
+    " حقوق و دستمزد",
+    " رزومه",
+    " زندگی شغلی بهتر",
+    " فریلنسر",
+    " قانون کار",
+    " کارفرمایان",
+    " گزارش‌های آماری",
+    "  مصاحبه شغلی",
+    " معرفی شرکت ",
+    " معرفی متخصصان منابع انسانی",
+    " معرفی مشاغل",
+    " نمایشگاه کار",
+  ]);
   const [value, setValue] = useState("");
   return (
     <div>
+      <span>تصویر شاخص</span>
+      <input type={"file"} />
+      <span>عنوان مطلب </span>
+      <input type={"text"} />
+      <span>دسته بندی</span>
+      <select name="category">
+        {Cat &&
+          Cat.map((c, index) => (
+            <option value={c} key={index}>
+              {c}
+            </option>
+          ))}
+      </select>
       <ReactQuill
         theme="snow"
         modules={m}
