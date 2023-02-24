@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style/login.css";
+import "../style/UserPassword.css";
 import logo from "../assets/img/logo-big.png";
 import { Link, useLocation } from "react-router-dom";
 const UserPassword = ({ userType }) => {
@@ -10,23 +10,20 @@ const UserPassword = ({ userType }) => {
     console.log("error");
   };
   return (
-    <div className="login-body">
-      <div className="login-container">
-        <div className="login-wrapper">
-          <div className="login">
-            <div className="login-logo">
-              <img src={logo} alt="login logo" />
+    <div className="UserPassword">
+      <div className="UserPasswordContainer">
+        <div className="UserPasswordWrapper">
+          <div className="UserPasswordBody">
+            <div className="Logo">
+              <img src={logo} alt="logo" />
             </div>
-            <div className="login-header">
-              <span className="login-header-title">ورود </span>
+            <div className="Header">
+              <span>ورود به حساب </span>
             </div>
-            <div className="login-email-form">
-              <label className="login-label">
-                نام کاربری مورد نظر خود را وارد کنید
-              </label>
+            <div className="Form">
+              <label>نام کاربری مورد نظر خود را وارد کنید</label>
               <input
                 type="text"
-                className="LoginEmail"
                 value={username}
                 onChange={(e) => {
                   setUsername(e.target.value);
@@ -37,7 +34,6 @@ const UserPassword = ({ userType }) => {
               </label>
               <input
                 type="password"
-                className="LoginEmail"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);

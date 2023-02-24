@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import "../../style/Resume/WorkExperience.css";
 const WorkExperience = () => {
   const grades = [
     { value: "کارگر", label: "کارگر" },
@@ -47,16 +48,19 @@ const WorkExperience = () => {
   const [text, setText] = useState("");
   const [isResume, setIsResume] = useState(false);
   return (
-    <div>
-      <span>سابقه شغلی دارم</span>
-      <input
-        type={"checkbox"}
-        onChange={() => {
-          setIsResume(!isResume);
-        }}
-      />
+    <div className="WorkExperience">
+      <div className="CheckBoxContainer">
+        <input
+          type={"checkbox"}
+          onChange={() => {
+            setIsResume(!isResume);
+          }}
+        />
+        <span>سابقه شغلی دارم</span>
+      </div>
+
       {isResume && (
-        <div>
+        <div className="FormContainer">
           <span>آخرین عناون شغلی شما</span>
           <input
             type={"text"}
@@ -95,7 +99,7 @@ const WorkExperience = () => {
             }}
             value={country}
           />
-          <div className="start">
+          <div className="StartDate">
             <span>سال شروع</span>
             <select
               value={startYear}
@@ -109,7 +113,7 @@ const WorkExperience = () => {
                 </option>
               ))}
             </select>
-            <sapn>ماه شروع</sapn>
+            <span>ماه شروع</span>
             <select
               value={startMonth}
               onChange={(e) => {
@@ -125,7 +129,7 @@ const WorkExperience = () => {
           </div>
 
           {isCurrent && (
-            <div className="start">
+            <div className="EndDate">
               <span>سال پایان</span>
               <select
                 value={endYear}
@@ -139,7 +143,7 @@ const WorkExperience = () => {
                   </option>
                 ))}
               </select>
-              <sapn>ماه پایان</sapn>
+              <span>ماه پایان</span>
               <select
                 value={endMonth}
                 onChange={(e) => {
@@ -154,13 +158,16 @@ const WorkExperience = () => {
               </select>
             </div>
           )}
-          <span>هنوز در این شرکت مشغول به کار هستم</span>
-          <input
-            type={"checkbox"}
-            onChange={() => {
-              setIsCurrent(!isCurrent);
-            }}
-          />
+          <div className="CheckBoxContainer">
+            <input
+              type={"checkbox"}
+              onChange={() => {
+                setIsCurrent(!isCurrent);
+              }}
+            />
+            <span>هنوز در این شرکت مشغول به کار هستم</span>
+          </div>
+
           <span>دستاوردها و وظایف کلیدی</span>
           <textarea
             value={text}

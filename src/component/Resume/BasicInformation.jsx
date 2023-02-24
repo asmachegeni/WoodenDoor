@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import "../../style/Resume/BasicInformation.css";
 const BasicInformation = () => {
   const [months, setmonth] = useState([
     "فروردین",
@@ -66,7 +67,7 @@ const BasicInformation = () => {
     "1384",
     "1385",
   ]);
-  const optionList = [
+  const [optionList, setoptionList] = useState([
     { value: "آذرشهر", label: "آذرشهر" },
     ,
     { value: "اسکو", label: "اسکو" },
@@ -728,85 +729,87 @@ const BasicInformation = () => {
     { value: "اشتهارد", label: "اشتهارد" },
     { value: "هشتگرد", label: "هشتگرد" },
     { value: "طالقان", label: "طالقان" },
-  ];
+  ])
 
   return (
-    <div className="BBasicInformation">
-      <p>اطلاعات اولیه</p>
-      <span>نام</span>
-      <input type={"text"} />
-      <span>نام خانوادگی</span>
-      <input type={"text"} />
-      <span>جنسیت</span>
-      <div>
-        <span>مرد</span>
-        <span>زن</span>
-      </div>
-      <span>وضعیت تاهل</span>
-      <div>
-        <span>مجرد</span>
-        <span>متاهل</span>
-      </div>
-      <span>وضعیت نظام وظیفه</span>
-      <select>
-        <option>انجام شده</option>
-        <option>معاف دائم</option>
-        <option>معافیت تحصیلی</option>
-        <option>در حال انجام</option>
-        <option>مشمول</option>
-      </select>
-      <span>شهر محل سکونت</span>
-      <Select
-        options={optionList}
-        placeholder="جستجو کنید"
-        // value={selectedOptions}
-        // onChange={handleSelect}
-        isSearchable={true}
-      />
-      <span>محله</span>
-      <textarea></textarea>
-      <span>تاریخ تولد</span>
-      <div className="date">
-        <select name="day" className="Employee-Birthday">
-          {days &&
-            days.map((day) => (
-              <option value={day} key={day}>
-                {day}
-              </option>
-            ))}
+    <div className="BasicInformation">
+      <span className="Title">اطلاعات اولیه</span>
+      <div className="FormContainer">
+        <span>نام</span>
+        <input type={"text"} />
+        <span>نام خانوادگی</span>
+        <input type={"text"} />
+        <span>جنسیت</span>
+        <div className="Sex">
+          <span className="Active">مرد</span>
+          <span>زن</span>
+        </div>
+        <span>وضعیت تاهل</span>
+        <div className="Married">
+          <span className="Active">مجرد</span>
+          <span>متاهل</span>
+        </div>
+        <span>وضعیت نظام وظیفه</span>
+        <select>
+          <option>انجام شده</option>
+          <option>معاف دائم</option>
+          <option>معافیت تحصیلی</option>
+          <option>در حال انجام</option>
+          <option>مشمول</option>
         </select>
-        /
-        <select name="month" className="Employee-Birthmonth">
-          {months &&
-            months.map((month, index) => (
-              <option value={index + 1} key={index}>
-                {month}
-              </option>
-            ))}
-        </select>
-        /
-        <select name="year" className="Employee-Birthyear">
-          {years &&
-            years.map((year) => (
-              <option value={year} key={year}>
-                {year}
-              </option>
-            ))}
-        </select>
+        <span>شهر محل سکونت</span>
+        <Select
+          options={optionList}
+          placeholder="جستجو کنید"
+          // value={selectedOptions}
+          // onChange={handleSelect}
+          isSearchable={true}
+        />
+        <span>محله</span>
+        <textarea></textarea>
+        <span>تاریخ تولد</span>
+        <div className="Date">
+          <select name="day" className="Employee-Birthday">
+            {days &&
+              days.map((day) => (
+                <option value={day} key={day}>
+                  {day}
+                </option>
+              ))}
+          </select>
+          /
+          <select name="month" className="Employee-Birthmonth">
+            {months &&
+              months.map((month, index) => (
+                <option value={index + 1} key={index}>
+                  {month}
+                </option>
+              ))}
+          </select>
+          /
+          <select name="year" className="Employee-Birthyear">
+            {years &&
+              years.map((year) => (
+                <option value={year} key={year}>
+                  {year}
+                </option>
+              ))}
+          </select>
+        </div>
+        <span>َشماره تلفن </span>
+        <input type={"tel"} />
+        <span>حقوق درخواستی</span>
+        <input type={"number"} />
+        <span>علاقه مند به استخدام در کدام حوزه ها هستید؟ حداکثر 3 مورد</span>
+        <Select
+          options={optionList}
+          placeholder="جستجو کنید"
+          // value={selectedOptions}
+          // onChange={handleSelect}
+          isSearchable={true}
+          isMulti
+        />
       </div>
-      <span>َشماره تلفن </span>
-      <input type={"tel"} />
-      <span>حقوق ددرخواستی</span>
-      <input type={"number"} />
-      <span>علاقه مند به استخدام در کدام حوزه ها هستید؟ حداکثر 3 مورد</span>
-      <Select
-        options={optionList}
-        placeholder="جستجو کنید"
-        // value={selectedOptions}
-        // onChange={handleSelect}
-        isSearchable={true}
-        isMulti
-      />
     </div>
   );
 };

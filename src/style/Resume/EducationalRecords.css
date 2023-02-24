@@ -1,0 +1,69 @@
+.EducationalRecords {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+  background-color: #f8f9fa;
+  padding: 20px 40px;
+}
+.EducationalRecords .FormContainer {
+  display: flex;
+  flex-flow: column;
+  padding: 20px 40px;
+}
+.EducationalRecords .FormContainer .form {
+  display: flex;
+  flex-flow: column;
+}
+.EducationalRecords .FormContainer .form input[type="text"],
+.EducationalRecords .FormContainer .form input[type="number"],
+.EducationalRecords .FormContainer .form select {
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #eef0f4;
+  border-radius: 4px;
+  outline: none;
+}
+.EducationalRecords .FormContainer .form span,
+.EducationalRecords .FormContainer .CheckBoxContainer {
+  margin: 15px 10px 5px 0;
+  font-size: 14px;
+  color: #5c6573;
+}
+.EducationalRecords .FormContainer .CheckBoxContainer {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.EducationalRecords .FormContainer .CheckBoxContainer span {
+  margin-top: 0;
+}
+.EducationalRecords .FormContainer .SaveBtn {
+  display: flex;
+  flex-flow: row;
+  justify-content: end;
+}
+.EducationalRecords .FormContainer .SaveBtn button {
+  width: 220px;
+
+  padding: 8px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.EducationalRecords .AddBtn {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 10px;
+  color: #5660f2;
+  cursor: pointer;
+}
+.EducationalRecords .AddBtn .AddIcon {
+  font-size: 20px;
+}
+.EducationalRecords .AddBtn span {
+  margin-right: 5px;
+  font-size: 14px;
+}

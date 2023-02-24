@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { useLocation, Link } from "react-router";
-import "./../../style/Registers/Employee.css";
-import AxiosUrl from "../BaseUrl";
+import "../../style/RegistersForm/Employee.css";
 const Employee = () => {
-  const Location = useLocation();
   const [months, setmonth] = useState([
     "فروردین",
     "اردیبهشت",
@@ -452,163 +449,139 @@ const Employee = () => {
   const [address, setaddress] = useState("");
   const [bio, setbio] = useState("");
   const [MilitaryStatus, setMilitaryStatu] = useState("");
-  const RegisterEmployee = () => {
-    AxiosUrl.get("/sanctum/csrf-cookie", {
-      headers: {
-        credentials: "same-origin",
-      },
-    }).then(() => {
-      AxiosUrl.post(
-        "/api/sign-up",
-        {
-          username: Location.state.username,
-          email: Location.state.email,
-          password: Location.state.password,
-          first_name: name,
-          last_name: lastname,
-          sex: sex,
-          type: true,
-          province: usercity,
-          address: address,
-        },
-        {
-          headers: {
-            credentials: "same-origin",
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      ).then((res) => {
-        console.log(res);
-        // navigete to panel
-      });
-    });
-  };
   return (
     <div className="Employee">
-      <h1 className="titleEmpolyee">ثبت نام کارجو</h1>
-      {/* <form> */}
-      <span>نام </span>
-      <input
-        className="Employee-name"
-        type="text"
-        required
-        onChange={(e) => {
-          console.log(e.target.value);
-          setname(e.target.value);
-        }}
-      />
-      <span>نام خانوادگی</span>
-      <input
-        className="Employee-lastname"
-        type="text"
-        required
-        onChange={(e) => {
-          console.log(e.target.value);
-          setlastname(e.target.value);
-        }}
-      />
-      {/* <span>شماره تلفن</span>
-      <input
-        className="Employee-tel"
-        type="tel"
-        onChange={(e) => {
-          console.log(e.target.value);
-          settel(e.target.value);
-        }}
-      /> */}
-      <span>نام مستعار</span>
-      <input
-        className="Employee-nickname"
-        type="text"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setnickname(e.target.value);
-        }}
-      />
-      <span>جنسیت</span>
-      <select
-        name="sex"
-        className="Employee-sex"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setsex(e.target.value);
-        }}
-      >
-        <option value={"MALE"}>مرد</option>
-        <option value={" FEMALE"}>زن</option>
-      </select>
-      <span>وضعیت تاهل</span>
-      <select
-        name="Married"
-        className="Employee-Married"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setMarried(e.target.value);
-        }}
-      >
-        <option value={0}>مجرد</option>
-        <option value={1}>متاهل</option>
-      </select>
-      <span>ناریخ تولد</span>
-      <div className="date">
-        <select name="day" className="Employee-Birthday">
-          {days &&
-            days.map((day) => (
-              <option value={day} key={day}>
-                {day}
+      <div className="EmployeeContainer">
+        <h1 className="Title">ثبت نام کارجو</h1>
+        {/* <form> */}
+        <span>نام </span>
+        <input
+          className="Employee-name"
+          type="text"
+          required
+          onChange={(e) => {
+            console.log(e.target.value);
+            setname(e.target.value);
+          }}
+        />
+        <span className="Warning">اشتباه است</span>
+        <span>نام خانوادگی</span>
+        <input
+          className="Employee-lastname"
+          type="text"
+          required
+          onChange={(e) => {
+            console.log(e.target.value);
+            setlastname(e.target.value);
+          }}
+        />
+        <span className="Warning">اشتباه است</span>
+        <span>شماره تلفن</span>
+        <input
+          className="Employee-tel"
+          type="tel"
+          onChange={(e) => {
+            console.log(e.target.value);
+            settel(e.target.value);
+          }}
+        />
+        <span className="Warning">اشتباه است</span>
+        <span>نام مستعار</span>
+        <input
+          className="Employee-nickname"
+          type="text"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setnickname(e.target.value);
+          }}
+        />
+        <span className="Warning">اشتباه است</span>
+        <span>جنسیت</span>
+        <select
+          name="sex"
+          className="Employee-sex"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setsex(e.target.value);
+          }}
+        >
+          <option value={"true"}>مرد</option>
+          <option value={"false"}>زن</option>
+        </select>
+        <span>وضعیت تاهل</span>
+        <select
+          name="Married"
+          className="Employee-Married"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setMarried(e.target.value);
+          }}
+        >
+          <option value={0}>مجرد</option>
+          <option value={1}>متاهل</option>
+        </select>
+        <span>تاریخ تولد</span>
+        <div className="Date">
+          <select name="day" className="Employee-Birthday">
+            {days &&
+              days.map((day) => (
+                <option value={day} key={day}>
+                  {day}
+                </option>
+              ))}
+          </select>
+          <select name="month" className="Employee-Birthmonth">
+            {months &&
+              months.map((month, index) => (
+                <option value={index + 1} key={index}>
+                  {month}
+                </option>
+              ))}
+          </select>
+          <select name="year" className="Employee-Birthyear">
+            {years &&
+              years.map((year) => (
+                <option value={year} key={year}>
+                  {year}
+                </option>
+              ))}
+          </select>
+        </div>
+        <span className="Warning">اشتباه است</span>
+        <span>استان</span>
+        <select
+          name="province"
+          className="Employee-province"
+          onChange={(value) => {
+            setNowCity(cities[value.target.value]);
+          }}
+        >
+          {provinces &&
+            provinces.map((province, index) => (
+              <option value={index} key={index}>
+                {province}
               </option>
             ))}
         </select>
-        <select name="month" className="Employee-Birthmonth">
-          {months &&
-            months.map((month, index) => (
-              <option value={index + 1} key={index}>
-                {month}
+        <span className="Warning">اشتباه است</span>
+        <span>شهر</span>
+        <select
+          name="city"
+          className="Employee-city"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setusercity(e.target.value);
+          }}
+        >
+          {nowCity &&
+            nowCity.map((city, index) => (
+              <option value={city} key={index}>
+                {city}
               </option>
             ))}
         </select>
-        <select name="year" className="Employee-Birthyear">
-          {years &&
-            years.map((year) => (
-              <option value={year} key={year}>
-                {year}
-              </option>
-            ))}
-        </select>
-      </div>
-      <span>استان</span>
-      <select
-        name="province"
-        className="Employee-province"
-        onChange={(value) => {
-          setNowCity(cities[value.target.value]);
-        }}
-      >
-        {provinces &&
-          provinces.map((province, index) => (
-            <option value={index} key={index}>
-              {province}
-            </option>
-          ))}
-      </select>
-      <span>شهر</span>
-      <select
-        name="city"
-        className="Employee-city"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setusercity(e.target.value);
-        }}
-      >
-        {nowCity &&
-          nowCity.map((city, index) => (
-            <option value={city} key={index}>
-              {city}
-            </option>
-          ))}
-      </select>
-      {/* <span>حدافل حقوق درخواستی</span>
+        <span className="Warning">اشتباه است</span>
+        {/* <span>حدافل حقوق درخواستی</span>
         <input
           className="Employee-minsalary"
           type="number"
@@ -617,7 +590,7 @@ const Employee = () => {
             setminsalary(e.target.value);
           }}
         /> */}
-      {/* {sex && <span>وضعیت نظام وظیفه</span>}
+        {/* {sex && <span>وضعیت نظام وظیفه</span>}
         {sex && (
           <select
             name="MilitaryStatus"
@@ -633,15 +606,16 @@ const Employee = () => {
             <option value={3}>پایان خدمت</option>
           </select>
         )} */}
-      <span>آدرس محل سکونت</span>
-      <textarea
-        className="Employee-address"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setaddress(e.target.value);
-        }}
-      ></textarea>
-      {/* <span>جند جمله درباره خودتان</span>
+        <span>آدرس محل سکونت</span>
+        <textarea
+          className="Employee-address"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setaddress(e.target.value);
+          }}
+        ></textarea>
+        <span className="Warning">اشتباه است</span>
+        {/* <span>جند جمله درباره خودتان</span>
         <textarea
           className="Employee-about"
           onChange={(e) => {
@@ -649,8 +623,9 @@ const Employee = () => {
             setbio(e.target.value);
           }}
         ></textarea> */}
-      {/* </form> */}
-      <button className="EmpBtn" onClick={RegisterEmployee}>ثبت نام</button>
+        {/* </form> */}
+        <button className="EmpBtn">ثبت نام</button>
+      </div>
     </div>
   );
 };

@@ -1,59 +1,20 @@
 import React, { useState } from "react";
-import "./../../style/Registers/Employee.css";
-import { useLocation } from "react-router";
-import  AxiosUrl  from "././../BaseUrl";
+import "../../style/RegistersForm/Company.css";
 const Company = () => {
-  const Location = useLocation();
   const [faname, setfaname] = useState("");
   const [enname, setenname] = useState("");
   const [tel, settel] = useState("");
   const [nickname, setnickname] = useState("");
   const [website, setwebsite] = useState(true);
-  const [number_of_staff, setnumber] = useState("");
+  const [number, setnumber] = useState("");
   const [bio, setbio] = useState("");
   const [logo, setLogo] = useState("");
   const [logotemp, setLogotemp] = useState("");
-  const RegisterEmployer = () => {
-    AxiosUrl.get("/sanctum/csrf-cookie", {
-      headers: {
-        credentials: "same-origin",
-      },
-    }).then(() => {
-      AxiosUrl.post(
-        "/api/sign-up",
-        {
-          username: Location.state.username,
-          email: Location.state.email,
-          password: Location.state.password,
-          first_name: Location.state.name,
-          last_name: Location.state.lastname,
-          sex: Location.statesex,
-          type: false,
-          persian_name: faname,
-          english_name: enname,
-          file: logo,
-          tel: tel,
-          website: website,
-          number_of_staff: number_of_staff,
-          about_company: bio,
-          nick_name: nickname,
-        },
-        {
-          headers: {
-            credentials: "same-origin",
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      ).then((res) => {
-        console.log(res);
-        // navigete to panel
-      });
-    });
-  };
+
   return (
-    <div className="Employee">
-      <h1>اطلاعات شرکت</h1>
+    <div className="Company">
+      <div className="CompanyContainer">
+              <h1 className="Title">اطلاعات شرکت</h1>
       <span>نام شرکت به فارسی </span>
       <input
         type="text"
@@ -63,6 +24,7 @@ const Company = () => {
           setfaname(e.target.value);
         }}
       />
+      <span className="Warning">اشتباه است</span>
       <span>نام شرکت به انگلیسی</span>
       <input
         type="text"
@@ -72,6 +34,7 @@ const Company = () => {
           setenname(e.target.value);
         }}
       />
+      <span className="Warning">اشتباه است</span>
       <span>شماره تلفن</span>
       <input
         type="tel"
@@ -80,6 +43,7 @@ const Company = () => {
           settel(e.target.value);
         }}
       />
+      <span className="Warning">اشتباه است</span>
       <span>نلم مستعار شرکت</span>
       <input
         type="text"
@@ -88,6 +52,7 @@ const Company = () => {
           setnickname(e.target.value);
         }}
       />
+      <span className="Warning">اشتباه است</span>
       <span>آدرس وبسایت شرکت</span>
       <input
         type="text"
@@ -96,6 +61,7 @@ const Company = () => {
           setwebsite(e.target.value);
         }}
       />
+      <span className="Warning">اشتباه است</span>
       <span>تعداد کارمندان </span>
       <input
         type="number"
@@ -104,6 +70,7 @@ const Company = () => {
           setnumber(e.target.value);
         }}
       />
+      <span className="Warning">اشتباه است</span>
       <span>فایل لوگوی شرکت</span>
       <label>
         <input
@@ -115,11 +82,11 @@ const Company = () => {
             console.log(temp);
             setLogotemp(temp[temp.length - 1]);
           }}
-          className="uploadfile"
+          className="UploadFile"
         />
         {logo ? logotemp : "فایلی را انتخاب کنید"}
       </label>
-
+      <span className="Warning">اشتباه است</span>
       <span>جند جمله درباره شرکت</span>
       <textarea
         className="Employee-about"
@@ -128,7 +95,10 @@ const Company = () => {
           setbio(e.target.value);
         }}
       ></textarea>
+      <span className="Warning">اشتباه است</span>
       <button className="EmpBtn">ثبت نام</button>
+      </div>
+
     </div>
   );
 };

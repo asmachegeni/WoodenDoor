@@ -49,12 +49,12 @@ const Login = ({ userType }) => {
               <img src={logo} alt="login logo" />
             </div>
             <div className="login-header">
-              <span className="login-header-title">ورود </span>
+              <span className="login-header-title">ورود | ایجاد حساب</span>
 
               <span className="login-user-type">{userType}</span>
             </div>
             <div className="login-email-form">
-              <label className="login-label">
+              <label>
                 آدرس ایمیل خودتان را وارد کنید
               </label>
               <input
@@ -66,7 +66,7 @@ const Login = ({ userType }) => {
                   setEmail(e.target.value);
                 }}
               />
-              <label className="login-label">رمز عبور خود را وارد کنید</label>
+              <label>رمز عبور خود را وارد کنید</label>
               <input
                 type="password"
                 className="LoginPassl"
@@ -81,8 +81,10 @@ const Login = ({ userType }) => {
               </button>
             </div>
           </div>
+          <button className="user-switch">
+            {userType === "کارجو" ? "کارفرما" : "کارجو"} هستید؟
+          </button>
         </div>
-        <Link to={"/Register"}>ثبت نام</Link>
       </div>
     </div>
   );

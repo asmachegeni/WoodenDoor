@@ -1,12 +1,12 @@
-.login-body{
+.Register {
     width: 100vw;
     height: 100vh;
     background-color: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.login-container{
+  }
+  .RegisterContainer {
     position: relative;
     display: flex;
     width: 80%;
@@ -14,8 +14,8 @@
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-}
-.login-wrapper{
+  }
+  .RegisterWrapper {
     display: flex;
     position: relative;
     flex-flow: column;
@@ -27,15 +27,15 @@
     background-color: #fff;
     border-radius: 10px;
     justify-content: space-between;
-}
-.login{
+  }
+  .RegisterBody {
     width: 400px;
     height: 400px;
     display: flex;
     flex-flow: column;
     align-items: center;
-}
-.login-logo{
+  }
+  .RegisterBody .Logo {
     width: 100%;
     height: 64px;
     display: flex;
@@ -45,69 +45,59 @@
     direction: ltr;
     color: #5660f2;
     font-weight: bold;
-}
-.login-logo img{
+  }
+  .RegisterBody .Logo img {
     height: 100%;
-    margin-right: 10px;
-}
-.login-header{
+  }
+  .RegisterBody .Header {
     display: flex;
-}
-.login-header-title{
-    font-family: 'Vazir Black';
+  }
+  .RegisterBody .Header span {
+    font-family: "Vazir Black";
     color: #212529;
     font-size: 20px;
     padding: 5px;
-}
-.login-user-type{
-    color: #212529;
-    font-size: 20px;
-    padding: 5px;
-}
-.login-email-form{
+  }
+  .RegisterBody .Form {
     margin-top: 10px;
     display: block;
     width: 80%;
-}
-.login-email-form label{
+  }
+  .RegisterBody .Form label {
     color: #6c757d;
     font-size: 12px;
-}
-.login-email-form input[type=email]{
+  }
+  .RegisterBody .Form input[type="email"] {
     width: 100%;
     padding: 12px 10px;
     border-radius: 3px;
-    border: 1px solid #8E9CB2;
+    border: 1px solid #8e9cb2;
     outline-color: #5660f2;
     direction: ltr;
     margin-top: 5px;
-}
-.login-email-form input[type=button]{
+  }
+  .RegisterBody .Form a {
+    display: block;
+    text-align: center;
     width: 100%;
     padding: 12px 10px;
     border-radius: 3px;
     margin-top: 20px;
+    text-decoration: none;
     border: none;
     background-color: #5660f2;
     color: #fff;
-    }
-.user-switch{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 54px;
-    border: none;
+  }
+  .RegisterWrapper a{
+    text-decoration: none;
     color: #5660f2;
-    border-top: 1px solid #dee2e6;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: #F3F5F7;
-}
-@media only screen and (max-width: 768px) {
-    .login-wrapper{
-        height: 100%;
-        width: 100%;
-        border: none;
-    
+  }
+
+  @media only screen and (max-width: 768px) {
+    .RegisterWrapper {
+      height: 100%;
+      width: 100%;
+      border: none;
     }
-}
+  }
+  

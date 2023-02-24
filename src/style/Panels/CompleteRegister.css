@@ -1,0 +1,99 @@
+.CompleteRegister {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: "Vazir Regular";
+  background-color: #f8f9fa;
+}
+.CompleteRegisterContainer {
+  display: flex;
+  flex-flow: column;
+  width: 50%;
+}
+.CompleteRegisterContainer .EmpBtn {
+  font-family: "Vazir Regular";
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  height: 40px;
+  color: #fff;
+  background-color: #5660f2;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.CompleteRegisterContainer span {
+  font-family: "Vazir Regular";
+  font-size: 14px;
+  color: #000;
+  padding-top: 16px;
+  text-align: right;
+  padding-right: 8px;
+}
+.CompleteRegisterContainer .Title {
+  font-family: "Vazir Bold";
+  font-size: 20px;
+  color: #5660f2;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  align-self: center;
+}
+.CompleteRegisterContainer input,
+.CompleteRegisterContainer select,
+.CompleteRegisterContainer textarea {
+  border: 1px solid #8e9cb2;
+  height: 36px;
+  border-radius: 4px;
+  direction: rtl;
+  outline: none;
+  font-family: "Vazir Regular";
+  font-size: 14px;
+}
+
+.CompleteRegisterContainer input:focus,
+.CompleteRegisterContainer select:focus,
+.CompleteRegisterContainer textarea:focus {
+  border: 2px solid #5660f2;
+}
+.CompleteRegisterContainer textarea {
+  resize: none;
+  height: 64px;
+}
+.CompleteRegisterContainer .Date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  gap: 5px;
+}
+.CompleteRegisterContainer .Date select {
+  flex: 1;
+}
+.CompleteRegisterContainer label {
+  cursor: pointer;
+  border: 1px solid #8e9cb2;
+  height: 36px;
+  border-radius: 4px;
+  direction: rtl;
+  outline: none;
+  font-family: "Vazir Regular";
+  background-color: #f8f9fa;
+  font-size: 10px;
+  text-align: right;
+  padding-top: 8px;
+  padding-right: 8px;
+}
+
+@media screen and (max-width: 992px) {
+  .CompleteRegisterContainer {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .CompleteRegisterContainer {
+    width: 60%;
+  }
+}
