@@ -20,7 +20,7 @@ import Employer from "./component/RegistersForm/Employer";
 // import Axios from "./component/BaseUrl";
 import CreateResume from "./component/Resume/CreateResume";
 import EmployeePanel from "./component/Panels/EmployeePanel";
-import CompeleteRegister from "./component/Panels/CompeleteRegister";
+import CompeleteRegister from "./component/Panels/CompleteRegister";
 import Resumes from "./component/Panels/Resumes";
 import Search from "./component/Search";
 import Blog from "./component/Blog/Blog";
@@ -29,6 +29,8 @@ import AuthorPosts from "./component/Panels/AuthorPosts";
 import EmployerPanel from "./component/Panels/EmployerPanel";
 import JobAdCompany from "./component/Panels/JobAdCompany";
 import CreateJobAd from "./component/Panels/CreateJobAd";
+import ResumesEmployer from "./component/Panels/ResumesEmployer";
+import Companies from "./component/Panels/Companies";
 function App() {
   const [userType, setUserType] = useState("");
   const [xsrfToken, setToken] = useState("کارفرما");
@@ -48,13 +50,19 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/Blog" element={<Blog setType={setType}  userType={"نویسنده"}/>} /> */}
-        {/* <Route path="/AuthorPanel" element={<AuthorPanel />}>
+        <Route
+          path="/Blog"
+          element={<Blog setType={setType} userType={"نویسنده"} />}
+        />
+        <Route path="/AuthorPanel" element={<AuthorPanel />}>
           <Route path="CreatePost" element={<CreatePost />} />
           <Route path="AuthorPosts" element={<AuthorPosts />} />
-        </Route> */}
-        {/* <Route path="/" element={<HomePage setType={setType}   userType={userType}/>} />
-        <Route path="/Login" element={<Login userType={userType} />} />
+        </Route>
+        {/* <Route
+          path="/"
+          element={<HomePage setType={setType} userType={userType} />}
+        />
+        <Route path="/Login" element={<Login userType={userType} />} /> */}
         <Route path="/Register" element={<Register />} />
         <Route path="/Code" element={<Code />} />
         <Route
@@ -68,21 +76,20 @@ function App() {
           <Route path="BasicInformation" element={<BasicInformation />} />
           <Route path="EducationalRecords" element={<EducationalRecords />} />
           <Route path="WorkExperience" element={<WorkExperience />} />
-        </Route>*/}
-        <Route>
-          <Route path="/" element={<EmployerPanel />} />
+        </Route>
+        <Route path="/" element={<EmployerPanel />}>
           <Route path="CompeleteRegister" element={<CompeleteRegister />} />
           <Route path="Company" element={<Company />} />
           <Route path="JobAdCompany" element={<JobAdCompany />} />
           <Route path="CreateJobAd" element={<CreateJobAd />} />
-          <Route />
-          <Route />
+          <Route path="ResumesEmployer" element={<ResumesEmployer />} />
+          <Route path="Companies" element={<Companies />} />
         </Route>
-        {/* <Route path="/EmployeePanel" element={<EmployeePanel />}>
+        <Route path="/EmployeePanel" element={<EmployeePanel />}>
           <Route path="CompeleteRegister" element={<CompeleteRegister />} />
           <Route path="Resumes" element={<Resumes />} />
           <Route path="CreatePost" element={<CreatePost />} />
-        </Route> */}
+        </Route>
       </Routes>
     </Router>
   );

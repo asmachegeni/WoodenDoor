@@ -3,6 +3,7 @@ import "../style/login.css";
 import logo from "../assets/img/logo-big.png";
 import { Link } from "react-router-dom";
 import AxiosUrl from "./BaseUrl";
+import axios from "axios";
 const Login = ({ userType }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,22 +15,48 @@ const Login = ({ userType }) => {
       let temp;
 
       if (userType == "کارفرما") {
-        temp = false;
+        temp = "false";
       } else {
-        temp = true;
+        temp = "true";
       }
       console.log(temp, password, email);
+      // fetch("https://fokolapp.ir/sanctum/csrf-cookie", {
+      //   headers: {
+      //     credentials: "same-origin",
+      //   },
+      // }).then((response) => {
+      //   fetch("https://fokolapp.ir/api/sign-in", {
+      //     method: "POST",
+      //     headers: {
+      //       credentials: "same-origin",
+      //       "Content-Type": "application/json",
+      //       Accept: "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       email: email,
+      //       password: password,
+      //       type: temp,
+      //     }),
+      //   })
+      //     .then((data) => {
+      //       return data.json();
+      //     })
+      //     .then((res) => {
+      //       console.log(res);
+      //     });
+      // });
+
+      AxiosUrl.defaults.withCredentials = true;
       AxiosUrl.get("/sanctum/csrf-cookie", {
         headers: {
           credentials: "same-origin",
         },
-      }).then(() => {
+      }).then((res) => {
         AxiosUrl.post(
           "/api/sign-in",
           { email: email, password: password, type: temp },
           {
             headers: {
-              credentials: "same-origin",
               "Content-Type": "application/json",
               Accept: "application/json",
             },
@@ -54,9 +81,7 @@ const Login = ({ userType }) => {
               <span className="login-user-type">{userType}</span>
             </div>
             <div className="login-email-form">
-              <label>
-                آدرس ایمیل خودتان را وارد کنید
-              </label>
+              <label>آدرس ایمیل خودتان را وارد کنید</label>
               <input
                 type="email"
                 placeholder="example@gmail.com"
@@ -89,6 +114,4 @@ const Login = ({ userType }) => {
     </div>
   );
 };
-
-function hamed() {}
 export default Login;
