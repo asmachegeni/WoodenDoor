@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import SendResume from "./SendResume";
+import "../../style/Panels/ResumesEmployer.css"
 const ResumesEmployer = () => {
   const [d, setD] = useState([1, 2, 3, 4]);
   return (
-    <div>
-      <div>
+    <div className="ResumesEmployer">
+      <div className="CheckContainer">
         <span>همه</span>
         <input type={"checkbox"} />
         <span>تعیین وضعیت نشده</span>

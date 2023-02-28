@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../../style/Panels/SendResume.css";
 const SendResume = () => {
   const [data, setData] = useState({
     name: "کاربر",
@@ -8,13 +9,22 @@ const SendResume = () => {
     JobAdTilte: "استخدام برنامه نویس فرانت اند",
   });
   return (
-    <div>
-      <img src="#" alt="userImg" />
-      <span>{data.name}</span>
+    <div className="SendResume">
+      <div className="Col1">
+              <img src="#" alt="userImg" />
+      </div>
+<div className="Col2">
+        <span>{data.name}</span>
       <span>{data.tel}</span>
       <span>{data.status}</span>
-      <Link>{data.JobAdTilte}</Link>
+
+      <div className="ButtonContainer">
+      <Link>{data.JobAdTilte}</Link>  
       <Link>مشاهده رزومه</Link>
+      </div>
+
+</div>
+
     </div>
   );
 };

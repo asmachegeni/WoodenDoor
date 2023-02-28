@@ -1,0 +1,57 @@
+.SkillComponent {
+    display: flex;
+    flex-flow: column;
+}
+.SkillComponent .SkillsContainer{
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 10px;
+}
+.SkillComponent .SkillsContainer .Skill{
+    margin-left: 10px;
+    padding: 2px 15px;
+    border-radius: 5px;
+    background-color: #5c6573;
+    color: #fff;
+}
+.SkillComponent .SearchContainer{
+    display: flex;
+    flex-flow: row;
+    margin-top: 10px;
+    align-items: center;
+}
+.SkillComponent .SearchContainer span{
+font-size: 14px;
+color: #5c6573;
+}
+.SkillComponent .SearchContainer .Search{
+    display: flex;
+    flex-flow: row;
+    margin-right: 5px;
+    padding: 5px;
+border: 1px solid #eef0f4;
+border-radius: 5px;
+}
+.SkillComponent .SearchContainer .Search input[type=text]{
+    padding: 5px;
+border: none;
+outline: none;
+}
+.SkillComponent .SearchContainer .Search button{
+    margin-right: 5px;
+    padding: 5px 20px;
+    background-color:#5660f2;
+border: none;
+border-radius: 5px;
+color: #fff;
+}
+.SkillComponent .CancellBtn{
+    display: flex;
+    flex-flow: row;
+    justify-content: end;
+}
+.SkillComponent .CancellBtn button{
+background: none;
+border: none;
+color: #5c6573;
+}

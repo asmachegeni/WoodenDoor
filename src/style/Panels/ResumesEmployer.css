@@ -1,0 +1,17 @@
+.ResumesEmployer {
+  display: flex;
+  flex-flow: column;
+  padding: 20px;
+  gap: 20px;
+}
+.ResumesEmployer .CheckContainer {
+  display: flex;
+  flex-flow: row;
+}
+.ResumesEmployer .CheckContainer span {
+  font-size: 14px;
+  color: #5c6573;
+}
+.ResumesEmployer .CheckContainer input[type="checkbox"] {
+  margin: 0 5px 0 15px;
+}

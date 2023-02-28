@@ -1,0 +1,61 @@
+.SendResume {
+    display: flex;
+    flex-flow: row;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #00000020;
+    gap: 20px;
+  }
+  .SendResume .Col1 {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+  }
+  .SendResume .Col1 img {
+    width: 80px;
+    height: 80px;
+    padding: 2px;
+    border: 2px solid #5660f2;
+    border-radius: 5px;
+  }
+  .SendResume .Col2 {
+    display: flex;
+    flex-flow: column;
+    flex: 11;
+  }
+  .SendResume .Col2 .Title {
+    font-family: "Vazir Bold";
+    font-size: 18px;
+    color: #5660f2;
+  }
+  .SendResume .Col2 span {
+    font-size: 14px;
+    color: #5c6573;
+  }
+  .SendResume .Col2 span:first-of-type {
+    font-family: 'Vazir Bold';
+    font-size: 16px;
+  }
+  .SendResume .Col2 .ButtonContainer {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .SendResume .Col2 .ButtonContainer a:first-of-type {
+    font-size: 14px;
+    color: #5660f2;
+    text-decoration: none;
+      
+  }
+  .SendResume .Col2 .ButtonContainer a:last-of-type {
+      padding: 10px 30px;
+      background-color: #5660f2;
+      border: 1px solid #5660f2;
+      border-radius: 5px;
+      color: #fff;
+      text-decoration: none;
+      
+  }
+  

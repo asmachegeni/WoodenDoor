@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Resume from "./Resume";
+import "../../style/Panels/Resumes.css";
 const Resumes = () => {
   const [resumes, setResumes] = useState([1, 2, 3, 4]);
   const [filter1, setFilter1] = useState(false);
@@ -8,9 +9,9 @@ const Resumes = () => {
   const [filter4, setFilter4] = useState(false);
 
   return (
-    <div>
+    <div className="Resumes">
       {resumes && resumes.map(() => <Resume />)}
-      <div>
+      <div className="CheckContainer">
         <span>رد شده</span>
         <input
           type={"checkbox"}

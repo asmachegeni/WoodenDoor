@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import "../../style/Resume/Language.css";
 const Language = () => {
   return (
-    <div>
-      <span>زبان</span>
-      <select>
+    <div className="Language">
+      <span className="LanguageTitle">زبان</span>
+      <div className="SelectContainer">
+              <select>
         <option>انگلیسی</option>
         <option>عربی</option>
         <option>فرانسوی</option>
@@ -23,7 +25,7 @@ const Language = () => {
         <option>هندی</option>
         <option>کوردی</option>
       </select>
-      <span>سطح مهارت</span>
+      <span className="LanguageTitle">سطح مهارت</span>
       <select>
         <option>مقدماتی</option>
         <option>متوسط</option>
@@ -31,8 +33,12 @@ const Language = () => {
         <option>پیشرفته</option>
         <option>در حد زبان مادری</option>
       </select>
-      <button>انصراف</button>
-      <button>ذخیره</button>
+      </div>
+<div className="ButtonContainer">
+        <button className="CancellBtn">انصراف</button>
+       <button className="SaveBtn">ذخیره</button>
+</div>
+
     </div>
   );
 };

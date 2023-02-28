@@ -1,0 +1,50 @@
+.Language {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 30px #00000008, 0 1px 2px #0000000d;
+}
+.LanguageTitle {
+  font-size: 14px;
+  color: #5c6573;
+  line-height: 1;
+}
+.Language .SelectContainer {
+  display: flex;
+
+  width: 100%;
+  flex-flow: column;
+}
+.Language .SelectContainer select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 10px 0;
+
+  border: 1px solid #eef0f4;
+  border-radius: 5px;
+}
+.Language .ButtonContainer {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+.Language .ButtonContainer .CancellBtn {
+  font-size: 14px;
+  color: #5c6573;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.Language .ButtonContainer .SaveBtn {
+  font-size: 14px;
+  background: none;
+  margin-right: 15px;
+  padding: 10px 50px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import Select from "react-select";
 import "react-quill/dist/quill.snow.css";
+import "../../style/Panels/CreateJobAd.css"
 const CreateJobAd = () => {
   const optionList = [
     { value: "آذرشهر", label: "آذرشهر" },
@@ -694,7 +695,7 @@ const CreateJobAd = () => {
     ],
   });
   return (
-    <div>
+    <div className="CreateJobAd">
       <span>حداقل حقوق</span>
       <input type={"number"} />
       <span>نوع همکاری</span>

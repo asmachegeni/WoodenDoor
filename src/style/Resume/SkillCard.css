@@ -1,0 +1,43 @@
+.SkillCard {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 30px #00000008, 0 1px 2px #0000000d;
+}
+.SkillCard .SkillCardTitle {
+  font-family: "Vazir Bold";
+  font-size: 20px;
+  line-height: 1;
+}
+.SkillCard .SkillsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 10px;
+}
+.SkillCard .SkillsContainer .Skill {
+  margin-left: 10px;
+  padding: 2px 15px;
+  border-radius: 5px;
+  background-color: #5c6573;
+  color: #fff;
+}
+.SkillCard .ButtonContainer {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #5660f2;
+}
+.SkillCard .ButtonContainer button {
+  margin-right: 2px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #5660f2;
+  cursor: pointer;
+}

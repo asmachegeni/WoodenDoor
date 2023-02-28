@@ -1,0 +1,43 @@
+.CompanyView {
+  display: flex;
+  flex-flow: row;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #00000020;
+  gap: 20px;
+}
+.CompanyView .Col1 {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+}
+.CompanyView .Col1 img {
+  width: 80px;
+  height: 80px;
+  padding: 2px;
+  border: 2px solid #5660f2;
+  border-radius: 5px;
+}
+.CompanyView .Col2 {
+  display: flex;
+  flex-flow: column;
+  flex: 11;
+}
+.CompanyView .Col2 .Title {
+  font-family: "Vazir Bold";
+  font-size: 18px;
+  color: #5660f2;
+}
+.CompanyView .Col2 span {
+  font-size: 14px;
+  color: #5c6573;
+}
+.CompanyView .Col2 .ButtonContainer {
+  display: flex;
+  flex-flow: row;
+  justify-content: end;
+  font-size: 20px;
+  color: #5c6573;
+  gap: 10px;
+}

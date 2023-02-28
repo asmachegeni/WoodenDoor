@@ -1,0 +1,38 @@
+.CreateJobAd{
+    display: flex;
+    flex-flow: column;
+    padding: 20px;
+}
+.CreateJobAd span{
+    margin: 10px 0 5px 0;
+    font-size: 14px;
+    color: #5c6573;
+
+}
+.CreateJobAd input[type="text"],
+.CreateJobAd input[type="number"],
+.CreateJobAd select
+{
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #eef0f4;
+  border-radius: 4px;
+  outline: none;
+
+}
+.quill  {
+    margin: 20px 0 50px 0;
+    background-color: #fff;
+
+}
+.ql-container {
+    height: 100px !important;
+}
+.ql-picker-label{
+    direction: ltr;
+}
+.quill span {
+    margin: 0;
+    font-size: auto;
+    color: #5c6573;
+}

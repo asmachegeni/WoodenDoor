@@ -66,14 +66,17 @@
 }
 .login-email-form{
     margin-top: 10px;
-    display: block;
+    display: flex;
+    flex-flow: column;
     width: 80%;
+
 }
 .login-email-form label{
     color: #6c757d;
     font-size: 12px;
 }
-.login-email-form input[type=email]{
+.login-email-form input[type=email],
+.login-email-form input[type=password]{
     width: 100%;
     padding: 12px 10px;
     border-radius: 3px;
@@ -82,7 +85,7 @@
     direction: ltr;
     margin-top: 5px;
 }
-.login-email-form input[type=button]{
+.login-email-form button{
     width: 100%;
     padding: 12px 10px;
     border-radius: 3px;

@@ -1,0 +1,36 @@
+.Software {
+  display: flex;
+  flex-flow: column;
+}
+.Software .SoftwareItemsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 5%;
+}
+.Software .SoftwareItemsContainer .SoftwareItem {
+  display: flex;
+  width: 30%;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+.Software .SoftwareItemsContainer .SoftwareItem span {
+  width: 100%;
+  padding: 5px;
+  background-color: #f6f7f9;
+  text-align: center;
+  color: #5c6573;
+}
+.Software .SoftwareItemsContainer .SoftwareItem .SoftwareSelect {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+.Software .SoftwareItemsContainer .SoftwareItem select {
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}

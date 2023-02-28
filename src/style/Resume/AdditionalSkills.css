@@ -1,0 +1,16 @@
+.AdditionalSkills {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+  background-color: #f8f9fa;
+  padding: 20px 40px;
+}
+.AdditionalSkills .Title {
+  font-family: "Vazir Bold";
+  font-size: 24px;
+}
+.AdditionalSkills .Description {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #5c6573;
+}

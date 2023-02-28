@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import "../../style/Resume/Software.css"
 const Software = () => {
   const [openList, setList] = useState([
     { value: " Microsoft Word", label: " Microsoft Word" },
@@ -112,7 +113,7 @@ const Software = () => {
   let [skill, setSkill] = useState([]);
   let temp;
   return (
-    <div>
+    <div className="Software">
       <Select
         options={openList}
         placeholder="گروه شغلی "
@@ -127,22 +128,28 @@ const Software = () => {
         isSearchable={true}
         isMulti={true}
       />
-      {skill.length != 0
+      <div className="SoftwareItemsContainer">
+              {skill.length != 0
         ? skill.map((item, index) => {
             return (
-              <div key={index}>
+              <div key={index} className="SoftwareItem">
                 <span>{item.label} </span>
-                <select>
+                <div className="SoftwareSelect">
+                                  <select>
                   <option>مقدماتی</option>
                   <option>متوسط</option>
                   <option>بالاتر از متوسط</option>
                   <option>پیشرفته</option>
                   <option>در حد زبان مادری</option>
                 </select>
+                </div>
+
               </div>
             );
           })
         : ""}
+      </div>
+
 
       <button>انصراف</button>
       <button>ذخیره</button>
