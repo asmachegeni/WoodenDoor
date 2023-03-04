@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../../style/RegistersForm/Employer.css";
+import { RiDraftFill } from "react-icons/ri";
 const Employer = () => {
   const [months, setmonth] = useState([
     "فروردین",
@@ -70,7 +72,7 @@ const Employer = () => {
   const [lastname, setlastname] = useState("");
   const [tel, settel] = useState("");
   const [nickname, setnickname] = useState("");
-  const [sex, setsex] = useState(true);
+  const [sex, setsex] = useState("MALE");
   const [Married, setMarried] = useState("");
   const [Birthday, setbirthday] = useState("");
   const [usercity, setusercity] = useState("");
@@ -78,6 +80,8 @@ const Employer = () => {
   const [address, setaddress] = useState("");
   const [bio, setbio] = useState("");
   const [MilitaryStatus, setMilitaryStatu] = useState("");
+  const navigate = useNavigate();
+  const Location = useLocation();
   return (
     <div className="Employer">
       <div className="EmployerContainer">
@@ -102,23 +106,7 @@ const Employer = () => {
           }}
         />
         <span className="Warning">اشتباه است</span>
-        <span>شماره تلفن</span>
-        <input
-          type="tel"
-          onChange={(e) => {
-            console.log(e.target.value);
-            settel(e.target.value);
-          }}
-        />
         <span className="Warning">اشتباه است</span>
-        <span>نام مستعار</span>
-        <input
-          type="text"
-          onChange={(e) => {
-            console.log(e.target.value);
-            setnickname(e.target.value);
-          }}
-        />
         <span className="Warning">اشتباه است</span>
         <span>جنسیت</span>
         <select
@@ -128,8 +116,8 @@ const Employer = () => {
             setsex(e.target.value);
           }}
         >
-          <option value={"true"}>مرد</option>
-          <option value={"false"}>زن</option>
+          <option value={"MALE"}>مرد</option>
+          <option value={"FEMALE"}>زن</option>
         </select>
         <span>وضعیت تاهل</span>
         <select
@@ -179,7 +167,24 @@ const Employer = () => {
           }}
         ></textarea>
         <span className="Warning">اشتباه است</span>
-        <button className="EmpBtn">ادامه</button>
+        <button
+          className="EmpBtn"
+          onClick={() => {
+            navigate("/Company", {
+              state: {
+                email: Location.state.email,
+                password: Location.state.password,
+                username: Location.state.username,
+                type: Location.state.type,
+                name: name,
+                lastname: lastname,
+                sex: sex,
+              },
+            });
+          }}
+        >
+          ادامه
+        </button>
       </div>
     </div>
   );

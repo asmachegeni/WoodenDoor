@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../../style/RegistersForm/Employee.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import AxiosUrl from "../BaseUrl";
 const Employee = () => {
   const [months, setmonth] = useState([
     "فروردین",
@@ -439,21 +441,76 @@ const Employee = () => {
   const [nowCity, setNowCity] = useState(cities[0]);
   const [name, setname] = useState("");
   const [lastname, setlastname] = useState("");
-  const [tel, settel] = useState("");
-  const [nickname, setnickname] = useState("");
-  const [sex, setsex] = useState(true);
-  const [Married, setMarried] = useState("");
-  const [Birthday, setbirthday] = useState("");
-  const [usercity, setusercity] = useState("");
+  const [sex, setsex] = useState("MALE");
+  const [usercity, setusercity] = useState(cities[0][0]);
   const [minsalary, setminsalary] = useState("");
   const [address, setaddress] = useState("");
   const [bio, setbio] = useState("");
-  const [MilitaryStatus, setMilitaryStatu] = useState("");
+  const [MilitaryStatus, setMilitaryStatus] = useState(0);
+  const Location = useLocation();
+  const navigate = useNavigate();
+  let usern = Location.state.username;
+  let mail = Location.state.email;
+  let pass = Location.state.password;
+  let t = Location.state.type;
+  const handleRegister = () => {
+    console.log(
+      usern,
+      mail,
+      pass,
+      t,
+      name,
+      lastname,
+      sex
+      // usercity,
+      // address,
+      // minsalary,
+      // MilitaryStatus
+    );
+
+    AxiosUrl.defaults.withCredentials = true;
+    AxiosUrl.get("/sanctum/csrf-cookie", {
+      headers: {
+        credentials: "same-origin",
+      },
+    }).then((res) => {
+      AxiosUrl.post(
+        "/api/sign-up",
+        {
+          username: usern,
+          email: mail,
+          password: pass,
+          type: t,
+          first_name: name,
+          last_name: lastname,
+          sex: sex,
+          province: usercity,
+          address: address,
+          min_salary: minsalary,
+          military_status: MilitaryStatus,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      )
+        .then((res) => {
+          if (res.status == 201) {
+            console.log(res);
+            navigate("/EmployeePanel");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  };
   return (
     <div className="Employee">
       <div className="EmployeeContainer">
         <h1 className="Title">ثبت نام کارجو</h1>
-        {/* <form> */}
         <span>نام </span>
         <input
           className="Employee-name"
@@ -476,25 +533,7 @@ const Employee = () => {
           }}
         />
         <span className="Warning">اشتباه است</span>
-        <span>شماره تلفن</span>
-        <input
-          className="Employee-tel"
-          type="tel"
-          onChange={(e) => {
-            console.log(e.target.value);
-            settel(e.target.value);
-          }}
-        />
         <span className="Warning">اشتباه است</span>
-        <span>نام مستعار</span>
-        <input
-          className="Employee-nickname"
-          type="text"
-          onChange={(e) => {
-            console.log(e.target.value);
-            setnickname(e.target.value);
-          }}
-        />
         <span className="Warning">اشتباه است</span>
         <span>جنسیت</span>
         <select
@@ -505,48 +544,24 @@ const Employee = () => {
             setsex(e.target.value);
           }}
         >
-          <option value={"true"}>مرد</option>
-          <option value={"false"}>زن</option>
+          <option value={"MALE "}>مرد</option>
+          <option value={"FEMALE"}>زن</option>
         </select>
-        <span>وضعیت تاهل</span>
+        <span>وضعیت نظام وظیفه </span>
         <select
           name="Married"
           className="Employee-Married"
           onChange={(e) => {
             console.log(e.target.value);
-            setMarried(e.target.value);
+            setMilitaryStatus(e.target.value);
           }}
         >
-          <option value={0}>مجرد</option>
-          <option value={1}>متاهل</option>
+          <option value={0}>انجام شده</option>
+          <option value={1}>معاف دائم</option>
+          <option value={2}>معافیت تحصیلی</option>
+          <option value={3}>در حال انجام</option>
+          <option value={4}>مشمول</option>
         </select>
-        <span>تاریخ تولد</span>
-        <div className="Date">
-          <select name="day" className="Employee-Birthday">
-            {days &&
-              days.map((day) => (
-                <option value={day} key={day}>
-                  {day}
-                </option>
-              ))}
-          </select>
-          <select name="month" className="Employee-Birthmonth">
-            {months &&
-              months.map((month, index) => (
-                <option value={index + 1} key={index}>
-                  {month}
-                </option>
-              ))}
-          </select>
-          <select name="year" className="Employee-Birthyear">
-            {years &&
-              years.map((year) => (
-                <option value={year} key={year}>
-                  {year}
-                </option>
-              ))}
-          </select>
-        </div>
         <span className="Warning">اشتباه است</span>
         <span>استان</span>
         <select
@@ -581,31 +596,16 @@ const Employee = () => {
             ))}
         </select>
         <span className="Warning">اشتباه است</span>
-        {/* <span>حدافل حقوق درخواستی</span>
+        <span> حداقل حقوق درخواستی به تومان </span>
         <input
-          className="Employee-minsalary"
+          className="Employee-nickname"
           type="number"
           onChange={(e) => {
             console.log(e.target.value);
             setminsalary(e.target.value);
           }}
-        /> */}
-        {/* {sex && <span>وضعیت نظام وظیفه</span>}
-        {sex && (
-          <select
-            name="MilitaryStatus"
-            className="Employee-MilitaryStatus"
-            onChange={(e) => {
-              console.log(e.target.value);
-              setMilitaryStatu(e.target.value);
-            }}
-          >
-            <option value={0}>مشمول</option>
-            <option value={1}>معاف</option>
-            <option value={2}>حین خدمت</option>
-            <option value={3}>پایان خدمت</option>
-          </select>
-        )} */}
+          value={minsalary}
+        />
         <span>آدرس محل سکونت</span>
         <textarea
           className="Employee-address"
@@ -615,16 +615,9 @@ const Employee = () => {
           }}
         ></textarea>
         <span className="Warning">اشتباه است</span>
-        {/* <span>جند جمله درباره خودتان</span>
-        <textarea
-          className="Employee-about"
-          onChange={(e) => {
-            console.log(e.target.value);
-            setbio(e.target.value);
-          }}
-        ></textarea> */}
-        {/* </form> */}
-        <button className="EmpBtn">ثبت نام</button>
+        <button className="EmpBtn" onClick={handleRegister}>
+          ثبت نام
+        </button>
       </div>
     </div>
   );

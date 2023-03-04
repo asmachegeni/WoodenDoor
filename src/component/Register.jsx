@@ -2,23 +2,63 @@ import "../style/Register.css";
 import logo from "../assets/img/logo-big.png";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-import Axios from "./BaseUrl";
-const Register = ({ userType, xsrfToken }) => {
+import AxiosUrl from "./BaseUrl";
+import axios from "axios";
+const Register = ({ userType = "کارجو" }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
-  const [isValid, setIsValid] = useState("");
+  let [isValid, setIsValid] = useState(0);
   const handelClick = () => {
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (emailRegex.test(email)) {
-      // Axios.post(
-      //   "/verification_code/request",
-      //   { email: email },
-      //   { headers: { "X-XSRF_TOEKN": xsrfToken } }
-      // ).then((res) => {
-      //   console.log(res);
-      // });
+      console.log("here");
+      AxiosUrl.defaults.withCredentials = true;
+      axios
+        .get("http://37.32.4.134/sanctum/csrf-cookie", {
+          headers: {
+            credentials: "same-origin",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+            "Access-Control-Allow-Headers":
+              "X-Requested-With,Content-Type,X-Token-Auth,Authorization",
+            "Access-Control-Allow-Methods": "*",
+          },
+        })
+        .then(() => {
+          axios
+            .post(
+              "http://37.32.4.134/api/verification_code/request",
+              { email: email },
+              {
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+                  credentials: "same-origin",
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Credentials": true,
+                  "Access-Control-Allow-Headers":
+                    "X-Requested-With,Content-Type,X-Token-Auth,Authorization",
+                  "Access-Control-Allow-Methods": "*",
+                },
+              }
+            )
+            .then((res) => {
+              console.log(res.status);
+              if (res.status == 200) {
+                let temp;
+                if (userType === "کارفرما") {
+                  temp = "false";
+                } else {
+                  temp = "true";
+                }
+                console.log("--------------", email, temp);
+                navigate("/Code", { state: { email: email, type: temp } });
+              }
+            })
+            .catch((err) => console.log(err));
+        });
     } else {
-      setIsValid("f");
+      console.log("email is not valid!");
     }
   };
   return (
@@ -43,10 +83,7 @@ const Register = ({ userType, xsrfToken }) => {
                 }}
                 value={email}
               />
-              <Link state={{ email: email }} onClick={handelClick} to={"/Code"}>
-                ثبت نام
-              </Link>
-              
+              <button onClick={handelClick}>ثبت نام</button>
             </div>
           </div>
           <Link to={"/Login"}> ورود</Link>

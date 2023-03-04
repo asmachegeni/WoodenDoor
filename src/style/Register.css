@@ -76,7 +76,7 @@
     direction: ltr;
     margin-top: 5px;
   }
-  .RegisterBody .Form a {
+  .RegisterBody .Form button {
     display: block;
     text-align: center;
     width: 100%;

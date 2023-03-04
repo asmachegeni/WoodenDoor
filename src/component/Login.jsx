@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "../style/login.css";
 import logo from "../assets/img/logo-big.png";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AxiosUrl from "./BaseUrl";
-import axios from "axios";
 const Login = ({ userType }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const LoginUser = () => {
     console.log("here");
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -20,32 +19,6 @@ const Login = ({ userType }) => {
         temp = "true";
       }
       console.log(temp, password, email);
-      // fetch("https://fokolapp.ir/sanctum/csrf-cookie", {
-      //   headers: {
-      //     credentials: "same-origin",
-      //   },
-      // }).then((response) => {
-      //   fetch("https://fokolapp.ir/api/sign-in", {
-      //     method: "POST",
-      //     headers: {
-      //       credentials: "same-origin",
-      //       "Content-Type": "application/json",
-      //       Accept: "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       email: email,
-      //       password: password,
-      //       type: temp,
-      //     }),
-      //   })
-      //     .then((data) => {
-      //       return data.json();
-      //     })
-      //     .then((res) => {
-      //       console.log(res);
-      //     });
-      // });
-
       AxiosUrl.defaults.withCredentials = true;
       AxiosUrl.get("/sanctum/csrf-cookie", {
         headers: {
@@ -63,6 +36,7 @@ const Login = ({ userType }) => {
           }
         ).then((res) => {
           console.log(res);
+          // navigate to panel
         });
       });
     }
@@ -76,7 +50,7 @@ const Login = ({ userType }) => {
               <img src={logo} alt="login logo" />
             </div>
             <div className="login-header">
-              <span className="login-header-title">ورود | ایجاد حساب</span>
+              <span className="login-header-title">ورود </span>
 
               <span className="login-user-type">{userType}</span>
             </div>
@@ -106,8 +80,13 @@ const Login = ({ userType }) => {
               </button>
             </div>
           </div>
-          <button className="user-switch">
-            {userType === "کارجو" ? "کارفرما" : "کارجو"} هستید؟
+          <button
+            className="user-switch"
+            onClick={() => {
+              navigate("/Register");
+            }}
+          >
+            ثبت نام
           </button>
         </div>
       </div>

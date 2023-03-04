@@ -1,13 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../style/UserPassword.css";
 import logo from "../assets/img/logo-big.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const UserPassword = ({ userType }) => {
   const Location = useLocation();
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const navigate = useNavigate();
   const showError = () => {
     console.log("error");
+  };
+  useEffect(() => {
+    console.log(Location.state);
+  });
+  const switchPage = () => {
+    if (Location.state.type == "false") {
+      navigate("/Employer", {
+        state: {
+          email: Location.state.email,
+          password: password,
+          username: username,
+          type: Location.state.type,
+        },
+      });
+    } else {
+      navigate("/Employee", {
+        state: {
+          email: Location.state.email,
+          password: password,
+          username: username,
+          type: Location.state.type,
+        },
+      });
+    }
   };
   return (
     <div className="UserPassword">
@@ -40,21 +65,13 @@ const UserPassword = ({ userType }) => {
                 }}
               />
               {username.length >= 3 && password ? (
-                <Link
-                  className="Login-btn"
-                  to={userType === "کارفرما" ? "/Employer" : "/Employee"}
-                  state={{
-                    email: Location.state.email,
-                    password: password,
-                    username: username,
-                  }}
-                >
+                <button className="Login-btn" onClick={switchPage}>
                   ادامه
-                </Link>
+                </button>
               ) : (
-                <Link className="Login-btn" onClick={showError}>
+                <button className="Login-btn" onClick={showError}>
                   ادامه
-                </Link>
+                </button>
               )}
             </div>
           </div>

@@ -35,23 +35,44 @@ import Software from "./component/Resume/Software";
 import AdditionalSkills from "./component/Resume/AdditionalSkills";
 import Pdf from "./component/Resume/Pdf";
 function App() {
-  const [userType, setUserType] = useState("");
-  const [xsrfToken, setToken] = useState("کارفرما");
+  const [userType, setUserType] = useState("کارجو");
   const setType = (type) => {
     setUserType(type);
   };
-  useEffect(() => {
-    const token = localStorage.getItem("xsggrfToken");
-    // if (token) {
-    // Axios.get("/sanctum/csrf-cookie").then((res) => {
-    //   console.log(res);
-    // });
-
-    // set in local
-    // }
-  }, []);
   return (
-    <Pdf />
+    <Router>
+      <Routes>
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Code" element={<Code />} />
+        <Route path="/Login" element={<Login userType={userType} />} />
+        <Route path="/Employee" element={<Employee />} />
+        <Route path="/Employer" element={<Employer />} />
+        <Route path="/Company" element={<Company />} />
+        <Route
+          path="/UserPassword"
+          element={<UserPassword userType={userType} />}
+        />
+        <Route path="/Employee" element={<Employee />} />
+        <Route path="/Employer" element={<Employer />} />
+        <Route path="/Company" element={<Company />} />
+
+        <Route path="/EmployerPanel" element={<EmployerPanel />}>
+          <Route path="CompeleteRegister" element={<CompeleteRegister />} />
+          <Route path="Company" element={<Company />} />
+          <Route path="JobAdCompany" element={<JobAdCompany />} />
+          <Route path="CreateJobAd" element={<CreateJobAd />} />
+          <Route path="ResumesEmployer" element={<ResumesEmployer />} />
+          <Route path="Companies" element={<Companies />} />
+        </Route>
+        <Route path="/EmployeePanel" element={<EmployeePanel />}>
+          <Route path="CompeleteRegister" element={<CompeleteRegister />} />
+          <Route path="Resumes" element={<Resumes />} />
+          <Route path="CreatePost" element={<CreatePost />} />
+        </Route>
+      </Routes>
+    </Router>
+
+    // <Pdf />
     // <Router>
     //   <Routes>
     //     <Route
