@@ -10,7 +10,7 @@ import Footer from "../Footer";
 const PostPage = ({ setType, userType }) => {
   return (
     <div className="PostPage">
-      <Header setType={setType} userType={"نویسنده"} />
+      <Header setType={setType} userType={userType} />
       <div className="PostPage-Container">
         <div className="PostPage-Wrapper">
           <Post />
@@ -18,8 +18,8 @@ const PostPage = ({ setType, userType }) => {
         </div>
       </div>
       <RelatedPosts />
-      <Comments />
-      <CommentForm />
+      {/* <Comments /> */}
+      {/* <CommentForm /> */}
       <Footer />
     </div>
   );

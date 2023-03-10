@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import AxiosUrl from "./BaseUrl";
 import axios from "axios";
-const Register = ({ userType = "کارجو" }) => {
+const Register = ({ userType}) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   let [isValid, setIsValid] = useState(0);

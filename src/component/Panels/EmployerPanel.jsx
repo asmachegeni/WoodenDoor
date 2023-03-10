@@ -1,18 +1,34 @@
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, Outlet, useLocation, NavLink } from "react-router-dom";
 import "../../style/Panels/EmployerPanel.css";
 const EmployerPanel = () => {
+  const Location = useLocation();
+  useEffect(() => {
+    // console.log(Location.state);
+  });
   return (
     <div className="EmployerPanel">
       <div className="LinksCol">
         <div className="LinksContainer">
-          <Link to={"CompeleteRegister"}>ویرایش اطلاعات</Link>
-          <Link to={"Companies"}>شرکت ها</Link>
-          <Link to={"Company"}>ثبت شرکت جدید</Link>
-          <Link to={"JobAdCompany"}>آکهی ها</Link>
-          <Link to={"ResumesEmployer"} className="Active">رزومه های ارسالی</Link>
-          <Link to={"CreateJobAd"}>ایجاد آگهی جدید</Link>
-          <Link to={"/AuthorPanel"}>ورود به پنل نویسنده</Link>
+          <NavLink to={"CompeleteRegister"}>ویرایش اطلاعات</NavLink>
+
+          <NavLink
+            to={"Companies"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+          >
+            شرکت ها
+          </NavLink>
+          <NavLink to={"Company"} state={{ isStore: true }}>
+            ثبت شرکت جدید
+          </NavLink>
+          <NavLink to={"JobAdCompany"}>آکهی ها</NavLink>
+          <NavLink to={"ResumesEmployer"} className="Active">
+            رزومه های ارسالی
+          </NavLink>
+          <NavLink to={"CreateJobAd"}>ایجاد آگهی جدید</NavLink>
+          <NavLink to={"/AuthorPanel"}>ورود به پنل نویسنده</NavLink>
         </div>
       </div>
       <div className="ContentsCol">

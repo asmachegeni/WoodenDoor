@@ -21,6 +21,10 @@ const CreateResume = () => {
           <span className="Title">سوابق شغلی</span>
           <span>نام شرکت ها، تاریخ اشتغال و ...</span>
         </Link>
+        <Link to={"AdditionalSkills"} className="Active">
+          <span className="Title">مهارت های تکمیلی </span>
+          <span>   شامل زبان ها، نرم افزارها...</span>
+        </Link>
         </div>
 
       </div>

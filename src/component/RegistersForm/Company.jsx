@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../../style/RegistersForm/Company.css";
 import AxiosUrl from "../BaseUrl";
 import { useLocation, useNavigate } from "react-router";
-import axios from "axios";
 const Company = () => {
   const [faname, setfaname] = useState("");
   const [enname, setenname] = useState("");
@@ -11,24 +10,74 @@ const Company = () => {
   const [website, setwebsite] = useState(true);
   const [number, setnumber] = useState(0);
   const [bio, setbio] = useState("");
-  const [logo, setLogo] = useState("");
+  let [logo, setLogo] = useState("");
   const [logotemp, setLogotemp] = useState("");
   const Location = useLocation();
   const navigate = useNavigate();
-  let user = Location.state.username;
-  let mail = Location.state.email;
-  let pass = Location.state.password;
-  let first = Location.state.name;
-  let t = Location.state.type;
-  let last = Location.state.lastname;
-  let se = Location.state.sex;
-
+  const [id, setId] = useState(0);
   useEffect(() => {
-    console.log(Location.state.sex);
-    console.log(typeof Location.state.email);
     console.log(Location.state);
-  });
+    if (Location.state.info) {
+      setfaname(Location.state.info.persian_name);
+      setenname(Location.state.info.english_name);
+      setbio(Location.state.info.about_company);
+
+      setId(Location.state.info.id);
+    }
+    console.log("id ", id);
+  }, []);
+  const StoreCompany = () => {
+    console.log(logo);
+    console.log(faname, enname, website, tel, number, bio, nickname);
+
+    AxiosUrl.get("/sanctum/csrf-cookie", {
+      headers: {
+        credentials: "same-origin",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers":
+          "X-Requested-With,Content-Type,X-Token-Auth,Authorization",
+        "Access-Control-Allow-Methods": "*",
+      },
+    }).then(() => {
+      AxiosUrl.post(
+        "/api/company",
+        {
+          persian_name: faname,
+          english_name: enname,
+          file: logo,
+          tel: tel,
+          website: website,
+          number_of_staff: number,
+          about_company: bio,
+          nick_name: nickname,
+        },
+        {
+          headers: {
+            Accept: "application/json",
+            "content-type": "multipart/form-data",
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  };
+  // --------------------------------------------------------------------------------------------------------
+
   const handleRgister = () => {
+    let user = Location.state.username;
+    let mail = Location.state.email;
+    let pass = Location.state.password;
+    let first = Location.state.name;
+    let t = Location.state.type;
+    let last = Location.state.lastname;
+    let se = Location.state.sex;
     console.log(
       faname,
       "----",
@@ -105,8 +154,9 @@ const Company = () => {
 
           {
             headers: {
-              "Content-Type": "application/json",
+              // "Content-Type": "application/json",
               Accept: "application/json",
+              "content-type": "multipart/form-data",
             },
           }
         )
@@ -114,6 +164,8 @@ const Company = () => {
             if (res.status == 201) {
               console.log(res);
               navigate("/EmployerPanel");
+              localStorage.setItem("token", `Bearer ${res.data.token}`);
+              localStorage.setItem("id", res.data.user.id);
             }
           })
           .catch((err) => {
@@ -124,12 +176,61 @@ const Company = () => {
         console.log(err);
       });
   };
+  const updateCompany = () => {
+    let user = Location.state.username;
+    let mail = Location.state.email;
+    let pass = Location.state.password;
+    let first = Location.state.name;
+    let t = Location.state.type;
+    let last = Location.state.lastname;
+    let se = Location.state.sex;
+    console.log(faname);
+    console.log(Location.state.info.id);
+    AxiosUrl.get("/sanctum/csrf-cookie", {
+      headers: {
+        credentials: "same-origin",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers":
+          "X-Requested-With,Content-Type,X-Token-Auth,Authorization",
+        "Access-Control-Allow-Methods": "*",
+      },
+    }).then(() => {
+      AxiosUrl.patch(
+        `/api/company/${Location.state.info.id}`,
+        {
+          persian_name: faname,
+          // english_name: enname,
+          // file: logo,
+          // tel: tel,
+          // website: website,
+          // number_of_staff: number,
+          // about_company: bio,
+          // nick_name: nickname,
+        },
+        {
+          headers: {
+            Accept: "application/json",
+            "content-type": "application/x-www-form-urlencoded",
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  };
   return (
     <div className="Company">
       <div className="CompanyContainer">
         <h1 className="Title">اطلاعات شرکت</h1>
         <span>نام شرکت به فارسی </span>
         <input
+          value={faname}
           type="text"
           required
           onChange={(e) => {
@@ -140,6 +241,7 @@ const Company = () => {
         <span className="Warning">اشتباه است</span>
         <span>نام شرکت به انگلیسی</span>
         <input
+          value={enname}
           type="text"
           required
           onChange={(e) => {
@@ -188,24 +290,20 @@ const Company = () => {
           <option value={4}>بین 100 تا 500 نفر</option>
           <option value={5}> بیشتر از 500 نفر</option>
         </select>
-        {/* <input
-          type="number"
-          onChange={(e) => {
-            console.log(e.target.value);
-            setnumber(String(e.target.value));
-            console.log(typeof number);
-          }}
-        /> */}
+
         <span className="Warning">اشتباه است</span>
         <span>فایل لوگوی شرکت</span>
         <label>
           <input
+            // enctype="multipart/form-data"
             type={"file"}
             onChange={(e) => {
-              console.log(e);
-              setLogo(e.target.files);
+              console.log(e.target.files);
+              logo = e.target.files[0];
+              setLogo(logo);
               let temp = e.target.value.split("\\");
               console.log(temp);
+              console.log(logo);
               setLogotemp(temp[temp.length - 1]);
             }}
             className="UploadFile"
@@ -223,7 +321,18 @@ const Company = () => {
           }}
         ></textarea>
         <span className="Warning">اشتباه است</span>
-        <button className="EmpBtn" onClick={handleRgister}>
+        <button
+          className="EmpBtn"
+          onClick={() => {
+            if (Location.state.isStore) {
+              StoreCompany();
+            } else if (Location.state.isEdit) {
+              updateCompany();
+            } else {
+              handleRgister();
+            }
+          }}
+        >
           ثبت نام
         </button>
       </div>

@@ -11,14 +11,14 @@ import "./../../style/Blog/Blog.css";
 const Blog = ({ setType, userType }) => {
   return (
     <div className="BlogContainer">
-      {/* <Header setType={setType} userType={"نویسنده"} />
+      <Header setType={setType} userType={userType} />
       <SlideBox />
       <SearchBox />
       <Posts />
       <TopCategories />
       <ResumeLink />
-      <Footer /> */}
-      <PostPage />
+      <Footer />
+      {/* <PostPage /> */}
     </div>
   );
 };

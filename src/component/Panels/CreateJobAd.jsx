@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import Select from "react-select";
 import "react-quill/dist/quill.snow.css";
-import "../../style/Panels/CreateJobAd.css"
+import "../../style/Panels/CreateJobAd.css";
 const CreateJobAd = () => {
   const optionList = [
     { value: "آذرشهر", label: "آذرشهر" },
@@ -741,6 +741,7 @@ const CreateJobAd = () => {
         isSearchable={true}
       />
       <ReactQuill theme="snow" modules={m} formats={f}></ReactQuill>
+      <button>ذخیره آگهی</button>
     </div>
   );
 };

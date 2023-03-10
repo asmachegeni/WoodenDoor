@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "../../style/Panels/CreatePost.css";
-
+import AxiosUrl from "../BaseUrl";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 const CreatePost = () => {
+  const location = useLocation();
   const [f, setf] = useState([
     "header",
     "bold",
@@ -52,18 +55,109 @@ const CreatePost = () => {
     " معرفی مشاغل",
     " نمایشگاه کار",
   ]);
-  const [value, setValue] = useState("");
+  const [content, setValue] = useState("");
+  const [category, setCategory] = useState(0);
+  const [titlePost, setTitlePost] = useState("");
+  const [pic, setPic] = useState({});
+  useEffect(() => {
+    if (location.state) {
+      setValue(location.state.data.content);
+      setTitlePost(location.state.data.title);
+    }
+  }, []);
+  const StorePost = () => {
+    console.log(titlePost, content);
+    AxiosUrl.get("/sanctum/csrf-cookie", {
+      headers: {
+        credentials: "same-origin",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers":
+          "X-Requested-With,Content-Type,X-Token-Auth,Authorization",
+        "Access-Control-Allow-Methods": "*",
+      },
+    }).then(() => {
+      AxiosUrl.post(
+        "/api/post",
+        // { title: titlePost, content: content, category_id: category },
+        { title: titlePost, content: content },
+        {
+          headers: {
+            Accept: "application/json",
+            "content-type": "multipart/form-data",
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  };
+  const updatePost = () => {
+    console.log(location.state.data.id);
+    AxiosUrl.get("/sanctum/csrf-cookie", {
+      headers: {
+        credentials: "same-origin",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers":
+          "X-Requested-With,Content-Type,X-Token-Auth,Authorization",
+        "Access-Control-Allow-Methods": "*",
+      },
+    }).then(() => {
+      AxiosUrl.patch(
+        `/api/post/${location.state.data.id}`,
+        // { title: titlePost, content: content, category_id: category },
+        { title: titlePost, content: content },
+        {
+          headers: {
+            Accept: "application/json",
+            "content-type": "multipart/form-data",
+            Authorization: localStorage.getItem("token"),
+          },
+        }
+      )
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  };
   return (
     <div className="CreatePost">
       <span>تصویر شاخص</span>
-      <input type={"file"} />
+      <input
+        type={"file"}
+        onChange={(e) => {
+          setPic(e.target.files[0]);
+        }}
+      />
       <span>عنوان مطلب </span>
-      <input type={"text"} />
+      <input
+        type={"text"}
+        value={titlePost}
+        onChange={(e) => {
+          setTitlePost(e.target.value);
+        }}
+      />
       <span>دسته بندی</span>
-      <select name="category">
+      <select
+        name="category"
+        onChange={(e) => {
+          setCategory(e.target.value);
+          console.log(e.target.value);
+          console.log(category);
+        }}
+      >
         {Cat &&
           Cat.map((c, index) => (
-            <option value={c} key={index}>
+            <option value={index} key={index}>
               {c}
             </option>
           ))}
@@ -73,12 +167,19 @@ const CreatePost = () => {
           theme="snow"
           modules={m}
           formats={f}
-          value={value}
+          value={content}
           onChange={(a) => {
             setValue(a);
-            console.log(a);
+            console.log(content);
           }}
         ></ReactQuill>
+        <button
+          onClick={
+            location.state && location.state.isEdit ? updatePost : StorePost
+          }
+        >
+          ذخیره پست
+        </button>
       </div>
     </div>
   );

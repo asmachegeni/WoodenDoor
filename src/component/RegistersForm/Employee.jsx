@@ -500,6 +500,8 @@ const Employee = () => {
           if (res.status == 201) {
             console.log(res);
             navigate("/EmployeePanel");
+            localStorage.setItem("token", `Bearer ${res.data.token}`);
+            localStorage.setItem("id", res.data.user.id);
           }
         })
         .catch((err) => {

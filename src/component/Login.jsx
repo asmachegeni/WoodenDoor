@@ -32,12 +32,24 @@ const Login = ({ userType }) => {
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
+              credentials: "same-origin",
             },
           }
-        ).then((res) => {
-          console.log(res);
-          // navigate to panel
-        });
+        )
+          .then((res) => {
+            console.log(res);
+            if (res.status == 200) {
+              localStorage.setItem("token", `Bearer ${res.data.access_token}`);
+              localStorage.setItem("id", res.data.user.id);
+              if (userType == "کارفرما") {
+                navigate("/EmployerPanel", { state: { id: res.data.user.id } });
+              } else if (userType == "کارجو")
+                navigate("/EmployeePanel", { state: { id: res.data.user.id } });
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       });
     }
   };

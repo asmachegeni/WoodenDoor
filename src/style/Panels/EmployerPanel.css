@@ -29,7 +29,7 @@
     font-size: 14px;
   }
 
-  .EmployerPanel .LinksCol .LinksContainer a.Active {
+  .EmployerPanel .LinksCol .LinksContainer .active {
     font-family: 'Vazir Bold';
     font-size: 16px;
     color: #5660f2;

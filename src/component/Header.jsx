@@ -9,7 +9,7 @@ const Header = ({ setType, userType }) => {
         <div className="header-menu">
           <ul>
             <li>
-              <Link className="header-blog" to={"/"}>
+              <Link className="header-blog" to={"/Blog"}>
                 بلاگ
               </Link>
             </li>

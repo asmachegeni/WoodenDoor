@@ -12,7 +12,7 @@ const AuthorPanel = () => {
           پست های انتشار داده شده
         </Link>
         <Link to={"AuthorPosts"} state={"like"}>
-          پست هاب لایک شده
+          پست های لایک شده
         </Link>
       </div>
       <Outlet />

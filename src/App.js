@@ -17,7 +17,6 @@ import Code from "./component/Code";
 import UserPassword from "./component/UserPassword";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Employer from "./component/RegistersForm/Employer";
-// import Axios from "./component/BaseUrl";
 import CreateResume from "./component/Resume/CreateResume";
 import EmployeePanel from "./component/Panels/EmployeePanel";
 import CompeleteRegister from "./component/Panels/CompleteRegister";
@@ -35,19 +34,29 @@ import Software from "./component/Resume/Software";
 import AdditionalSkills from "./component/Resume/AdditionalSkills";
 import Pdf from "./component/Resume/Pdf";
 function App() {
-  const [userType, setUserType] = useState("کارجو");
+  const [userType, setUserType] = useState("");
   const setType = (type) => {
     setUserType(type);
   };
   return (
     <Router>
       <Routes>
-        <Route path="/Register" element={<Register />} />
-        <Route path="/Code" element={<Code />} />
+        <Route
+          path="/"
+          element={<HomePage setType={setType} userType={userType} />}
+        />
+        <Route
+          path="/Blog"
+          element={<Blog setType={setType} userType={"نویسنده"} />}
+        />
+        <Route path="/AuthorPanel" element={<AuthorPanel />}>
+          <Route path="CreatePost" element={<CreatePost />} />
+          <Route path="AuthorPosts" element={<AuthorPosts />} />
+        </Route>
+
         <Route path="/Login" element={<Login userType={userType} />} />
-        <Route path="/Employee" element={<Employee />} />
-        <Route path="/Employer" element={<Employer />} />
-        <Route path="/Company" element={<Company />} />
+        <Route path="/Register" element={<Register userType={userType} />} />
+        <Route path="/Code" element={<Code />} />
         <Route
           path="/UserPassword"
           element={<UserPassword userType={userType} />}
@@ -55,7 +64,12 @@ function App() {
         <Route path="/Employee" element={<Employee />} />
         <Route path="/Employer" element={<Employer />} />
         <Route path="/Company" element={<Company />} />
-
+        <Route path="/CreateResume" element={<CreateResume />}>
+          <Route path="BasicInformation" element={<BasicInformation />} />
+          <Route path="EducationalRecords" element={<EducationalRecords />} />
+          <Route path="WorkExperience" element={<WorkExperience />} />
+          <Route path="AdditionalSkills" element={<AdditionalSkills />} />
+        </Route>
         <Route path="/EmployerPanel" element={<EmployerPanel />}>
           <Route path="CompeleteRegister" element={<CompeleteRegister />} />
           <Route path="Company" element={<Company />} />
@@ -71,52 +85,6 @@ function App() {
         </Route>
       </Routes>
     </Router>
-
-    // <Pdf />
-    // <Router>
-    //   <Routes>
-    //     <Route
-    //       path="/Blog"
-    //       element={<Blog setType={setType} userType={"نویسنده"} />}
-    //     />
-    //     <Route path="/AuthorPanel" element={<AuthorPanel />}>
-    //       <Route path="CreatePost" element={<CreatePost />} />
-    //       <Route path="AuthorPosts" element={<AuthorPosts />} />
-    //     </Route>
-    //     <Route
-    //       path="/"
-    //       element={<HomePage setType={setType} userType={userType} />}
-    //     />
-    //     <Route path="/Login" element={<Login userType={userType} />} />
-    //     <Route path="/Register" element={<Register />} />
-    //     <Route path="/Code" element={<Code />} />
-    //     <Route
-    //       path="/UserPassword"
-    //       element={<UserPassword userType={userType} />}
-    //     />
-    //     <Route path="/Employee" element={<Employee />} />
-    //     <Route path="/Employer" element={<Employer />} />
-    //     <Route path="/Company" element={<Company />} />
-    //     <Route path="/CreateResume" element={<CreateResume />}>
-    //       <Route path="BasicInformation" element={<BasicInformation />} />
-    //       <Route path="EducationalRecords" element={<EducationalRecords />} />
-    //       <Route path="WorkExperience" element={<WorkExperience />} />
-    //     </Route>
-    //     <Route path="/EmployerPanel" element={<EmployerPanel />}>
-    //       <Route path="CompeleteRegister" element={<CompeleteRegister />} />
-    //       <Route path="Company" element={<Company />} />
-    //       <Route path="JobAdCompany" element={<JobAdCompany />} />
-    //       <Route path="CreateJobAd" element={<CreateJobAd />} />
-    //       <Route path="ResumesEmployer" element={<ResumesEmployer />} />
-    //       <Route path="Companies" element={<Companies />} />
-    //     </Route>
-    //     <Route path="/EmployeePanel" element={<EmployeePanel />}>
-    //       <Route path="CompeleteRegister" element={<CompeleteRegister />} />
-    //       <Route path="Resumes" element={<Resumes />} />
-    //       <Route path="CreatePost" element={<CreatePost />} />
-    //     </Route>
-    //   </Routes>
-    // </Router>
   );
 }
 
