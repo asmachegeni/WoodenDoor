@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import AxiosUrl from "./BaseUrl";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import "../style/Code.css"
 const Code = () => {
   const Location = useLocation();
   useEffect(() => {
@@ -92,7 +93,7 @@ const Code = () => {
               </div>
             </div>
           </div>
-          <Link to={"/Login"}> ورود</Link>
+          {/* <Link to={"/Login"}> ورود</Link> */}
         </div>
       </div>
     </div>

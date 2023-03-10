@@ -14,7 +14,6 @@ const AdditionalSkills = () => {
       </span>
       <Language />
       <SkillCard />
-      <Software />
     </div>
   );
 };

@@ -13,6 +13,12 @@
   color: #5c6573;
   line-height: 1;
 }
+.LanTitle {
+  font-family: "Vazir Bold";
+  font-size: 20px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
 .Language .SelectContainer {
   display: flex;
 

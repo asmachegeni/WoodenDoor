@@ -150,9 +150,11 @@ const Software = () => {
         : ""}
       </div>
 
-
-      <button>انصراف</button>
+<div className="BtnContainer">
+        <button>انصراف</button>
       <button>ذخیره</button>
+</div>
+
     </div>
   );
 };

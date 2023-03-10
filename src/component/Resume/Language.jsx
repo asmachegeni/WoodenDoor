@@ -3,6 +3,7 @@ import "../../style/Resume/Language.css";
 const Language = () => {
   return (
     <div className="Language">
+      <span className="LanTitle">زبان ها</span>
       <span className="LanguageTitle">زبان</span>
       <div className="SelectContainer">
               <select>

@@ -1,0 +1,58 @@
+.AuthorPost {
+  display: flex;
+  flex-flow: row;
+  width: 40%;
+  height: 200px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px #00000016;
+  border-radius: 5px;
+}
+.AuthorPost .col1 {
+  width: 200px;
+}
+.AuthorPost .col1 img {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.AuthorPost .col2 {
+  width: 280px;
+  display: flex;
+  flex-flow: column;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.AuthorPost .col2 .top span {
+  width: 100%;
+  color: #5660f2;
+  border-bottom: 2px solid #5660f2;
+  padding-right: 4px;
+}
+.AuthorPost .col2 .top p {
+  font-size: 14px;
+  color: #707070;
+  margin-top: 4px;
+}
+.AuthorPost .col2 .bottom {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.AuthorPost .col2 .bottom a {
+  text-decoration: none;
+  background-color: #5660f2;
+  padding: 4px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+}
+.AuthorPost .col2 .bottom .icons{
+  display: flex;
+  flex-flow: row;
+gap: 10px;
+font-size: 18px;
+}
+.AuthorPost .col2 .bottom .icons svg:last-child{
+color: #f44336;
+}

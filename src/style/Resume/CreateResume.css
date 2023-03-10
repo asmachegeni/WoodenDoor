@@ -1,7 +1,9 @@
 .CreateResume {
   display: flex;
   flex-flow: row;
-  height: 100%;
+  height: 100vh;
+
+  overflow-y: scroll;
 }
 .CreateResume .LinksCol {
   display: flex;
@@ -48,4 +50,5 @@
   flex-flow: column;
   background-color: #f8f9fa;
   z-index: 1;
+  height: 100%;
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AuthorPost from "./AuthorPost";
 import { useLocation } from "react-router";
 import AxiosUrl from "../BaseUrl";
+import "../../style/Panels/AuthorPosts.css";
 const AuthorPosts = () => {
   let [posts, setPosts] = useState([]);
   const [isDel, setDel] = useState(0);
@@ -68,7 +69,7 @@ const AuthorPosts = () => {
     });
   };
   return (
-    <div>
+    <div className="AuthorPosts">
       {posts &&
         posts.map((post, index) => (
           <AuthorPost data={post} key={index} deletePost={deletePost} />

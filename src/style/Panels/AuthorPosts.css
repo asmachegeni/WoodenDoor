@@ -1,0 +1,6 @@
+.AuthorPosts{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px;
+    gap: 60px;
+}
