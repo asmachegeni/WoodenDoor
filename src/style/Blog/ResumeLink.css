@@ -10,7 +10,7 @@
 display: block;
 text-decoration: none;
 }
-.ResumeLink-Container{
+.ResumeLink .Container{
     display: flex;
     flex-flow: row;
     position: relative;
@@ -21,13 +21,13 @@ text-decoration: none;
     color: #fff;
     font-size: 14px;
 }
-.ResumeLink-Right{
+.ResumeLink .Right{
     display: flex;
     position: relative;
     flex-flow: column;
     width: 100%;
 }
-.ResumeLink-Header{
+.ResumeLink .Header{
     display: flex;
     padding: 10px 10px 10px 240px;
 width: 100%;
@@ -39,47 +39,47 @@ border-top-right-radius: 10px;
 border-top-left-radius: 10px;
 
 }
-.ResumeLink-Title{
+.ResumeLink .Title{
 display: flex;
 flex-flow: row;
 align-items: center;
 
 }
-.ResumeLink-Title span{
+.ResumeLink .Title span{
     margin-right: 5px;
 }
-.ResumeLink-Pointer {
+.ResumeLink .Pointer {
     display: flex;
 flex-flow: row;
 align-items: center;
 }
-.ResumeLink-Pointer span{
+.ResumeLink .Pointer span{
     margin-left: 5px;
 }
-.ResumeLink-Icon{
+.ResumeLink .Icon{
     font-size: 24px;
 }
-.ResumeLink-Content{
+.ResumeLink .Content{
     padding: 10px 10px 10px 240px;
 }
 
-.ResumeLink-Left{
+.ResumeLink .Left{
     position: absolute;
     left: 25px;
 }
-.ResumeLink-Left img{
+.ResumeLink .Left img{
     width: 200px;
     height: 100px;
     object-fit: cover;
     box-shadow: 0 -1px 5px #0000001a;
 }
 @media screen and (max-width:768px) {
-    .ResumeLink-Container{
+    .ResumeLink .Container{
       width: 550px;
     }
   }
   @media screen and (max-width:600px) {
-    .ResumeLink-Container{
+    .ResumeLink .Container{
       width: 530px;
     }
   }

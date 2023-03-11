@@ -5,7 +5,7 @@ const PostBox = ({ data }) => {
     <div className="PostBox">
       <div className="Cover">
         <a href={data.uri}>
-          <img src={data.cover_uri} />
+          <img src={data.coveruri} />
         </a>
       </div>
       <div className="Content">

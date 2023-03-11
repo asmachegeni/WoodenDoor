@@ -11,7 +11,7 @@ import { PostsData } from "../../assets/ExampleData.js";
 const SlideBox = (props) => {
   const [Slides, SetSlides] = useState([
     {
-      coveruri: "#",
+      coveruri: "https://picsum.photos/300",
       title: "ودن در",
 
       description: "این یک متن آزمایشی است",
@@ -53,13 +53,13 @@ const SlideBox = (props) => {
               <div className="SlideBox-Col1">
                 <img src={item.coveruri} />
               </div>
-              <div className="Col-2">
-                <Link to={item.uri} className="Title">
+              <div className="SlideBox-Col2">
+                <Link to={item.uri} className="SlideBox-Title">
                   {item.title}
                 </Link>
-                <span className="Content">{item.description}</span>
-                <div className="BtnContainer">
-                  <Link to={item.uri} className="ReadMoreBtn">
+                <span className="SlideBox-Content">{item.description}</span>
+                <div className="SlideBox-BtnContainer">
+                  <Link to={item.uri} className="SlideBox-ReadMoreBtn">
                     ادامه مطلب
                   </Link>
                 </div>

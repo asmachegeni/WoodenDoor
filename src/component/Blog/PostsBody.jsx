@@ -13,7 +13,7 @@ const PostsBody = (props) => {
   ]);
   return (
     <div className="PostsBody">
-      {Boxes.map((item, index) => {
+      {props.data.map((item, index) => {
         return <PostBox data={item} key={index}></PostBox>;
       })}
     </div>
