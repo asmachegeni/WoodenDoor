@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../../style/Panels/Resume.css"
+import logo from "./../../assets/img/temp.jpg"
+
 const Resume = () => {
   const [data, setData] = useState({
     title: "استخدام توسعه‌دهنده Front-end",
@@ -12,7 +14,7 @@ const Resume = () => {
   return (
     <div className="Resume">
       <div className="Col1">
-        <img src="#" alt="logo" />
+        <img src={logo} alt="logo" />
       </div>
       <div className="Col2">
               <span className="Title">{data.title}</span>

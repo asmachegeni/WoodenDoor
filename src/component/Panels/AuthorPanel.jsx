@@ -1,21 +1,46 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import "../../style/Panels/AuthorPanel.css"
+import { NavLink, Outlet } from "react-router-dom";
+import "../../style/Panels/AuthorPanel.css";
 const AuthorPanel = () => {
   return (
     <div className="AuthorPanel">
       <div className="LinksCol">
         <div className="LinksContainer">
-          <Link to={"CreatePost"}>ایجاد پست جدید</Link>
-          <Link to={"AuthorPosts"} state={"save"}>
+          <NavLink
+            to={"CreatePost"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "Active" : ""
+            }
+          >
+            ایجاد پست جدید
+          </NavLink>
+          <NavLink
+            to={"AuthorPosts"}
+            state={"save"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "Active" : ""
+            }
+          >
             پست های ذخیره شده
-          </Link>
-          <Link to={"AuthorPosts"} state={"publish"} className="Active">
+          </NavLink>
+          <NavLink
+            to={"AuthorPosts"}
+            state={"publish"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "Active" : ""
+            }
+          >
             پست های انتشار داده شده
-          </Link>
-          <Link to={"AuthorPosts"} state={"like"}>
+          </NavLink>
+          <NavLink
+            to={"AuthorPosts"}
+            state={"like"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "Active" : ""
+            }
+          >
             پست هاب لایک شده
-          </Link>
+          </NavLink>
         </div>
       </div>
       <div className="ContentsCol">

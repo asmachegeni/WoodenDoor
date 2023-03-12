@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import {  NavLink, Outlet } from "react-router-dom";
 import CompeleteRegister from "./CompleteRegister";
 import Resumes from "./Resumes";
 import CreatePost from "./CreatePost";
@@ -9,11 +9,46 @@ const EmployeePanel = () => {
     <div className="EmployeePanel">
       <div className="LinksCol">
         <div className="LinksContainer">
-        <Link to={"CompeleteRegister"}>ویرایش اطلاعات</Link>
-        <Link to={"Resumes"} className="Active">رزومه های ارسال شده</Link>
-        <Link to={"CreatePost"}>ایجاد پست</Link>
-        <Link to={"/CreateResume"}>رزومه ساز</Link>
-        <Link to={""}>دریافت فایل رزومه</Link>
+        <NavLink
+            to={"CompeleteRegister"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "Active" : ""
+            }
+          >
+          ویرایش اطلاعات
+          </NavLink>
+          <NavLink
+            to={"Resumes"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "Active" : ""
+            }
+          >
+          رزومه های ارسال شده
+          </NavLink><NavLink
+            to={"CreatePost"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "Active" : ""
+            }
+          >
+          ایجاد پست
+          </NavLink><NavLink
+            to={"/CreateResume"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "Active" : ""
+            }
+          >
+    رزومه ساز
+          </NavLink>
+          {/* <NavLink
+            to={"/CreateResume"}
+            className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "Active" : ""
+            }
+          >
+          دریافت فایل رزومه
+          </NavLink> */}
+        
+        
         </div>
 
       </div>

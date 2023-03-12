@@ -7,7 +7,7 @@ const Posts = () => {
   return (
     <div className="Posts">
       <div className="Posts-Container">
-        <PostsBody data={PostsData}/>
+        <PostsBody />
               <Categories />
       
       </div>
