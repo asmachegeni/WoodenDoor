@@ -25,12 +25,12 @@ const EmployeePanel = () => {
           >
           رزومه های ارسال شده
           </NavLink><NavLink
-            to={"CreatePost"}
+            to={"/AuthorPanel"}
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "Active" : ""
             }
           >
-          ایجاد پست
+         ورود به پنل نویسنده
           </NavLink><NavLink
             to={"/CreateResume"}
             className={({ isActive, isPending }) =>

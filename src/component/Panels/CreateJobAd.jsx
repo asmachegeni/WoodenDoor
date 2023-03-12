@@ -741,7 +741,7 @@ const CreateJobAd = () => {
         isSearchable={true}
       />
       <ReactQuill theme="snow" modules={m} formats={f}></ReactQuill>
-      <button>ذخیره آگهی</button>
+      <button className="btn124">ذخیره آگهی</button>
     </div>
   );
 };

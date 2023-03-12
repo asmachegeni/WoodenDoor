@@ -177,6 +177,7 @@ const CreatePost = () => {
           onClick={
             location.state && location.state.isEdit ? updatePost : StorePost
           }
+          className={"btn123"}
         >
           ذخیره پست
         </button>

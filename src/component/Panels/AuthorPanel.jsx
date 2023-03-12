@@ -14,7 +14,7 @@ const AuthorPanel = () => {
           >
             ایجاد پست جدید
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to={"AuthorPosts"}
             state={"save"}
             className={({ isActive, isPending }) =>
@@ -22,7 +22,7 @@ const AuthorPanel = () => {
             }
           >
             پست های ذخیره شده
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to={"AuthorPosts"}
             state={"publish"}
@@ -32,15 +32,15 @@ const AuthorPanel = () => {
           >
             پست های انتشار داده شده
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to={"AuthorPosts"}
             state={"like"}
             className={({ isActive, isPending }) =>
               isPending ? "pending" : isActive ? "Active" : ""
             }
           >
-            پست هاب لایک شده
-          </NavLink>
+            پست های لایک شده
+          </NavLink> */}
         </div>
       </div>
       <div className="ContentsCol">

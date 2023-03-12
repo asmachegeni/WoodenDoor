@@ -1,38 +1,47 @@
-.CreateJobAd{
-    display: flex;
-    flex-flow: column;
-    padding: 20px;
+.CreateJobAd {
+  display: flex;
+  flex-flow: column;
+  padding: 20px;
 }
-.CreateJobAd span{
-    margin: 10px 0 5px 0;
-    font-size: 14px;
-    color: #5c6573;
-
+.CreateJobAd span {
+  margin: 10px 0 5px 0;
+  font-size: 14px;
+  color: #5c6573;
 }
 .CreateJobAd input[type="text"],
 .CreateJobAd input[type="number"],
-.CreateJobAd select
-{
+.CreateJobAd select {
   padding: 10px;
   background-color: #fff;
   border: 1px solid #eef0f4;
   border-radius: 4px;
   outline: none;
-
 }
-.quill  {
-    margin: 20px 0 50px 0;
-    background-color: #fff;
-
+.quill {
+  margin: 20px 0 50px 0;
+  background-color: #fff;
 }
 .ql-container {
-    height: 100px !important;
+  height: 100px !important;
 }
-.ql-picker-label{
-    direction: ltr;
+.ql-picker-label {
+  direction: ltr;
 }
 .quill span {
-    margin: 0;
-    font-size: auto;
-    color: #5c6573;
+  margin: 0;
+  font-size: auto;
+  color: #5c6573;
+}
+.btn124 {
+  font-family: "Vazir Regular";
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  height: 40px;
+  color: #fff;
+  background-color: #5660f2;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
 }
