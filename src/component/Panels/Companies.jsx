@@ -34,7 +34,7 @@ const Companies = () => {
           });
 
           setD(d);
-          console.log(d);           
+          console.log(d);
         })
         .catch((err) => {
           console.log(err);
@@ -61,6 +61,9 @@ const Companies = () => {
         .then((res) => {
           if (res.status == 204) {
             setDel(isDel + 1);
+            if (res.status == 200) {
+              alert("شرکت با موفقیت حذف شد");
+            }
           }
           console.log(res);
         })

@@ -41,6 +41,7 @@ const Login = ({ userType }) => {
             if (res.status == 200) {
               localStorage.setItem("token", `Bearer ${res.data.access_token}`);
               localStorage.setItem("id", res.data.user.id);
+              console.log(res.data.user.id);
               if (userType == "کارفرما") {
                 navigate("/EmployerPanel", { state: { id: res.data.user.id } });
               } else if (userType == "کارجو")

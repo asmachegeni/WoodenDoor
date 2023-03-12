@@ -60,6 +60,7 @@ const AuthorPosts = () => {
         .then((res) => {
           if (res.status == 204) {
             setDel(isDel + 1);
+            alert("پست شما با موفقیت حذف شد");
           }
           console.log(res);
         })

@@ -7,7 +7,7 @@ const Company = () => {
   const [enname, setenname] = useState("");
   const [tel, settel] = useState("");
   const [nickname, setnickname] = useState("");
-  const [website, setwebsite] = useState(true);
+  const [website, setwebsite] = useState("");
   const [number, setnumber] = useState(0);
   const [bio, setbio] = useState("");
   let [logo, setLogo] = useState("");
@@ -15,13 +15,17 @@ const Company = () => {
   const Location = useLocation();
   const navigate = useNavigate();
   const [id, setId] = useState(0);
+  const [tempdata, setTemp] = useState({});
   useEffect(() => {
     console.log(Location.state);
     if (Location.state.info) {
       setfaname(Location.state.info.persian_name);
       setenname(Location.state.info.english_name);
       setbio(Location.state.info.about_company);
-
+      setnickname(Location.state.info.nick_name);
+      settel(Location.state.info.tel);
+      setwebsite(Location.state.info.website);
+      setnumber(Location.state.info.number_of_staff);
       setId(Location.state.info.id);
     }
     console.log("id ", id);
@@ -78,37 +82,6 @@ const Company = () => {
     let t = Location.state.type;
     let last = Location.state.lastname;
     let se = Location.state.sex;
-    console.log(
-      faname,
-      "----",
-      enname,
-      "----",
-      logo,
-      "----",
-      tel,
-      "----",
-      website,
-      "----",
-      number,
-      "----",
-      bio,
-      "----",
-      nickname,
-      "----",
-      user,
-      "----",
-      pass,
-      "----",
-      mail,
-      "----",
-      first,
-      "----",
-      last,
-      "----",
-      se,
-      "----------",
-      t
-    );
     let data = {};
     data["username"] = "asch";
     data["email"] = "a7193445@gmail.com";
@@ -144,7 +117,7 @@ const Company = () => {
             sex: se,
             persian_name: faname,
             english_name: enname,
-            // file: logo,
+            file: logo,
             tel: tel,
             website: website,
             number_of_staff: number,
@@ -154,7 +127,6 @@ const Company = () => {
 
           {
             headers: {
-              // "Content-Type": "application/json",
               Accept: "application/json",
               "content-type": "multipart/form-data",
             },
@@ -198,16 +170,7 @@ const Company = () => {
     }).then(() => {
       AxiosUrl.patch(
         `/api/company/${Location.state.info.id}`,
-        {
-          persian_name: faname,
-          // english_name: enname,
-          // file: logo,
-          // tel: tel,
-          // website: website,
-          // number_of_staff: number,
-          // about_company: bio,
-          // nick_name: nickname,
-        },
+        tempdata,
         {
           headers: {
             Accept: "application/json",
@@ -218,6 +181,9 @@ const Company = () => {
       )
         .then((res) => {
           console.log(res);
+          if (res.status == 200) {
+            alert("شرکت شما با موفقیت تغییر کرد");
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -236,6 +202,10 @@ const Company = () => {
           onChange={(e) => {
             console.log(e.target.value);
             setfaname(e.target.value);
+            let t = tempdata;
+            t["persian_name"] = e.target.value;
+            setTemp(t);
+            console.log(tempdata);
           }}
         />
         <span className="Warning">اشتباه است</span>
@@ -247,33 +217,52 @@ const Company = () => {
           onChange={(e) => {
             console.log(e.target.value);
             setenname(e.target.value);
+            let t = tempdata;
+            t["english_name"] = e.target.value;
+            setTemp(t);
+            console.log(tempdata);
           }}
         />
         <span className="Warning">اشتباه است</span>
         <span>شماره تلفن</span>
         <input
+        value={tel}
           type="tel"
           onChange={(e) => {
             console.log(e.target.value);
             settel(e.target.value);
+            let t = tempdata;
+            t["tel"] = e.target.value;
+            setTemp(t);
+            console.log(tempdata);
           }}
         />
         <span className="Warning">اشتباه است</span>
         <span>نام مستعار شرکت</span>
         <input
+        value={nickname}
           type="text"
           onChange={(e) => {
             console.log(e.target.value);
             setnickname(e.target.value);
+            let t = tempdata;
+            t["nick_name"] = e.target.value;
+            setTemp(t);
+            console.log(tempdata);
           }}
         />
         <span className="Warning">اشتباه است</span>
         <span>آدرس وبسایت شرکت</span>
         <input
+        value={website}
           type="text"
           onChange={(e) => {
             console.log(e.target.value);
             setwebsite(e.target.value);
+            let t = tempdata;
+            t["website"] = e.target.value;
+            setTemp(t);
+            console.log(tempdata);
           }}
         />
         <span className="Warning">اشتباه است</span>
@@ -281,7 +270,12 @@ const Company = () => {
         <select
           onChange={(e) => {
             setnumber(e.target.value);
+            let t = tempdata;
+            t["number_of_staff"] = e.target.value;
+            setTemp(t);
+            console.log(tempdata);
           }}
+          value={number}
         >
           <option value={0}>زیر 10 نفر</option>
           <option value={1}>بین 10 تا 20 نفر</option>
@@ -314,10 +308,15 @@ const Company = () => {
         <span className="Warning">اشتباه است</span>
         <span>جند جمله درباره شرکت</span>
         <textarea
+        value={bio}
           className="Employee-about"
           onChange={(e) => {
             console.log(e.target.value);
             setbio(e.target.value);
+            let t = tempdata;
+            t["about_company"] = e.target.value;
+            setTemp(t);
+            console.log(tempdata);
           }}
         ></textarea>
         <span className="Warning">اشتباه است</span>

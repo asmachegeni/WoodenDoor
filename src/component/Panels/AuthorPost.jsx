@@ -7,9 +7,9 @@ const AuthorPost = ({ data,deletePost }) => {
   const navigate=useNavigate();
   return (
    <div className="AuthorPost">
-    <div className="col1">
+    {/* <div className="col1">
       <img src={data.src} />
-</div>
+</div> */}
 <div className="col2">
   <div className="top">
     <span>{data.title}</span>

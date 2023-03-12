@@ -59,6 +59,7 @@ const CreatePost = () => {
   const [category, setCategory] = useState(0);
   const [titlePost, setTitlePost] = useState("");
   const [pic, setPic] = useState({});
+  const [tempdata, setTemp] = useState({});
   useEffect(() => {
     if (location.state) {
       setValue(location.state.data.content);
@@ -79,7 +80,6 @@ const CreatePost = () => {
     }).then(() => {
       AxiosUrl.post(
         "/api/post",
-        // { title: titlePost, content: content, category_id: category },
         { title: titlePost, content: content },
         {
           headers: {
@@ -91,6 +91,9 @@ const CreatePost = () => {
       )
         .then((res) => {
           console.log(res);
+          if (res.status == 201) {
+            alert("پست شما با موفقیت ذخیره شد");
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -112,7 +115,7 @@ const CreatePost = () => {
       AxiosUrl.patch(
         `/api/post/${location.state.data.id}`,
         // { title: titlePost, content: content, category_id: category },
-        { title: titlePost, content: content },
+        tempdata,
         {
           headers: {
             Accept: "application/json",
@@ -144,6 +147,10 @@ const CreatePost = () => {
         value={titlePost}
         onChange={(e) => {
           setTitlePost(e.target.value);
+          let t = tempdata;
+          t["title"] = e.target.value;
+          setTemp(t);
+          console.log(tempdata);
         }}
       />
       <span>دسته بندی</span>
@@ -171,6 +178,10 @@ const CreatePost = () => {
           onChange={(a) => {
             setValue(a);
             console.log(content);
+            let t = tempdata;
+            t["content"] = a;
+            setTemp(t);
+            console.log(tempdata);
           }}
         ></ReactQuill>
         <button
